@@ -83,13 +83,16 @@ jobs:
         working-directory: frontend
         run: |
           echo "Starting build process..."
-          npm run build --verbose
+          echo "Node modules bin content:"
+          ls -la node_modules/.bin
+          echo "\nTrying build with full path..."
+          ./node_modules/.bin/vite build
           echo "\nBuild complete. Dist directory contents:"
           ls -la dist
           echo "\nDist directory structure:"
-          tree dist
+          tree dist || true
           echo "\nDist index.html contents:"
-          cat dist/index.html
+          cat dist/index.html || true
         env:
           VITE_API_URL: ${{ secrets.REACT_APP_API_URL }}
           NODE_ENV: production
