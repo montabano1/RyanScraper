@@ -47,10 +47,10 @@ db = Database()
 
 @app.route('/health')
 def health_check():
-    """Health check endpoint for DigitalOcean."""
+    """Health check endpoint."""
     return jsonify({
         'status': 'healthy',
-        'timestamp': datetime.now(timezone.utc).isoformat()
+        'timestamp': datetime.now(timezone('UTC')).isoformat()
     })
 
 # Set up logging
