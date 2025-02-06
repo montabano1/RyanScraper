@@ -4,11 +4,9 @@
   "homepage": "https://yourusername.github.io/RyanScraper",
   "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
+    "build": "cd frontend && npm run build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d frontend/dist"
   },
   "dependencies": {
     "@radix-ui/react-select": "^2.0.0",
