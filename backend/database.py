@@ -10,25 +10,67 @@ class Database:
         self.supabase: Client = create_client(url, key)
 
     def insert_properties(self, properties: List[Dict[str, Any]], source: str) -> None:
-        """Insert new properties into the database."""
+        """Insert or update properties in the database.
+        
+        For each property:
+        1. Check if a property with same address and floor exists
+        2. If exists, update the existing record
+        3. If not exists, insert as new record
+        """
         for prop in properties:
+            # Add source and timestamps
             prop["source"] = source
-            prop["created_at"] = datetime.now(timezone.utc).isoformat()
+            current_time = datetime.now(timezone.utc).isoformat()
             
-        self.supabase.table("properties").insert(properties).execute()
+            # Query for existing property
+            existing = self.supabase.table("properties") \
+                .select("*") \
+                .eq("address", prop["address"]) \
+                .eq("floor_suite", prop["floor_suite"]) \
+                .eq("source", source) \
+                .execute()
+                
+            if existing.data:
+                # Property exists, update it
+                prop_id = existing.data[0]["id"]
+                prop["updated_at"] = current_time
+                
+                # Store change in property_changes table
+                old_prop = existing.data[0]
+                if self._has_changes(old_prop, prop):
+                    self.supabase.table("property_changes").insert({
+                        "property_id": prop_id,
+                        "source": source,
+                        "old_values": old_prop,
+                        "new_values": prop,
+                        "modified_at": current_time
+                    }).execute()
+                
+                # Update the property
+                self.supabase.table("properties") \
+                    .update(prop) \
+                    .eq("id", prop_id) \
+                    .execute()
+            else:
+                # New property, insert it
+                prop["created_at"] = current_time
+                prop["updated_at"] = current_time
+                self.supabase.table("properties").insert(prop).execute()
+    
+    def _has_changes(self, old_prop: Dict[str, Any], new_prop: Dict[str, Any]) -> bool:
+        """Check if there are meaningful changes between old and new property data."""
+        fields_to_compare = ["property_name", "space_available", "price", "listing_url"]
+        return any(old_prop.get(field) != new_prop.get(field) for field in fields_to_compare)
 
     def get_latest_properties(self) -> List[Dict[str, Any]]:
         """Get the latest properties from all sources."""
         try:
-            print("Fetching properties from Supabase...")
             response = self.supabase.table("properties") \
                 .select("*") \
                 .order("created_at", desc=True) \
                 .limit(1000) \
                 .execute()
-            print(f"Supabase response: {response}")
             data = response.data if response and hasattr(response, 'data') else []
-            print(f"Returning {len(data)} properties")
             return data
         except Exception as e:
             print(f"Error fetching properties: {str(e)}")

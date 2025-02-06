@@ -55,15 +55,19 @@ class BaseScraper(ABC):
         self.logger = logging.getLogger(f"scraper.{scraper_id}")
         
         # Set up logging
-        handler = logging.FileHandler(
-            Path(__file__).parent.parent / 'logs' / f'{scraper_id}.log'
-        )
+        log_file = Path(__file__).parent.parent / 'logs' / f'{scraper_id}.log'
+        handler = logging.FileHandler(log_file)
         formatter = logging.Formatter(
             '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
         )
         handler.setFormatter(formatter)
         self.logger.addHandler(handler)
         self.logger.setLevel(logging.INFO)
+        
+        # Reduce verbosity of HTTP libraries
+        logging.getLogger('httpx').setLevel(logging.WARNING)
+        logging.getLogger('httpcore').setLevel(logging.WARNING)
+        logging.getLogger('hpack').setLevel(logging.WARNING)
 
     async def run(self) -> Tuple[Optional[List[Dict[str, Any]]], Optional[str]]:
         """

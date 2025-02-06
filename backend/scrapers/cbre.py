@@ -81,16 +81,17 @@ class CbreScraper(BaseScraper):
         if (button) {
             console.log('Found next page button');
             button.click();
-            return true;
+            
         } else {
             console.log('No next page button found');
             return false;
         }
+        await new Promise(r => setTimeout(r, 500));
         """
 
         self.logger.info("Starting property URL extraction")
         
-        session_id = "cbre_session"
+        session_id = "monte_cbre"
         all_property_urls = set()  # Using a set to avoid duplicates
         last_page_urls = set()
         
@@ -128,11 +129,8 @@ class CbreScraper(BaseScraper):
             
             # Configure pagination
             page_num = 2
-            max_pages = 20  # Limit to prevent infinite loops
             
-            while page_num <= max_pages:
-                # Store current page URLs for comparison
-                last_page_urls = current_page_urls
+            while page_num < 1000:
                 
                 # Configure next page request
                 config_next = CrawlerRunConfig(
@@ -144,14 +142,12 @@ class CbreScraper(BaseScraper):
                     }""",
                     cache_mode=CacheMode.BYPASS,
                     page_timeout=60000,
-                    simulate_user=True,
-                    override_navigator=True,
                     magic=True
                 )
                 
                 # Try to go to next page
                 result = await crawler.arun(
-                    url=self.start_url,  # URL doesn't matter for js_only
+                    url=self.start_url, 
                     config=config_next,
                     session_id=session_id
                 )
@@ -163,21 +159,17 @@ class CbreScraper(BaseScraper):
                 # Extract URLs from current page
                 soup = BeautifulSoup(result.html, 'html.parser')
                 property_links = soup.find_all('a', href=lambda x: x and 'US-SMPL' in x)
-                current_page_urls = {f'https://www.cbre.com{link["href"]}' for link in property_links}
-                
-                # Check if we've reached the end (no new URLs)
-                if not current_page_urls or current_page_urls == last_page_urls:
-                    self.logger.info(f"No new URLs found on page {page_num}, stopping pagination")
-                    break
+                current_page_urls = {f'https://www.cbre.com{link["href"]}' for link in property_links}    
                 
                 all_property_urls.update(current_page_urls)
                 self.logger.info(f"Found {len(current_page_urls)} property URLs on page {page_num}")
-                
+                print(f"Total unique URLs so far: {len(all_property_urls)}")
                 page_num += 1
-                
-                # Add delay between pages
-                await asyncio.sleep(2)
-                
+                next_button = soup.select_one('li.cbre-c-pl-pager__next')
+                if next_button and 'cbre-c-pl-pager__disabled' in next_button.get('class', []):
+                    print("Next button is disabled - reached end of pagination")
+                    break
+                                
         except Exception as e:
             self.logger.error(f"Error extracting property URLs: {str(e)}", exc_info=True)
         
@@ -197,8 +189,6 @@ class CbreScraper(BaseScraper):
         # Configure for property detail extraction
         run_config = CrawlerRunConfig(
             cache_mode=CacheMode.BYPASS,
-            wait_for="css:.cbre-c-property-details",
-            page_timeout=60000,
             stream=True
         )
         
@@ -206,7 +196,7 @@ class CbreScraper(BaseScraper):
         dispatcher = MemoryAdaptiveDispatcher(
             memory_threshold_percent=60.0,
             check_interval=0.5,
-            max_session_permit=10,
+            max_session_permit=5,
             monitor=CrawlerMonitor(
                 display_mode=DisplayMode.DETAILED
             )
@@ -304,7 +294,7 @@ class CbreScraper(BaseScraper):
                             "floor_suite": name_elem.text.strip(),
                             "space_available": space_available,
                             "price": price,
-                            "updated_at": datetime.now(timezone.utc).isoformat()
+                            "updated_at": datetime.now().strftime('%I:%M:%S%p %m/%d/%y')
                         }
             
             # If no standard layout found, try alternative layout
@@ -371,7 +361,7 @@ class CbreScraper(BaseScraper):
         dispatcher = MemoryAdaptiveDispatcher(
             memory_threshold_percent=60.0,  # Lower threshold to be more conservative
             check_interval=0.5,  # Check more frequently
-            max_session_permit=25,  # Reduce concurrent sessions
+            max_session_permit=5,  # Reduce concurrent sessions
             monitor=CrawlerMonitor(
                 display_mode=DisplayMode.DETAILED
             )
@@ -458,7 +448,7 @@ class CbreScraper(BaseScraper):
                         "floor_suite": name_elem.text.strip(),
                         "space_available": space_available,
                         "price": price,
-                        "updated_at": datetime.now().strftime('%I:%M:%S%p %m/%d/%y')
+                        "updated_at": datetime.now(timezone.utc).isoformat()
                     }
                     units.append(unit)
         
@@ -497,7 +487,7 @@ class CbreScraper(BaseScraper):
                 "floor_suite": "",  # No floor/suite info in alternative layout
                 "space_available": space_available,
                 "price": price,
-                "updated_at": datetime.now().strftime('%I:%M:%S%p %m/%d/%y')
+                "updated_at": datetime.now(timezone.utc).isoformat()
             }
             units.append(unit)
         

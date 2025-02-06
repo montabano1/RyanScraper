@@ -27,7 +27,7 @@ const Dashboard = () => {
       const response = await fetch(`${getApiBaseUrl()}/properties`);
       if (!response.ok) throw new Error('Failed to fetch properties');
       const data = await response.json();
-      console.log('Received properties:', data);
+      console.log('Received properties: ', data.length);
       setProperties(data);
       setLastUpdated(new Date());
     } catch (err) {
