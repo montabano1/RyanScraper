@@ -33,14 +33,11 @@ jobs:
           npm install
 
       - name: Build
+        working-directory: frontend
         run: |
-          cd frontend
           npm run build
-          echo "Contents of frontend directory:"
-          ls -la
           echo "Contents of dist directory:"
-          ls -la dist || echo "dist directory not found"
-          pwd
+          ls -la dist
         env:
           VITE_API_URL: ${{ secrets.REACT_APP_API_URL }}
 

@@ -4,8 +4,7 @@
   "homepage": "https://yourusername.github.io/RyanScraper",
   "private": true,
   "scripts": {
-    "build": "cd frontend && npm run build",
-    "predeploy": "npm run build",
+    "predeploy": "cd frontend && npm run build",
     "deploy": "gh-pages -d frontend/dist"
   },
   "dependencies": {
