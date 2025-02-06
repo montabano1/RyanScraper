@@ -3,8 +3,7 @@ const config = {
         apiBaseUrl: 'http://localhost:5000/api'
     },
     production: {
-        // Change this to your hosted backend URL when deployed
-        apiBaseUrl: process.env.REACT_APP_API_URL || 'https://ryan-scraper-xxxxx.ondigitalocean.app/api'  // You'll get this URL from doctl apps list
+        apiBaseUrl: 'https://ryanscraper-production.up.railway.app'
     }
 };
 
