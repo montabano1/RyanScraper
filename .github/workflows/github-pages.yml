@@ -33,10 +33,11 @@ jobs:
           npm install
 
       - name: Build
-        working-directory: frontend
         run: |
+          cd frontend
+          npm install
           npm run build
-          echo "Contents of dist directory:"
+          echo "Build output:"
           ls -la dist
         env:
           VITE_API_URL: ${{ secrets.REACT_APP_API_URL }}
@@ -44,6 +45,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ${{ github.workspace }}/frontend/dist # Use absolute path
+          folder: frontend/dist
           branch: gh-pages
           clean: true
