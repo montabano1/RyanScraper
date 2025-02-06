@@ -14,25 +14,103 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Debug Environment
+        run: |
+          echo "GitHub Workspace: $GITHUB_WORKSPACE"
+          echo "Current Directory: $(pwd)"
+          echo "Directory Contents: $(ls -la)"
+          echo "Node Version: $(node -v)"
+          echo "NPM Version: $(npm -v)"
+
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Post-Checkout Debug
+        run: |
+          echo "Repository Contents:"
+          ls -R
+          echo "\nPackage.json Contents:"
+          cat package.json
+          echo "\nFrontend Package.json Contents:"
+          cat frontend/package.json
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
-          cache-dependency-path: frontend/package-lock.json
 
-      - name: Install Dependencies
-        working-directory: frontend
-        run: npm ci
+      - name: Node Setup Debug
+        run: |
+          echo "Node Version: $(node -v)"
+          echo "NPM Version: $(npm -v)"
+          echo "Global NPM Packages:"
+          npm list -g --depth=0
 
-      - name: Build
+      - name: Install Root Dependencies
+        run: |
+          echo "Installing root dependencies..."
+          npm install
+          echo "Root node_modules contents:"
+          ls -la node_modules
+          echo "Root package-lock.json contents:"
+          cat package-lock.json
+
+      - name: Install Frontend Dependencies
         working-directory: frontend
-        run: npm run build
+        run: |
+          echo "Current directory: $(pwd)"
+          echo "Installing frontend dependencies..."
+          npm install --verbose
+          echo "\nFrontend node_modules contents:"
+          ls -la node_modules
+          echo "\nVite installation check:"
+          npm list vite
+          echo "\nFrontend package-lock.json contents:"
+          cat package-lock.json
+
+      - name: Pre-Build Debug
+        working-directory: frontend
+        run: |
+          echo "Current directory: $(pwd)"
+          echo "Directory contents:"
+          ls -la
+          echo "\nVite config contents:"
+          cat vite.config.js
+          echo "\nIndex.html contents:"
+          cat index.html
+
+      - name: Build Frontend
+        working-directory: frontend
+        run: |
+          echo "Starting build process..."
+          npm run build --verbose
+          echo "\nBuild complete. Dist directory contents:"
+          ls -la dist
+          echo "\nDist directory structure:"
+          tree dist
+          echo "\nDist index.html contents:"
+          cat dist/index.html
         env:
           VITE_API_URL: ${{ secrets.REACT_APP_API_URL }}
+          NODE_ENV: production
+          DEBUG: vite:*
+
+      - name: Post-Build Debug
+        working-directory: frontend
+        run: |
+          echo "Checking final build artifacts..."
+          echo "Dist directory size: $(du -sh dist)"
+          echo "JavaScript files in dist:"
+          find dist -name "*.js" -type f -exec ls -lh {} \;
+          echo "CSS files in dist:"
+          find dist -name "*.css" -type f -exec ls -lh {} \;
+
+      - name: Pre-Deploy Debug
+        run: |
+          echo "Final repository state:"
+          git status
+          echo "\nChecking frontend/dist path:"
+          ls -la frontend/dist
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
@@ -40,3 +118,12 @@ jobs:
           folder: frontend/dist
           branch: gh-pages
           clean: true
+
+      - name: Post-Deploy Debug
+        if: always()
+        run: |
+          echo "Deployment complete"
+          echo "Final git status:"
+          git status
+          echo "\nBranches:"
+          git branch -a
