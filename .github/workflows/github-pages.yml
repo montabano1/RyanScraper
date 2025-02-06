@@ -35,8 +35,8 @@ jobs:
       - name: Build
         run: |
           cd frontend
-          npm install
-          npm run build
+          npm ci
+          npx vite build
           echo "Build output:"
           ls -la dist
         env:
