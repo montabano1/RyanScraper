@@ -7,6 +7,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { RefreshCw, Download, Search, Building, DollarSign, MapPin, AlertCircle } from 'lucide-react';
 import { format } from 'date-fns';
+import { getApiBaseUrl } from './config';
 
 const PropertyDashboard = () => {
   const [properties, setProperties] = useState([]);
@@ -17,7 +18,6 @@ const PropertyDashboard = () => {
   const [lastUpdated, setLastUpdated] = useState(null);
   const [changes, setChanges] = useState({ new: [], modified: [], removed: [] });
 
-  import { getApiBaseUrl } from './config';
 
 const API_BASE_URL = getApiBaseUrl();
 

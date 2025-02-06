@@ -1,10 +1,7 @@
 name: ryan-scraper
 services:
 - name: web
-  github:
-    branch: main
-    deploy_on_push: true
-    repo: michaelmontalbano/RyanScraper
+  source_dir: /
   dockerfile_path: Dockerfile
   instance_count: 1
   instance_size_slug: professional-xs  # 2GB RAM, 1 vCPU

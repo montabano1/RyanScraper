@@ -27,5 +27,8 @@ ENV FLASK_ENV=production
 # Expose port
 EXPOSE 5000
 
+# Set default port
+ENV PORT=5000
+
 # Run the application
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "4", "--timeout", "120", "backend.app:app"]
+CMD gunicorn --bind 0.0.0.0:$PORT --workers 4 --timeout 120 backend.app:app
