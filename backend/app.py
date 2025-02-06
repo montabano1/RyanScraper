@@ -22,11 +22,11 @@ load_dotenv()
 # Initialize Flask app
 app = Flask(__name__)
 
-# Get environment, default to 'dev' if not specified
-env = os.getenv('FLASK_ENV', 'dev')
+# Get environment
+env = os.getenv('FLASK_ENV', 'production')
 if env not in config_by_name:
-    print(f"Warning: Environment '{env}' not found in config, using 'dev'")
-    env = 'dev'
+    print(f"Warning: Environment '{env}' not found in config, using 'production'")
+    env = 'production'
 
 app.config.from_object(config_by_name[env])
 
