@@ -212,10 +212,10 @@ def export_data():
 def ratelimit_handler(e):
     return jsonify({'error': 'Rate limit exceeded'}), 429
 
-@app.errorhandler(500)
-def internal_error(e):
-    logger.error(f"Internal server error: {e}", exc_info=True)
-    return jsonify({'error': 'Internal server error'}), 500
+@app.errorhandler(Exception)
+def handle_exception(e):
+    logger.error(f"Unhandled exception: {str(e)}", exc_info=True)
+    return jsonify({'error': 'Internal server error', 'message': str(e)}), 500
 
 @app.route('/api/changes', methods=['GET'])
 def get_changes():
