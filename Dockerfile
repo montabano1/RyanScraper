@@ -23,6 +23,7 @@ COPY . .
 ENV PYTHONUNBUFFERED=1
 ENV FLASK_APP=backend/app.py
 ENV FLASK_ENV=production
+ENV FLASK_DEBUG=0
 
 # Expose port
 EXPOSE 5000
