@@ -2,220 +2,194 @@ import React, { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import { getApiBaseUrl } from './config';
 
-const PropertyDashboard = () => {
+const Dashboard = () => {
+  // State management
   const [properties, setProperties] = useState([]);
+  const [scrapers, setScrapers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [filter, setFilter] = useState('');
-  const [selectedScraper, setSelectedScraper] = useState('cbre');
+  const [runningScrapers, setRunningScrapers] = useState([]);
   const [lastUpdated, setLastUpdated] = useState(null);
-  const [changes, setChanges] = useState({ new: [], modified: [], removed: [] });
 
+  // Fetch data on component mount
+  useEffect(() => {
+    fetchProperties();
+    fetchScrapers();
+  }, []);
 
-const API_BASE_URL = getApiBaseUrl();
-
-const fetchData = async () => {
+  // API calls
+  const fetchProperties = async () => {
+    setLoading(true);
+    setError(null);
     try {
-      const response = await fetch(`${API_BASE_URL}/properties?source=${selectedScraper}`);
-      const { status, data, message } = await response.json();
-      
-      if (status === 'error') {
-        setError(message);
-        return;
-      }
-      
+      const response = await fetch(`${getApiBaseUrl()}/properties`);
+      if (!response.ok) throw new Error('Failed to fetch properties');
+      const data = await response.json();
       setProperties(data);
       setLastUpdated(new Date());
-      
-      // Get changes since last scrape
-      const changesResponse = await fetch(`${API_BASE_URL}/changes?source=${selectedScraper}`);
-      const changesData = await changesResponse.json();
-      setChanges(changesData);
     } catch (err) {
-      setError('Failed to fetch property data');
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-    const interval = setInterval(fetchData, 30000);
-    return () => clearInterval(interval);
-  }, [selectedScraper]);
-
-  const triggerScrape = async () => {
-    try {
-      setLoading(true);
-      await fetch(`${API_BASE_URL}/scrapers/${selectedScraper}/run`, { method: 'POST' });
-      setTimeout(fetchData, 2000);
-    } catch (err) {
-      setError('Failed to trigger scrape');
+      setError(err.message);
     } finally {
       setLoading(false);
     }
   };
 
-  const exportToCsv = async () => {
+  const fetchScrapers = async () => {
     try {
-      window.location.href = `${API_BASE_URL}/export?source=${selectedScraper}`;
+      const response = await fetch(`${getApiBaseUrl()}/scrapers`);
+      if (!response.ok) throw new Error('Failed to fetch scrapers');
+      const data = await response.json();
+      setScrapers(data);
     } catch (err) {
-      setError('Failed to export data');
+      console.error('Error fetching scrapers:', err);
     }
   };
 
-  // Sort properties by created_at date
-  const sortedProperties = [...properties].sort((a, b) => {
-    return new Date(b.created_at) - new Date(a.created_at);
-  });
+  const runScraper = async (scraperId) => {
+    try {
+      const response = await fetch(`${getApiBaseUrl()}/scrapers/${scraperId}/run`, {
+        method: 'POST'
+      });
+      if (!response.ok) throw new Error('Failed to run scraper');
+      setRunningScrapers(prev => [...prev, scraperId]);
+      // Refresh properties after scraper runs
+      setTimeout(fetchProperties, 5000);
+    } catch (err) {
+      console.error('Error running scraper:', err);
+    }
+  };
 
-  const filteredProperties = sortedProperties.filter(property => 
-    property.property_name.toLowerCase().includes(filter.toLowerCase()) ||
-    property.address.toLowerCase().includes(filter.toLowerCase()) ||
-    property.floor_suite.toLowerCase().includes(filter.toLowerCase())
+  const exportData = async () => {
+    try {
+      const response = await fetch(`${getApiBaseUrl()}/export`);
+      if (!response.ok) throw new Error('Failed to export data');
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'properties.csv';
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error('Error exporting data:', err);
+    }
+  };
+
+  // Filter properties based on search
+  const filteredProperties = properties.filter(property =>
+    property.name?.toLowerCase().includes(filter.toLowerCase()) ||
+    property.address?.toLowerCase().includes(filter.toLowerCase())
   );
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
-      {/* Header Section */}
-      <div className="mb-6 space-y-4">
-        <div className="flex justify-between items-center">
-          <div>
-            <h1 className="text-2xl font-bold">Property Listings Dashboard</h1>
-            <p className="text-sm text-gray-500">
-              {properties.length} properties • Last updated: {lastUpdated ? format(lastUpdated, 'MMM d, yyyy HH:mm:ss') : 'Never'}
-            </p>
-          </div>
-          <div className="flex gap-2">
-            <Button
-              onClick={exportToCsv}
-              variant="outline"
-              className="flex items-center gap-2"
-            >
-              <Download className="w-4 h-4" />
-              Export CSV
-            </Button>
-            <Button
-              onClick={triggerScrape}
-              disabled={loading}
-              className="flex items-center gap-2"
-            >
-              <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
-              {loading ? 'Scraping...' : 'Run Scraper'}
-            </Button>
+    <div className="min-h-screen bg-gray-100 py-8 px-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="bg-white rounded-lg shadow p-6 mb-8">
+          <div className="flex justify-between items-center">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900">Property Listings Dashboard</h1>
+              <p className="text-sm text-gray-500 mt-1">
+                {properties.length} properties • Last updated: {lastUpdated ? format(lastUpdated, 'MMM d, yyyy HH:mm:ss') : 'Never'}
+              </p>
+            </div>
+            <div className="flex gap-4">
+              <button
+                onClick={fetchProperties}
+                className={`px-4 py-2 rounded-md text-white ${loading ? 'bg-blue-400' : 'bg-blue-600 hover:bg-blue-700'}`}
+                disabled={loading}
+              >
+                {loading ? 'Refreshing...' : 'Refresh'}
+              </button>
+              <button
+                onClick={exportData}
+                className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md"
+              >
+                Export CSV
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Changes Summary */}
-        {(changes.new.length > 0 || changes.modified.length > 0 || changes.removed.length > 0) && (
-          <Alert className="mb-4">
-            <AlertCircle className="h-4 w-4" />
-            <AlertTitle>Recent Changes</AlertTitle>
-            <AlertDescription>
-              <div className="flex gap-4 mt-2">
-                {changes.new.length > 0 && (
-                  <span className="text-green-600">{changes.new.length} new listings</span>
-                )}
-                {changes.modified.length > 0 && (
-                  <span className="text-blue-600">{changes.modified.length} modified listings</span>
-                )}
-                {changes.removed.length > 0 && (
-                  <span className="text-red-600">{changes.removed.length} removed listings</span>
-                )}
+        {/* Error message */}
+        {error && (
+          <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-8">
+            <div className="flex">
+              <div className="ml-3">
+                <p className="text-sm text-red-700">{error}</p>
               </div>
-            </AlertDescription>
-          </Alert>
+            </div>
+          </div>
         )}
 
-        {/* Filter Section */}
-        <div className="flex gap-4">
-          <div className="relative flex-1">
-            <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-500" />
-            <Input
-              placeholder="Filter properties..."
-              value={filter}
-              onChange={(e) => setFilter(e.target.value)}
-              className="pl-8"
-            />
-          </div>
-          <Select value={selectedScraper} onValueChange={setSelectedScraper}>
-            <SelectTrigger className="w-40">
-              <SelectValue placeholder="Select source" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="cbre">CBRE</SelectItem>
-              {/* Add other scrapers here */}
-            </SelectContent>
-          </Select>
-        </div>
-      </div>
-
-      {/* Properties Table */}
-      <div className="bg-white rounded-lg shadow">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[300px]">Property</TableHead>
-              <TableHead>Location</TableHead>
-              <TableHead>Space</TableHead>
-              <TableHead>Price</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {filteredProperties.map((property, index) => (
-              <TableRow 
-                key={`${property.property_name}-${index}`}
-                className={
-                  property._status === 'new' ? 'bg-green-50' :
-                  property._status === 'modified' ? 'bg-blue-50' :
-                  property._status === 'removed' ? 'bg-red-50' : ''
-                }
+        {/* Scrapers grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {scrapers.map(scraper => (
+            <div key={scraper.id} className="bg-white rounded-lg shadow p-6">
+              <h3 className="text-lg font-semibold text-gray-900">{scraper.name}</h3>
+              <p className="text-sm text-gray-500 mt-1">
+                Next run: {format(new Date(scraper.next_run), 'MMM d, yyyy HH:mm:ss')}
+              </p>
+              <button
+                onClick={() => runScraper(scraper.id)}
+                className={`mt-4 w-full px-4 py-2 rounded-md text-white
+                  ${runningScrapers.includes(scraper.id)
+                    ? 'bg-gray-400'
+                    : 'bg-blue-600 hover:bg-blue-700'
+                  }`}
+                disabled={runningScrapers.includes(scraper.id)}
               >
-                <TableCell className="font-medium">
-                  <div className="flex items-start gap-2">
-                    <Building className="w-4 h-4 mt-1 flex-shrink-0" />
-                    <div>
-                      <div className="flex items-center gap-2">
-                        {property.property_name}
-                        {property._status === 'new' && (
-                          <span className="px-2 py-1 text-xs font-semibold text-green-800 bg-green-100 rounded-full">New</span>
-                        )}
-                        {property._status === 'modified' && (
-                          <span className="px-2 py-1 text-xs font-semibold text-blue-800 bg-blue-100 rounded-full">Updated</span>
-                        )}
-                      </div>
-                      <div className="text-sm text-gray-500">{property.floor_suite}</div>
-                    </div>
-                  </div>
-                </TableCell>
-                <TableCell>
-                  <div className="flex items-start gap-2">
-                    <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                    <span>{property.address}</span>
-                  </div>
-                </TableCell>
-                <TableCell>{property.space_available}</TableCell>
-                <TableCell>
-                  <div className="flex items-center gap-2">
-                    <DollarSign className="w-4 h-4" />
-                    {property.price || 'Contact for pricing'}
-                  </div>
-                </TableCell>
-                <TableCell className="text-right">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => window.open(property.listing_url, '_blank')}
-                  >
-                    View Listing
-                  </Button>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+                {runningScrapers.includes(scraper.id) ? 'Running...' : 'Run Now'}
+              </button>
+            </div>
+          ))}
+        </div>
+
+        {/* Search input */}
+        <div className="mb-6">
+          <input
+            type="text"
+            placeholder="Search properties by name or address..."
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        {/* Properties table */}
+        <div className="bg-white rounded-lg shadow overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Address</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Source</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Updated</th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {filteredProperties.map(property => (
+                  <tr key={property.id} className="hover:bg-gray-50">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{property.name}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{property.address}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{property.price}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{property.source}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      {format(new Date(property.last_updated), 'MMM d, yyyy HH:mm:ss')}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default PropertyDashboard;
+export default Dashboard;

@@ -92,15 +92,21 @@ class Config:
     LOG_LEVEL = 'INFO'
     LOG_FILE = LOGS_DIR / 'app.log'
 
+    def __init__(self):
+        pass
+
 class DevelopmentConfig(Config):
     DEBUG = True
     LOG_LEVEL = 'DEBUG'
 
+    def __init__(self):
+        super().__init__()
+
 class ProductionConfig(Config):
     LOG_LEVEL = 'WARNING'
     
-    # Use environment variables in production
     def __init__(self):
+        super().__init__()
         self.SECRET_KEY = os.getenv('SECRET_KEY')
         if not self.SECRET_KEY:
             raise ValueError("No SECRET_KEY set for production")
@@ -109,11 +115,14 @@ class TestingConfig(Config):
     TESTING = True
     LOG_LEVEL = 'DEBUG'
 
+    def __init__(self):
+        super().__init__()
+
 
 
 # Export configs
 config_by_name = {
-    'dev': DevelopmentConfig,
+    'development': DevelopmentConfig,
     'production': ProductionConfig,
     'test': TestingConfig
 }

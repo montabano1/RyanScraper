@@ -1,4 +1,5 @@
 # app.py
+from datetime import datetime, date
 from flask import Flask, jsonify, request, send_file
 from flask_cors import CORS
 from flask_limiter import Limiter
@@ -14,8 +15,8 @@ import os
 import logging
 from dotenv import load_dotenv
 
-from .config import config_by_name, SCRAPERS, SCHEDULER_CONFIG, DATA_DIR
-from .database import Database
+from backend.config import config_by_name, SCRAPERS, SCHEDULER_CONFIG, DATA_DIR
+from backend.database import Database
 
 # Load environment variables
 load_dotenv()
@@ -23,11 +24,18 @@ load_dotenv()
 # Initialize Flask app
 app = Flask(__name__)
 
-# Get environment
+# Get environment and configure app
 env = os.getenv('FLASK_ENV', 'production')
-if env not in config_by_name:
+
+# Enable CORS
+CORS(app)
+
+# Load configuration
+if env in config_by_name:
+    app.config.from_object(config_by_name[env]())
+else:
     print(f"Warning: Environment '{env}' not found in config, using 'production'")
-    env = 'production'
+    app.config.from_object(config_by_name['production']())
 
 app.config.from_object(config_by_name[env])
 
@@ -138,14 +146,24 @@ def get_properties():
     source = request.args.get('source')
     
     try:
-        properties = db.get_latest_properties()
+        response = db.get_latest_properties()
+        properties = response.data if response and hasattr(response, 'data') else []
+        
         if source:
             properties = [p for p in properties if p['source'] == source]
+        
+        # Convert any non-serializable objects to strings
+        serializable_properties = []
+        for prop in properties:
+            serializable_prop = {}
+            for key, value in prop.items():
+                if isinstance(value, (datetime, date)):
+                    serializable_prop[key] = value.isoformat()
+                else:
+                    serializable_prop[key] = value
+            serializable_properties.append(serializable_prop)
             
-        return jsonify({
-            'status': 'success',
-            'data': properties
-        })
+        return jsonify(serializable_properties)
     except Exception as e:
         logger.error(f"Error getting properties: {str(e)}")
         return jsonify({

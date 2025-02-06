@@ -1,6 +1,6 @@
 const config = {
     development: {
-        apiBaseUrl: 'http://localhost:5000/api'
+        apiBaseUrl: 'http://localhost:8080/api'
     },
     production: {
         apiBaseUrl: 'https://ryanscraper-production.up.railway.app/api'
