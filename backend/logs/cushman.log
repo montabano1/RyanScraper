@@ -1,0 +1,28 @@
+2025-02-05 20:00:16,044 - scraper.cushman - INFO - Starting Cushman & Wakefield property extraction
+2025-02-05 20:00:16,121 - scraper.cushman - INFO - Starting property URL extraction
+2025-02-05 20:00:24,480 - scraper.cushman - INFO - Found 12 property URLs on page 1
+2025-02-05 20:00:25,650 - scraper.cushman - INFO - Found 12 property URLs on page 2
+2025-02-05 20:00:29,176 - scraper.cushman - INFO - No new URLs found on page 3, stopping pagination
+2025-02-05 20:00:29,176 - scraper.cushman - INFO - Total unique properties found: 24
+2025-02-05 20:00:29,177 - scraper.cushman - INFO - Found 24 properties to process
+2025-02-05 20:00:29,177 - scraper.cushman - INFO - Starting property detail extraction for 24 properties
+2025-02-05 20:01:31,710 - scraper.cushman - WARNING - Failed to process https://www.cushmanwakefield.com/en/united-states/properties/for-lease/office/wa/seattle/509-olive-way/s121060299-l: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../.pyenv/versions/3.11.2/lib/python3.11/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.cushmanwakefield.com/en/united-states/properties/for-lease/office/wa/seattle/509-olive-way/s121060299-l", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-05 20:01:31,732 - scraper.cushman - INFO - Successfully extracted details for 76 properties

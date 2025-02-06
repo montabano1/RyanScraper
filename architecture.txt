@@ -1,0 +1,24 @@
+scraper-dashboard/
+├── .env                    # API keys, database settings if needed
+├── .gitignore
+├── requirements.txt       # Will include crawl4ai and other dependencies
+│
+├── backend/
+│   ├── app.py            # Flask application (as shown earlier)
+│   ├── config.py         # Configuration settings
+│   ├── storage.py        # File storage handling
+│   │
+│   ├── data/             # Not in git
+│   │   ├── scrapers_config.json
+│   │   └── results/
+│   │       ├── cbre/     # Separate folder for each scraper
+│   │       ├── scraper2/
+│   │       └── ...
+│   │
+│   └── scrapers/
+│       ├── __init__.py
+│       ├── base.py       # Common scraper utilities
+│       ├── cbre.py       # Your CBRE scraper
+│       └── ...
+│
+└── frontend/             # React dashboard

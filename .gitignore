@@ -1,0 +1,19 @@
+# Environment
+.env
+__pycache__/
+*.pyc
+venv/
+
+# Data files
+backend/data/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# IDEs
+.vscode/
+.idea/
+
+# Misc
+.DS_Store
