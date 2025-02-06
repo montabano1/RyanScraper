@@ -22,6 +22,11 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Debug Working Directory
+        run: |
+          pwd
+          ls -la
+
       - name: Install Dependencies
         run: |
           cd frontend
@@ -31,13 +36,17 @@ jobs:
         run: |
           cd frontend
           npm run build
-          ls -la dist
+          echo "Contents of frontend directory:"
+          ls -la
+          echo "Contents of dist directory:"
+          ls -la dist || echo "dist directory not found"
+          pwd
         env:
           VITE_API_URL: ${{ secrets.REACT_APP_API_URL }}
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: frontend/dist # The folder the action should deploy
-          branch: gh-pages # The branch the action should deploy to
-          clean: true # Automatically remove deleted files from the deployment
+          folder: ${{ github.workspace }}/frontend/dist # Use absolute path
+          branch: gh-pages
+          clean: true
