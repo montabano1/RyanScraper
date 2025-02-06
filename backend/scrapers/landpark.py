@@ -3,7 +3,7 @@ from .base import BaseScraper
 from crawl4ai import AsyncWebCrawler, BrowserConfig, CrawlerRunConfig, CacheMode, MemoryAdaptiveDispatcher, CrawlerMonitor, DisplayMode
 from bs4 import BeautifulSoup
 import asyncio
-from datetime import datetime
+from datetime import datetime, timezone
 
 class LandParkScraper(BaseScraper):
     def __init__(self):
@@ -242,7 +242,7 @@ class LandParkScraper(BaseScraper):
                     "floor_suite": unit_name,
                     "space_available": space_available,
                     "price": price,
-                    "updated_at": datetime.now().strftime('%I:%M:%S%p %m/%d/%y')
+                    "updated_at": datetime.now(timezone.utc).isoformat()
                 }
                 units.append(unit)
         else:

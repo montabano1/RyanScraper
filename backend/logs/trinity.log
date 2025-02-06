@@ -20,3 +20,4 @@ Traceback (most recent call last):
 postgrest.exceptions.APIError: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'location' column of 'properties' in the schema cache"}
 2025-02-06 01:10:45,491 - scraper.trinity - INFO - Starting trinity scraper
 2025-02-06 01:13:50,406 - scraper.trinity - INFO - Starting trinity scraper
+2025-02-06 01:19:18,491 - scraper.trinity - INFO - Starting trinity scraper

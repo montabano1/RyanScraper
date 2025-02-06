@@ -3,7 +3,7 @@ from .base import BaseScraper
 from crawl4ai import AsyncWebCrawler, BrowserConfig, CrawlerRunConfig, CacheMode, MemoryAdaptiveDispatcher, CrawlerMonitor, DisplayMode
 from bs4 import BeautifulSoup
 import asyncio
-from datetime import datetime
+from datetime import datetime, timezone
 
 class LeeScraper(BaseScraper):
     def __init__(self):
@@ -313,7 +313,7 @@ class LeeScraper(BaseScraper):
                     "floor_suite": cells[0].text.strip(),
                     "space_available": cells[2].text.strip(),
                     "price": cells[3].text.strip(),
-                    "updated_at": datetime.now().strftime('%I:%M:%S%p %m/%d/%y')
+                    "updated_at": datetime.now(timezone.utc).isoformat()
                 }
                 units.append(unit)
         

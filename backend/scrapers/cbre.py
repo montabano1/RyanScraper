@@ -1,7 +1,7 @@
 # backend/scrapers/cbre.py
 import asyncio
 from typing import List, Dict, Any, Optional, Tuple
-from datetime import datetime
+from datetime import datetime, timezone
 from bs4 import BeautifulSoup
 from crawl4ai import (
     AsyncWebCrawler, 
@@ -304,7 +304,7 @@ class CbreScraper(BaseScraper):
                             "floor_suite": name_elem.text.strip(),
                             "space_available": space_available,
                             "price": price,
-                            "updated_at": datetime.now().strftime('%I:%M:%S%p %m/%d/%y')
+                            "updated_at": datetime.now(timezone.utc).isoformat()
                         }
             
             # If no standard layout found, try alternative layout

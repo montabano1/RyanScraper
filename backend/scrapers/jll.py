@@ -1,7 +1,7 @@
 # backend/scrapers/jll.py
 import asyncio
 from typing import List, Dict, Any, Optional, Tuple
-from datetime import datetime
+from datetime import datetime, timezone
 from bs4 import BeautifulSoup
 from crawl4ai import (
     AsyncWebCrawler, 
@@ -303,7 +303,7 @@ class JLLScraper(BaseScraper):
                             "space_available": space_available,
                             "price": price,
                             "listing_url": url,
-                            "updated_at": datetime.now().strftime('%I:%M:%S%p %m/%d/%y')
+                            "updated_at": datetime.now(timezone.utc).isoformat()
                         })
             
             # If no spaces found, create a single entry with general property info
