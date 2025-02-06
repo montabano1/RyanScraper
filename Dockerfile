@@ -27,9 +27,5 @@ ENV FLASK_ENV=production
 # Expose port
 EXPOSE 5000
 
-# Copy and set permissions for startup script
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
-
 # Run the application
-CMD ["/start.sh"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "4", "--timeout", "120", "backend.app:app"]
