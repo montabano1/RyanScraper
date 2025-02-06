@@ -5,11 +5,18 @@ import { resolve } from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/RyanScraper/',  // Replace with your repo name
+  base: '/RyanScraper/',
   build: {
     outDir: 'dist',
+    emptyOutDir: true,
+    sourcemap: true,
     rollupOptions: {
       input: resolve(__dirname, 'index.html')
     }
   },
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src')
+    }
+  }
 })

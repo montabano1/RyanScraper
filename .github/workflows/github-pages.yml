@@ -60,13 +60,14 @@ jobs:
         run: |
           echo "Current directory: $(pwd)"
           echo "Installing frontend dependencies..."
-          npm install --verbose
-          echo "\nFrontend node_modules contents:"
-          ls -la node_modules
-          echo "\nVite installation check:"
+          npm install
+          echo "Installing Vite explicitly..."
+          npm install --save-dev vite@latest @vitejs/plugin-react@latest
+          echo "Vite version:"
+          npx vite --version
+          echo "Installed packages:"
           npm list vite
-          echo "\nFrontend package-lock.json contents:"
-          cat package-lock.json
+          npm list @vitejs/plugin-react
 
       - name: Pre-Build Debug
         working-directory: frontend
@@ -83,20 +84,16 @@ jobs:
         working-directory: frontend
         run: |
           echo "Starting build process..."
-          echo "Node modules bin content:"
-          ls -la node_modules/.bin
-          echo "\nTrying build with full path..."
-          ./node_modules/.bin/vite build
+          echo "Vite config contents:"
+          cat vite.config.js
+          echo "\nStarting Vite build..."
+          npx vite build --debug
           echo "\nBuild complete. Dist directory contents:"
-          ls -la dist
-          echo "\nDist directory structure:"
-          tree dist || true
-          echo "\nDist index.html contents:"
-          cat dist/index.html || true
+          ls -la dist || echo "Dist directory not found!"
         env:
           VITE_API_URL: ${{ secrets.REACT_APP_API_URL }}
           NODE_ENV: production
-          DEBUG: vite:*
+          DEBUG: "vite:*"
 
       - name: Post-Build Debug
         working-directory: frontend
