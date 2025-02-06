@@ -1,7 +1,18 @@
-# Use Python 3.12
+# Build stage for frontend
+FROM node:18 AS frontend-builder
+WORKDIR /frontend
+
+# Copy frontend files
+COPY frontend/package*.json ./
+RUN npm install
+
+COPY frontend/ ./
+RUN npm run build
+
+# Python stage
 FROM python:3.12-slim
 
-# Install system dependencies for crawl4ai
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     chromium \
     chromium-driver \
@@ -16,8 +27,11 @@ COPY requirements.txt .
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the entire backend directory
+# Copy the backend directory
 COPY backend /app/backend/
+
+# Copy built frontend from previous stage
+COPY --from=frontend-builder /frontend/dist /app/backend/static
 
 # Copy the rest of the application
 COPY . .

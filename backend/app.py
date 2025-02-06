@@ -22,13 +22,23 @@ from backend.database import Database
 load_dotenv()
 
 # Initialize Flask app
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='')
 
 # Get environment and configure app
 env = os.getenv('FLASK_ENV', 'production')
 
 # Enable CORS
 CORS(app)
+
+@app.route('/')
+def serve_frontend():
+    return app.send_static_file('index.html')
+
+@app.errorhandler(404)
+def not_found(e):
+    if '.' not in request.path:  # No file extension = frontend route
+        return app.send_static_file('index.html')
+    return jsonify({'error': 'Not found'}), 404
 
 # Load configuration
 if env in config_by_name:
