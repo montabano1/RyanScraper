@@ -1,0 +1,179 @@
+2025-02-05 20:28:06,487 - tzlocal - DEBUG - /etc/localtime found
+2025-02-05 20:28:06,489 - tzlocal - DEBUG - 1 found:
+ {'/etc/localtime is a symlink to': 'America/New_York'}
+2025-02-05 20:28:06,490 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:28:06,490 - app - INFO - Scheduled CBRE Properties with cron: 0 0 * * *
+2025-02-05 20:28:06,490 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:28:06,490 - app - INFO - Scheduled Cushman & Wakefield Properties with cron: 0 0 * * *
+2025-02-05 20:28:06,490 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:28:06,490 - app - INFO - Scheduled JLL Properties with cron: 0 0 * * *
+2025-02-05 20:28:06,490 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:28:06,490 - app - INFO - Scheduled LandPark Properties with cron: 0 0 * * *
+2025-02-05 20:28:06,490 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:28:06,490 - app - INFO - Scheduled Lee & Associates Properties with cron: 0 0 * * *
+2025-02-05 20:28:06,491 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:28:06,491 - app - INFO - Scheduled Lincoln Property Company with cron: 0 0 * * *
+2025-02-05 20:28:06,491 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:28:06,491 - app - INFO - Scheduled Trinity Partners Properties with cron: 0 0 * * *
+2025-02-05 20:28:06,491 - apscheduler.scheduler - INFO - Added job "Scheduled CBRE Properties" to job store "default"
+2025-02-05 20:28:06,491 - apscheduler.scheduler - INFO - Added job "Scheduled Cushman & Wakefield Properties" to job store "default"
+2025-02-05 20:28:06,492 - apscheduler.scheduler - INFO - Added job "Scheduled JLL Properties" to job store "default"
+2025-02-05 20:28:06,492 - apscheduler.scheduler - INFO - Added job "Scheduled LandPark Properties" to job store "default"
+2025-02-05 20:28:06,492 - apscheduler.scheduler - INFO - Added job "Scheduled Lee & Associates Properties" to job store "default"
+2025-02-05 20:28:06,492 - apscheduler.scheduler - INFO - Added job "Scheduled Lincoln Property Company" to job store "default"
+2025-02-05 20:28:06,492 - apscheduler.scheduler - INFO - Added job "Scheduled Trinity Partners Properties" to job store "default"
+2025-02-05 20:28:06,492 - apscheduler.scheduler - INFO - Scheduler started
+2025-02-05 20:28:06,492 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2025-02-05 20:28:06,492 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2025-02-06 00:00:00-05:00 (in 12713.507372 seconds)
+2025-02-05 20:29:58,223 - tzlocal - DEBUG - /etc/localtime found
+2025-02-05 20:29:58,225 - tzlocal - DEBUG - 1 found:
+ {'/etc/localtime is a symlink to': 'America/New_York'}
+2025-02-05 20:29:58,225 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:29:58,225 - app - INFO - Scheduled CBRE Properties with cron: 0 0 * * *
+2025-02-05 20:29:58,225 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:29:58,225 - app - INFO - Scheduled Cushman & Wakefield Properties with cron: 0 0 * * *
+2025-02-05 20:29:58,225 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:29:58,226 - app - INFO - Scheduled JLL Properties with cron: 0 0 * * *
+2025-02-05 20:29:58,226 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:29:58,226 - app - INFO - Scheduled LandPark Properties with cron: 0 0 * * *
+2025-02-05 20:29:58,226 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:29:58,226 - app - INFO - Scheduled Lee & Associates Properties with cron: 0 0 * * *
+2025-02-05 20:29:58,226 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:29:58,226 - app - INFO - Scheduled Lincoln Property Company with cron: 0 0 * * *
+2025-02-05 20:29:58,226 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:29:58,226 - app - INFO - Scheduled Trinity Partners Properties with cron: 0 0 * * *
+2025-02-05 20:29:58,227 - apscheduler.scheduler - INFO - Added job "Scheduled CBRE Properties" to job store "default"
+2025-02-05 20:29:58,227 - apscheduler.scheduler - INFO - Added job "Scheduled Cushman & Wakefield Properties" to job store "default"
+2025-02-05 20:29:58,227 - apscheduler.scheduler - INFO - Added job "Scheduled JLL Properties" to job store "default"
+2025-02-05 20:29:58,227 - apscheduler.scheduler - INFO - Added job "Scheduled LandPark Properties" to job store "default"
+2025-02-05 20:29:58,227 - apscheduler.scheduler - INFO - Added job "Scheduled Lee & Associates Properties" to job store "default"
+2025-02-05 20:29:58,228 - apscheduler.scheduler - INFO - Added job "Scheduled Lincoln Property Company" to job store "default"
+2025-02-05 20:29:58,228 - apscheduler.scheduler - INFO - Added job "Scheduled Trinity Partners Properties" to job store "default"
+2025-02-05 20:29:58,228 - apscheduler.scheduler - INFO - Scheduler started
+2025-02-05 20:29:58,228 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2025-02-05 20:29:58,228 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2025-02-06 00:00:00-05:00 (in 12601.771556 seconds)
+2025-02-05 20:29:58,273 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2025-02-05 20:29:58,273 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-05 20:29:58,274 - werkzeug - INFO -  * Restarting with stat
+2025-02-05 20:29:58,954 - tzlocal - DEBUG - /etc/localtime found
+2025-02-05 20:29:58,955 - tzlocal - DEBUG - 1 found:
+ {'/etc/localtime is a symlink to': 'America/New_York'}
+2025-02-05 20:29:58,956 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:29:58,956 - app - INFO - Scheduled CBRE Properties with cron: 0 0 * * *
+2025-02-05 20:29:58,956 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:29:58,956 - app - INFO - Scheduled Cushman & Wakefield Properties with cron: 0 0 * * *
+2025-02-05 20:29:58,956 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:29:58,956 - app - INFO - Scheduled JLL Properties with cron: 0 0 * * *
+2025-02-05 20:29:58,956 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:29:58,956 - app - INFO - Scheduled LandPark Properties with cron: 0 0 * * *
+2025-02-05 20:29:58,956 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:29:58,956 - app - INFO - Scheduled Lee & Associates Properties with cron: 0 0 * * *
+2025-02-05 20:29:58,957 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:29:58,957 - app - INFO - Scheduled Lincoln Property Company with cron: 0 0 * * *
+2025-02-05 20:29:58,957 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:29:58,957 - app - INFO - Scheduled Trinity Partners Properties with cron: 0 0 * * *
+2025-02-05 20:29:58,957 - apscheduler.scheduler - INFO - Added job "Scheduled CBRE Properties" to job store "default"
+2025-02-05 20:29:58,957 - apscheduler.scheduler - INFO - Added job "Scheduled Cushman & Wakefield Properties" to job store "default"
+2025-02-05 20:29:58,957 - apscheduler.scheduler - INFO - Added job "Scheduled JLL Properties" to job store "default"
+2025-02-05 20:29:58,958 - apscheduler.scheduler - INFO - Added job "Scheduled LandPark Properties" to job store "default"
+2025-02-05 20:29:58,958 - apscheduler.scheduler - INFO - Added job "Scheduled Lee & Associates Properties" to job store "default"
+2025-02-05 20:29:58,958 - apscheduler.scheduler - INFO - Added job "Scheduled Lincoln Property Company" to job store "default"
+2025-02-05 20:29:58,958 - apscheduler.scheduler - INFO - Added job "Scheduled Trinity Partners Properties" to job store "default"
+2025-02-05 20:29:58,958 - apscheduler.scheduler - INFO - Scheduler started
+2025-02-05 20:29:58,958 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2025-02-05 20:29:58,958 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2025-02-06 00:00:00-05:00 (in 12601.041400 seconds)
+2025-02-05 20:29:58,996 - werkzeug - WARNING -  * Debugger is active!
+2025-02-05 20:29:59,006 - werkzeug - INFO -  * Debugger PIN: 144-754-994
+2025-02-05 20:33:48,531 - werkzeug - INFO -  * Detected change in '/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/jll.py', reloading
+2025-02-05 20:33:48,629 - werkzeug - INFO -  * Restarting with stat
+2025-02-05 20:33:49,300 - tzlocal - DEBUG - /etc/localtime found
+2025-02-05 20:33:49,302 - tzlocal - DEBUG - 1 found:
+ {'/etc/localtime is a symlink to': 'America/New_York'}
+2025-02-05 20:33:49,302 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:33:49,302 - app - INFO - Scheduled CBRE Properties with cron: 0 0 * * *
+2025-02-05 20:33:49,302 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:33:49,302 - app - INFO - Scheduled Cushman & Wakefield Properties with cron: 0 0 * * *
+2025-02-05 20:33:49,302 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:33:49,303 - app - INFO - Scheduled JLL Properties with cron: 0 0 * * *
+2025-02-05 20:33:49,303 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:33:49,303 - app - INFO - Scheduled LandPark Properties with cron: 0 0 * * *
+2025-02-05 20:33:49,303 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:33:49,303 - app - INFO - Scheduled Lee & Associates Properties with cron: 0 0 * * *
+2025-02-05 20:33:49,303 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:33:49,303 - app - INFO - Scheduled Lincoln Property Company with cron: 0 0 * * *
+2025-02-05 20:33:49,303 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:33:49,303 - app - INFO - Scheduled Trinity Partners Properties with cron: 0 0 * * *
+2025-02-05 20:33:49,304 - apscheduler.scheduler - INFO - Added job "Scheduled CBRE Properties" to job store "default"
+2025-02-05 20:33:49,304 - apscheduler.scheduler - INFO - Added job "Scheduled Cushman & Wakefield Properties" to job store "default"
+2025-02-05 20:33:49,304 - apscheduler.scheduler - INFO - Added job "Scheduled JLL Properties" to job store "default"
+2025-02-05 20:33:49,304 - apscheduler.scheduler - INFO - Added job "Scheduled LandPark Properties" to job store "default"
+2025-02-05 20:33:49,304 - apscheduler.scheduler - INFO - Added job "Scheduled Lee & Associates Properties" to job store "default"
+2025-02-05 20:33:49,304 - apscheduler.scheduler - INFO - Added job "Scheduled Lincoln Property Company" to job store "default"
+2025-02-05 20:33:49,305 - apscheduler.scheduler - INFO - Added job "Scheduled Trinity Partners Properties" to job store "default"
+2025-02-05 20:33:49,305 - apscheduler.scheduler - INFO - Scheduler started
+2025-02-05 20:33:49,305 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2025-02-05 20:33:49,305 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2025-02-06 00:00:00-05:00 (in 12370.694633 seconds)
+2025-02-05 20:33:49,347 - werkzeug - WARNING -  * Debugger is active!
+2025-02-05 20:33:49,356 - werkzeug - INFO -  * Debugger PIN: 144-754-994
+2025-02-05 20:34:55,821 - werkzeug - INFO -  * Detected change in '/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/jll.py', reloading
+2025-02-05 20:34:55,941 - werkzeug - INFO -  * Restarting with stat
+2025-02-05 20:34:56,612 - tzlocal - DEBUG - /etc/localtime found
+2025-02-05 20:34:56,614 - tzlocal - DEBUG - 1 found:
+ {'/etc/localtime is a symlink to': 'America/New_York'}
+2025-02-05 20:34:56,614 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:34:56,614 - app - INFO - Scheduled CBRE Properties with cron: 0 0 * * *
+2025-02-05 20:34:56,614 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:34:56,614 - app - INFO - Scheduled Cushman & Wakefield Properties with cron: 0 0 * * *
+2025-02-05 20:34:56,614 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:34:56,614 - app - INFO - Scheduled JLL Properties with cron: 0 0 * * *
+2025-02-05 20:34:56,615 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:34:56,615 - app - INFO - Scheduled LandPark Properties with cron: 0 0 * * *
+2025-02-05 20:34:56,615 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:34:56,615 - app - INFO - Scheduled Lee & Associates Properties with cron: 0 0 * * *
+2025-02-05 20:34:56,615 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:34:56,615 - app - INFO - Scheduled Lincoln Property Company with cron: 0 0 * * *
+2025-02-05 20:34:56,615 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:34:56,615 - app - INFO - Scheduled Trinity Partners Properties with cron: 0 0 * * *
+2025-02-05 20:34:56,616 - apscheduler.scheduler - INFO - Added job "Scheduled CBRE Properties" to job store "default"
+2025-02-05 20:34:56,616 - apscheduler.scheduler - INFO - Added job "Scheduled Cushman & Wakefield Properties" to job store "default"
+2025-02-05 20:34:56,616 - apscheduler.scheduler - INFO - Added job "Scheduled JLL Properties" to job store "default"
+2025-02-05 20:34:56,616 - apscheduler.scheduler - INFO - Added job "Scheduled LandPark Properties" to job store "default"
+2025-02-05 20:34:56,616 - apscheduler.scheduler - INFO - Added job "Scheduled Lee & Associates Properties" to job store "default"
+2025-02-05 20:34:56,616 - apscheduler.scheduler - INFO - Added job "Scheduled Lincoln Property Company" to job store "default"
+2025-02-05 20:34:56,616 - apscheduler.scheduler - INFO - Added job "Scheduled Trinity Partners Properties" to job store "default"
+2025-02-05 20:34:56,616 - apscheduler.scheduler - INFO - Scheduler started
+2025-02-05 20:34:56,616 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2025-02-05 20:34:56,617 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2025-02-06 00:00:00-05:00 (in 12303.382995 seconds)
+2025-02-05 20:34:56,658 - werkzeug - WARNING -  * Debugger is active!
+2025-02-05 20:34:56,668 - werkzeug - INFO -  * Debugger PIN: 144-754-994
+2025-02-05 20:42:21,338 - tzlocal - DEBUG - /etc/localtime found
+2025-02-05 20:42:21,343 - tzlocal - DEBUG - 1 found:
+ {'/etc/localtime is a symlink to': 'America/New_York'}
+2025-02-05 20:42:21,343 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:42:21,344 - backend.app - INFO - Scheduled CBRE Properties with cron: 0 0 * * *
+2025-02-05 20:42:21,344 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:42:21,344 - backend.app - INFO - Scheduled Cushman & Wakefield Properties with cron: 0 0 * * *
+2025-02-05 20:42:21,344 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:42:21,344 - backend.app - INFO - Scheduled JLL Properties with cron: 0 0 * * *
+2025-02-05 20:42:21,344 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:42:21,344 - backend.app - INFO - Scheduled LandPark Properties with cron: 0 0 * * *
+2025-02-05 20:42:21,344 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:42:21,344 - backend.app - INFO - Scheduled Lee & Associates Properties with cron: 0 0 * * *
+2025-02-05 20:42:21,345 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:42:21,345 - backend.app - INFO - Scheduled Lincoln Property Company with cron: 0 0 * * *
+2025-02-05 20:42:21,345 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-05 20:42:21,345 - backend.app - INFO - Scheduled Trinity Partners Properties with cron: 0 0 * * *
+2025-02-05 20:42:21,345 - apscheduler.scheduler - INFO - Added job "Scheduled CBRE Properties" to job store "default"
+2025-02-05 20:42:21,346 - apscheduler.scheduler - INFO - Added job "Scheduled Cushman & Wakefield Properties" to job store "default"
+2025-02-05 20:42:21,346 - apscheduler.scheduler - INFO - Added job "Scheduled JLL Properties" to job store "default"
+2025-02-05 20:42:21,346 - apscheduler.scheduler - INFO - Added job "Scheduled LandPark Properties" to job store "default"
+2025-02-05 20:42:21,346 - apscheduler.scheduler - INFO - Added job "Scheduled Lee & Associates Properties" to job store "default"
+2025-02-05 20:42:21,346 - apscheduler.scheduler - INFO - Added job "Scheduled Lincoln Property Company" to job store "default"
+2025-02-05 20:42:21,346 - apscheduler.scheduler - INFO - Added job "Scheduled Trinity Partners Properties" to job store "default"
+2025-02-05 20:42:21,346 - apscheduler.scheduler - INFO - Scheduler started
+2025-02-05 20:42:21,346 - apscheduler.scheduler - DEBUG - Looking for jobs to run
+2025-02-05 20:42:21,346 - apscheduler.scheduler - DEBUG - Next wakeup is due at 2025-02-06 00:00:00-05:00 (in 11858.653070 seconds)
+2025-02-05 20:42:21,351 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-05 20:42:21,352 - werkzeug - INFO - [33mPress CTRL+C to quit[0m

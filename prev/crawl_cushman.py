@@ -31,21 +31,6 @@ async def extract_property_urls():
         await new Promise(r => setTimeout(r, 1500));
         """
     
-    js_next_page = """
-        const selector = 'span.coveo-accessible-button';
-        const button = document.querySelector(selector);
-        if (button) {
-            console.log('found button')
-            button.click()
-        } else {
-            console.log('no button')
-            return False    
-        };
-        await new Promise(r => setTimeout(r, 3000));
-        """
-    
-
-    
     async with AsyncWebCrawler(config=browser_config) as crawler:
         try:
             print("\nStarting property URL extraction...")

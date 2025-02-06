@@ -1,6 +1,6 @@
 import os
 from supabase import create_client, Client
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Dict, Any
 
 class Database:
@@ -13,7 +13,7 @@ class Database:
         """Insert new properties into the database."""
         for prop in properties:
             prop["source"] = source
-            prop["created_at"] = datetime.now().isoformat()
+            prop["created_at"] = datetime.now(timezone.utc).isoformat()
             
         self.supabase.table("properties").insert(properties).execute()
 

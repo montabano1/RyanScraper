@@ -13,8 +13,8 @@ import os
 import logging
 from dotenv import load_dotenv
 
-from config import config_by_name, SCRAPERS, SCHEDULER_CONFIG, DATA_DIR
-from storage import StorageManager
+from .config import config_by_name, SCRAPERS, SCHEDULER_CONFIG, DATA_DIR
+from .database import Database
 
 # Load environment variables
 load_dotenv()
@@ -41,6 +41,17 @@ limiter = Limiter(
     storage_uri=app.config['RATELIMIT_STORAGE_URL']
 )
 
+# Initialize database
+db = Database()
+
+@app.route('/health')
+def health_check():
+    """Health check endpoint for DigitalOcean."""
+    return jsonify({
+        'status': 'healthy',
+        'timestamp': datetime.now(timezone.utc).isoformat()
+    })
+
 # Set up logging
 logging.basicConfig(
     filename=app.config['LOG_FILE'],
@@ -48,9 +59,6 @@ logging.basicConfig(
     format=app.config['LOG_FORMAT']
 )
 logger = logging.getLogger(__name__)
-
-# Initialize storage
-storage = StorageManager(DATA_DIR)
 
 # Initialize scheduler
 scheduler = BackgroundScheduler(SCHEDULER_CONFIG)
@@ -123,19 +131,27 @@ def get_scrapers():
         })
     return jsonify(scrapers)
 
-@app.route('/api/scrapers/<scraper_id>/results')
+@app.route('/api/properties')
 @limiter.limit("60 per minute")
-def get_results(scraper_id):
-    """Get current results with change tracking"""
+def get_properties():
+    """Get all properties with optional filtering"""
+    source = request.args.get('source')
+    
     try:
-        if scraper_id not in SCRAPERS:
-            return jsonify({'error': 'Invalid scraper ID'}), 404
+        properties = db.get_latest_properties()
+        if source:
+            properties = [p for p in properties if p['source'] == source]
             
-        results = storage.get_current_results(scraper_id)
-        return jsonify(results)
+        return jsonify({
+            'status': 'success',
+            'data': properties
+        })
     except Exception as e:
-        logger.error(f"Error getting results for {scraper_id}: {e}", exc_info=True)
-        return jsonify({'error': 'Internal server error'}), 500
+        logger.error(f"Error getting properties: {str(e)}")
+        return jsonify({
+            'status': 'error',
+            'message': str(e)
+        }), 500
 
 @app.route('/api/scrapers/<scraper_id>/run', methods=['POST'])
 @limiter.limit("5 per minute")
@@ -155,27 +171,43 @@ def trigger_scraper(scraper_id):
         logger.error(f"Error triggering scraper {scraper_id}: {e}", exc_info=True)
         return jsonify({'error': 'Internal server error'}), 500
 
-@app.route('/api/scrapers/<scraper_id>/export')
+@app.route('/api/export')
 @limiter.limit("10 per minute")
-def export_data(scraper_id):
-    """Export scraper data to CSV"""
+def export_data():
+    """Export properties as CSV"""
+    source = request.args.get('source')
+    
     try:
-        if scraper_id not in SCRAPERS:
-            return jsonify({'error': 'Invalid scraper ID'}), 404
-
-        csv_file = storage.export_to_csv(scraper_id)
-        if not csv_file:
-            return jsonify({'error': 'No data available'}), 404
+        # Get properties from database
+        properties = db.get_latest_properties()
+        if source:
+            properties = [p for p in properties if p['source'] == source]
+            
+        if not properties:
+            return jsonify({
+                'status': 'error',
+                'message': 'No data available'
+            }), 404
+        
+        # Convert to DataFrame and export
+        df = pd.DataFrame(properties)
+        output = BytesIO()
+        df.to_csv(output, index=False)
+        output.seek(0)
         
         return send_file(
-            csv_file,
+            output,
             mimetype='text/csv',
             as_attachment=True,
-            download_name=f"{scraper_id}_export_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+            download_name=f'properties_{datetime.now().strftime("%Y%m%d")}.csv'
         )
+        
     except Exception as e:
-        logger.error(f"Error exporting data for {scraper_id}: {e}", exc_info=True)
-        return jsonify({'error': 'Internal server error'}), 500
+        logger.error(f"Error exporting data: {str(e)}")
+        return jsonify({
+            'status': 'error',
+            'message': str(e)
+        }), 500
 
 @app.errorhandler(429)
 def ratelimit_handler(e):
@@ -185,6 +217,23 @@ def ratelimit_handler(e):
 def internal_error(e):
     logger.error(f"Internal server error: {e}", exc_info=True)
     return jsonify({'error': 'Internal server error'}), 500
+
+@app.route('/api/changes', methods=['GET'])
+def get_changes():
+    """Get properties that have changed since last scrape."""
+    try:
+        # Get changes from property_changes table
+        changes = db.get_property_changes()
+        return jsonify({
+            'success': True,
+            'changes': changes
+        })
+    except Exception as e:
+        logging.error(f"Error getting property changes: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

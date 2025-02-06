@@ -17,23 +17,27 @@ const PropertyDashboard = () => {
   const [lastUpdated, setLastUpdated] = useState(null);
   const [changes, setChanges] = useState({ new: [], modified: [], removed: [] });
 
-  const fetchData = async () => {
+  import { getApiBaseUrl } from './config';
+
+const API_BASE_URL = getApiBaseUrl();
+
+const fetchData = async () => {
     try {
-      const response = await fetch(`/api/scrapers/${selectedScraper}/results`);
-      const data = await response.json();
+      const response = await fetch(`${API_BASE_URL}/properties?source=${selectedScraper}`);
+      const { status, data, message } = await response.json();
+      
+      if (status === 'error') {
+        setError(message);
+        return;
+      }
+      
       setProperties(data);
       setLastUpdated(new Date());
       
-      // Group properties by status
-      const newProps = data.filter(p => p._status === 'new');
-      const modifiedProps = data.filter(p => p._status === 'modified');
-      const removedProps = data.filter(p => p._status === 'removed');
-      
-      setChanges({
-        new: newProps,
-        modified: modifiedProps,
-        removed: removedProps
-      });
+      // Get changes since last scrape
+      const changesResponse = await fetch(`${API_BASE_URL}/changes?source=${selectedScraper}`);
+      const changesData = await changesResponse.json();
+      setChanges(changesData);
     } catch (err) {
       setError('Failed to fetch property data');
     }
@@ -48,7 +52,7 @@ const PropertyDashboard = () => {
   const triggerScrape = async () => {
     try {
       setLoading(true);
-      await fetch(`/api/scrapers/${selectedScraper}/run`, { method: 'POST' });
+      await fetch(`${API_BASE_URL}/scrapers/${selectedScraper}/run`, { method: 'POST' });
       setTimeout(fetchData, 2000);
     } catch (err) {
       setError('Failed to trigger scrape');
@@ -59,16 +63,15 @@ const PropertyDashboard = () => {
 
   const exportToCsv = async () => {
     try {
-      window.location.href = `/api/scrapers/${selectedScraper}/export`;
+      window.location.href = `${API_BASE_URL}/export?source=${selectedScraper}`;
     } catch (err) {
       setError('Failed to export data');
     }
   };
 
-  // Sort properties: new first, then modified, then others
+  // Sort properties by created_at date
   const sortedProperties = [...properties].sort((a, b) => {
-    const statusOrder = { new: 0, modified: 1, unchanged: 2, removed: 3 };
-    return statusOrder[a._status || 'unchanged'] - statusOrder[b._status || 'unchanged'];
+    return new Date(b.created_at) - new Date(a.created_at);
   });
 
   const filteredProperties = sortedProperties.filter(property => 

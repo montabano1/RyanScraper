@@ -7,7 +7,7 @@ from typing import List, Dict, Any, Optional, Tuple, TypeVar, Callable
 from functools import wraps
 from abc import ABC, abstractmethod
 
-from ..storage import StorageManager
+from ..database import Database
 from ..config import SCRAPERS
 
 T = TypeVar('T')
@@ -51,7 +51,7 @@ class BaseScraper(ABC):
         
         self.scraper_id = scraper_id
         self.config: Dict[str, Any] = SCRAPERS[scraper_id]
-        self.storage = StorageManager(Path(__file__).parent.parent / 'data')
+        self.db = Database()
         self.logger = logging.getLogger(f"scraper.{scraper_id}")
         
         # Set up logging
@@ -79,14 +79,12 @@ class BaseScraper(ABC):
                 self.logger.warning(msg)
                 return None, msg
             
-            # Compare with previous results and save
-            changes = self.storage.compare_and_save_results(self.scraper_id, results)
+            # Store in database
+            self.db.insert_properties(results, self.scraper_id)
+            self.logger.info(f"Stored {len(results)} properties in database")
             
-            self.logger.info(
-                f"Scraping completed: {len(changes['new'])} new, "
-                f"{len(changes['modified'])} modified, "
-                f"{len(changes['removed'])} removed"
-            )
+            # Log successful scrape
+            self.db.log_scrape(self.scraper_id, "success", len(results))
             
             return results, None
             

@@ -1,7 +1,9 @@
 # backend/scrapers/cushman.py
+from dotenv import load_dotenv
+load_dotenv()
 import asyncio
 from typing import List, Dict, Any, Optional, Tuple
-from datetime import datetime
+from datetime import datetime, timezone
 from bs4 import BeautifulSoup
 from crawl4ai import (
     AsyncWebCrawler, 
@@ -18,6 +20,10 @@ from .base import BaseScraper
 class CushmanScraper(BaseScraper):
     """Scraper for Cushman & Wakefield commercial properties."""
     
+    def _get_iso_timestamp(self) -> str:
+        """Get current timestamp in ISO format with timezone."""
+        return datetime.now(timezone.utc).isoformat()
+    
     def __init__(self):
         super().__init__('cushman')
         self.start_url = (
@@ -32,11 +38,19 @@ class CushmanScraper(BaseScraper):
             headless=True,
             verbose=True,
             ignore_https_errors=True,
-            extra_args=['--disable-web-security'],
+            extra_args=[
+                '--disable-web-security',
+                '--no-sandbox',
+                '--disable-dev-shm-usage',
+                '--disable-gpu',
+                '--disable-software-rasterizer',
+                '--disable-extensions'
+            ],
             headers={
                 'sec-fetch-site': 'same-origin',
                 'sec-fetch-mode': 'navigate',
-                'sec-fetch-dest': 'document'
+                'sec-fetch-dest': 'document',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
             }
         )
 
@@ -73,26 +87,12 @@ class CushmanScraper(BaseScraper):
         """
         
         js_wait1 = """
-        await new Promise(r => setTimeout(r, 500));
+        await new Promise(r => setTimeout(r, 1500));
         """
         
-        js_next_page = """
-        const selector = 'span.coveo-accessible-button';
-        const button = document.querySelector(selector);
-        if (button) {
-            console.log('Found next page button');
-            button.click();
-            return true;
-        } else {
-            console.log('No next page button found');
-            return false;
-        }
-        await new Promise(r => setTimeout(r, 3000));
-        """
-
         self.logger.info("Starting property URL extraction")
         
-        session_id = "cushman_session"
+        session_id = "monte_cushmanwakefield"
         all_property_urls = set()  # Using a set to avoid duplicates
         last_page_urls = set()
         
@@ -111,29 +111,22 @@ class CushmanScraper(BaseScraper):
             )
             
             # Load first page
-            result = await crawler.arun(
+            result1 = await crawler.arun(
                 url=self.start_url,
                 config=config_first,
                 session_id=session_id
             )
             
-            if not result.success:
-                self.logger.error(f"Failed to load first page: {result.error_message}")
-                return list(all_property_urls)
-            
             # Extract URLs from first page
-            soup = BeautifulSoup(result.html, 'html.parser')
+            soup = BeautifulSoup(result1.html, 'html.parser')
             property_links = soup.find_all('a', href=lambda x: x and 'properties/for-lease/office' in x)
             current_page_urls = {f'{link["href"]}' for link in property_links}
             all_property_urls.update(current_page_urls)
             
             self.logger.info(f"Found {len(current_page_urls)} property URLs on page 1")
             
-            # Configure pagination
             page_num = 1
-            max_pages = 20  # Limit to prevent infinite loops
-            
-            while page_num <= max_pages:
+            while True:
                 # Store current page URLs for comparison
                 last_page_urls = current_page_urls
                 
@@ -145,9 +138,7 @@ class CushmanScraper(BaseScraper):
                 
                 # Configure next page request
                 config_next = CrawlerRunConfig(
-                    session_id=session_id,
-                    js_code=js_next_page,
-                    js_only=True,
+                    js_code=js_wait1,
                     wait_for="""js:() => {
                         return document.querySelectorAll('div.CoveoResult').length > 1;
                     }""",
@@ -158,19 +149,14 @@ class CushmanScraper(BaseScraper):
                     magic=True
                 )
                 
-                # Try to go to next page
-                result = await crawler.arun(
-                    url=self.start_url,  # URL doesn't matter for js_only
-                    config=config_next,
-                    session_id=session_id
+                # Try to go to next page with the *12 multiplier in URL
+                result2 = await crawler.arun(
+                    url=f'https://www.cushmanwakefield.com/en/united-states/properties/lease/lease-property-search#first={page_num * 12}&sort=%40propertylastupdateddate%20ascending&f:PropertyType=[Office]&f:Country=[United%20States]',
+                    config=config_next
                 )
                 
-                if not result.success:
-                    self.logger.error(f"Failed to load page {page_num + 1}: {result.error_message}")
-                    break
-                
                 # Extract URLs from current page
-                soup = BeautifulSoup(result.html, 'html.parser')
+                soup = BeautifulSoup(result2.html, 'html.parser')
                 property_links = soup.find_all('a', href=lambda x: x and 'properties/for-lease/office' in x)
                 current_page_urls = {f'{link["href"]}' for link in property_links}
                 
@@ -294,7 +280,7 @@ class CushmanScraper(BaseScraper):
                     "space_available": "Contact for Details",
                     "price": "Contact for Details",
                     "listing_url": url,
-                    "updated_at": datetime.now().strftime('%I:%M:%S%p %m/%d/%y')
+                    "updated_at": self._get_iso_timestamp()
                 }]
             
             # Process each availability container
@@ -343,7 +329,7 @@ class CushmanScraper(BaseScraper):
                     "space_available": space_available,
                     "price": price,
                     "listing_url": url,
-                    "updated_at": datetime.now().strftime('%I:%M:%S%p %m/%d/%y')
+                    "updated_at": self._get_iso_timestamp()
                 }
                 
                 units.append(unit)
@@ -359,6 +345,9 @@ async def run_scraper():
     scraper = CushmanScraper()
     results = await scraper.scrape()
     print(f"Scraped {len(results)} properties")
+    if results:
+        scraper.db.insert_properties(results, 'cushman')
+        print("Successfully saved properties to database")
     return results
 
 if __name__ == "__main__":

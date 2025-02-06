@@ -262,60 +262,75 @@ class JLLScraper(BaseScraper):
             soup = BeautifulSoup(html, 'html.parser')
             
             # Extract property name
-            header_div = soup.select_one('div.mb-6.flex.flex-col')
-            name_elem = header_div.select_one('h1.MuiTypography-root.jss6') if header_div else None
+            name_elem = soup.select_one('h1.MuiTypography-root')
             if not name_elem:
                 self.logger.warning(f"No property name found for {url}")
                 return None
             
             property_name = name_elem.text.strip()
             
-            # Extract price
-            price = "Contact for pricing"
-            price_elem = header_div.select_one('div.flex.items-center.justify-end.text-bronze p.text-lg') if header_div else None
-            if price_elem:
-                price = price_elem.text.strip()
-            
             # Extract address components
-            address_div = soup.select_one('div.flex-col.text-doveGrey')
+            address_div = soup.select_one('div.flex.flex-col.text-doveGrey')
             street_address = ""
             city_state = ""
             
             if address_div:
-                address_parts = [p.text.strip() for p in address_div.find_all('p', class_='text-lg')]
+                address_parts = [p.text.strip() for p in address_div.find_all('p')]
                 if len(address_parts) >= 1:
                     street_address = address_parts[0]
                 if len(address_parts) >= 2:
                     city_state = address_parts[1]
             
-            # Extract available spaces
+            # Extract available spaces from the availability table
             spaces = []
-            space_divs = soup.select('div.space-details')
+            availability_div = soup.find('div', id='availability')
             
-            for space in space_divs:
-                floor = space.select_one('.space-floor')
-                size = space.select_one('.space-size')
-                rate = space.select_one('.space-rate')
+            if availability_div:
+                # Find all rows in the availability table
+                rows = availability_div.select('div[role="row"]')
+                
+                for row in rows[1:]:  # Skip header row
+                    cells = row.select('div[role="cell"]')
+                    if len(cells) >= 4:
+                        floor_suite = cells[0].text.strip()
+                        space_available = cells[1].text.strip()
+                        price = cells[2].text.strip() or "Contact for pricing"
+                        
+                        spaces.append({
+                            "property_name": property_name,
+                            "address": f"{street_address}, {city_state}".strip(", "),
+                            "floor_suite": floor_suite,
+                            "space_available": space_available,
+                            "price": price,
+                            "listing_url": url,
+                            "updated_at": datetime.now().strftime('%I:%M:%S%p %m/%d/%y')
+                        })
+            
+            # If no spaces found, create a single entry with general property info
+            if not spaces:
+                # Try to get total space available
+                space_text = ""
+                space_li = soup.select_one('ul.flex.flex-wrap li span.text-lg.text-neutral-700 span')
+                if space_li:
+                    space_text = space_li.text.strip()
+                
+                # Try to get price from header
+                price = "Contact for pricing"
+                price_elem = soup.select_one('div.flex.items-center.justify-end.text-bronze p.text-lg')
+                if price_elem:
+                    price = price_elem.text.strip()
                 
                 spaces.append({
                     "property_name": property_name,
                     "address": f"{street_address}, {city_state}".strip(", "),
-                    "floor_suite": floor.text.strip() if floor else "",
-                    "space_available": size.text.strip() if size else "",
-                    "price": rate.text.strip() if rate else price,  # Use header price if no specific rate
+                    "floor_suite": "",
+                    "space_available": space_text,
+                    "price": price,
                     "listing_url": url,
                     "updated_at": datetime.now().strftime('%I:%M:%S%p %m/%d/%y')
                 })
             
-            return spaces if spaces else [{
-                "property_name": property_name,
-                "address": f"{street_address}, {city_state}".strip(", "),
-                "floor_suite": "",
-                "space_available": "",
-                "price": price,
-                "listing_url": url,
-                "updated_at": datetime.now().strftime('%I:%M:%S%p %m/%d/%y')
-            }]
+            return spaces
             
         except Exception as e:
             self.logger.error(f"Error parsing property page {url}: {str(e)}", exc_info=True)
@@ -325,97 +340,3 @@ class JLLScraper(BaseScraper):
 if __name__ == "__main__":
     scraper = JLLScraper()
     asyncio.run(scraper.run())
-        
-        address = f"{street_address}, {city_state}" if street_address else city_state
-        
-        # First get the top-level space info
-        space_text = None
-        space_li = soup.select_one('ul.flex.flex-wrap li span.text-lg.text-neutral-700 span')
-        if space_li:
-            space_text = space_li.text.strip()
-
-        units = []
-        availability_div = soup.find('div', id='availability')
-        if availability_div:
-            # Try to find rows through multiple paths
-            rows = []
-            
-            # Find all action arrow cells with the specific SVG pattern
-            action_cells = availability_div.find_all('div', {'class': 'action-arrow'})
-            if action_cells:
-                for cell in action_cells:
-                    # Check for SVG with specific path pattern
-                    svg = cell.find('svg', {'class': 'MuiSvgIcon-root MuiSvgIcon-colorPrimary'})
-                    if svg:
-                        # Look for the path with the specific coordinates
-                        paths = svg.find_all('path')
-                        for path in paths:
-                            d_attr = path.get('d', '')
-                            if any(coord in d_attr for coord in ['14.9848 6.84933', 'M14.9848 6.84933']):
-                                parent_row = cell.find_parent('div', {'role': 'row', 'class': lambda x: x and 'MuiDataGrid-row' in x})
-                                if parent_row and parent_row not in rows:
-                                    rows.append(parent_row)
-            
-            if rows:
-                for row in rows:
-                    # Find floor cell - try both class and data-field attributes
-                    floor_cell = row.find('div', {'class': 'floor-name'}) or row.find('div', {'data-field': 'floorName'})
-                    floor_text = None
-                    if floor_cell:
-                        # First try the span inside group div
-                        span = floor_cell.select_one('div.max-w-full.overflow-hidden span')
-                        if span:
-                            floor_text = span.text.strip()
-                        else:
-                            # Fallback to any text content in the cell
-                            floor_text = floor_cell.get_text(strip=True)
-                    
-                    # Find space cell using data-field="size"
-                    space_cell = row.find('div', {'data-field': 'size'})
-                    row_space_text = space_cell.get_text(strip=True) if space_cell else None
-                    
-                    if floor_text and row_space_text:
-                        unit = {
-                            "property_name": property_name,
-                            "address": address,
-                            "listing_url": url,
-                            "floor_suite": floor_text,
-                            "space_available": row_space_text,
-                            "price": price,
-                            "updated_at": datetime.now().strftime('%I:%M:%S%p %m/%d/%y')
-                        }
-                        units.append(unit)
-            else:
-                # Create a single entry with N/A for floor_suite
-                unit = {
-                    "property_name": property_name,
-                    "address": address,
-                    "listing_url": url,
-                    "floor_suite": "N/A",
-                    "space_available": space_text or "Contact for Details",
-                    "price": price,
-                    "updated_at": datetime.now().strftime('%I:%M:%S%p %m/%d/%y')
-                }
-                units.append(unit)
-        else:
-            # Create a single entry with N/A for floor_suite
-            unit = {
-                "property_name": property_name,
-                "address": address,
-                "listing_url": url,
-                "floor_suite": "N/A",
-                "space_available": space_text or "Contact for Details",
-                "price": price,
-                "updated_at": datetime.now().strftime('%I:%M:%S%p %m/%d/%y')
-            }
-            units.append(unit)
-        
-        return units
-
-async def run_scraper():
-    scraper = JLLScraper()
-    results = await scraper.scrape()
-    print(f"Scraped {len(results)} properties")
-
-if __name__ == "__main__":
-    asyncio.run(run_scraper())

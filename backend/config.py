@@ -109,6 +109,13 @@ class TestingConfig(Config):
     TESTING = True
     LOG_LEVEL = 'DEBUG'
 
+# Scheduler configuration
+SCHEDULER_CONFIG = {
+    'timezone': timezone('UTC'),
+    'misfire_grace_time': 3600,  # 1 hour
+    'coalesce': True
+}
+
 # Export configs
 config_by_name = {
     'dev': DevelopmentConfig,

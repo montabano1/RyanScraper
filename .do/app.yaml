@@ -1,0 +1,23 @@
+name: ryan-scraper
+services:
+- name: web
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: michaelmontalbano/RyanScraper
+  dockerfile_path: Dockerfile
+  instance_count: 1
+  instance_size_slug: professional-xs  # 2GB RAM, 1 vCPU
+  routes:
+  - path: /
+  envs:
+  - key: FLASK_APP
+    value: backend/app.py
+  - key: FLASK_ENV
+    value: production
+  - key: SUPABASE_URL
+    value: ${SUPABASE_URL}
+    type: SECRET
+  - key: SUPABASE_KEY
+    value: ${SUPABASE_KEY}
+    type: SECRET
