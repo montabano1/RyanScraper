@@ -31,11 +31,13 @@ jobs:
         run: |
           cd frontend
           npm run build
+          ls -la dist
         env:
-          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+          VITE_API_URL: ${{ secrets.REACT_APP_API_URL }}
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: frontend/dist
-          branch: gh-pages
+          folder: frontend/dist # The folder the action should deploy
+          branch: gh-pages # The branch the action should deploy to
+          clean: true # Automatically remove deleted files from the deployment
