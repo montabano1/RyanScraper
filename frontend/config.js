@@ -3,7 +3,7 @@ const config = {
         apiBaseUrl: 'http://localhost:5000/api'
     },
     production: {
-        apiBaseUrl: 'https://ryanscraper-production.up.railway.app'
+        apiBaseUrl: 'https://ryanscraper-production.up.railway.app/api'
     }
 };
 
