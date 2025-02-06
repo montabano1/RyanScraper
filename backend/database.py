@@ -19,11 +19,20 @@ class Database:
 
     def get_latest_properties(self) -> List[Dict[str, Any]]:
         """Get the latest properties from all sources."""
-        return self.supabase.table("properties") \
-            .select("*") \
-            .order("created_at", desc=True) \
-            .limit(1000) \
-            .execute()
+        try:
+            print("Fetching properties from Supabase...")
+            response = self.supabase.table("properties") \
+                .select("*") \
+                .order("created_at", desc=True) \
+                .limit(1000) \
+                .execute()
+            print(f"Supabase response: {response}")
+            data = response.data if response and hasattr(response, 'data') else []
+            print(f"Returning {len(data)} properties")
+            return data
+        except Exception as e:
+            print(f"Error fetching properties: {str(e)}")
+            raise
 
     def get_changes_since_last_scrape(self, source: str) -> Dict[str, List[Dict[str, Any]]]:
         """Get new and modified properties since the last scrape."""

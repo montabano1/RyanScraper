@@ -1,7 +1,7 @@
 # app.py
 from datetime import datetime, date
 from flask import Flask, jsonify, request, send_file
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -14,6 +14,8 @@ from pathlib import Path
 import os
 import logging
 from dotenv import load_dotenv
+import pandas as pd
+from io import BytesIO
 
 from backend.config import config_by_name, SCRAPERS, SCHEDULER_CONFIG, DATA_DIR
 from backend.scrapers import *  # Import all scrapers
@@ -165,8 +167,8 @@ def get_properties():
     source = request.args.get('source')
     
     try:
-        response = db.get_latest_properties()
-        properties = response.data if response and hasattr(response, 'data') else []
+        properties = db.get_latest_properties()
+        logger.debug(f"Raw properties from DB: {properties}")
         
         if source:
             properties = [p for p in properties if p['source'] == source]
@@ -182,6 +184,7 @@ def get_properties():
                     serializable_prop[key] = value
             serializable_properties.append(serializable_prop)
             
+        logger.debug(f"Sending {len(serializable_properties)} properties")
         return jsonify(serializable_properties)
     except Exception as e:
         logger.error(f"Error getting properties: {str(e)}")
@@ -208,36 +211,7 @@ def trigger_scraper(scraper_id):
         logger.error(f"Error triggering scraper {scraper_id}: {e}", exc_info=True)
         return jsonify({'error': 'Internal server error'}), 500
 
-@app.route('/api/export')
-@limiter.limit("10 per minute")
-def export_data():
-    """Export properties as CSV"""
-    source = request.args.get('source')
-    
-    try:
-        # Get properties from database
-        properties = db.get_latest_properties()
-        if source:
-            properties = [p for p in properties if p['source'] == source]
-            
-        if not properties:
-            return jsonify({
-                'status': 'error',
-                'message': 'No data available'
-            }), 404
-        
-        # Convert to DataFrame and export
-        df = pd.DataFrame(properties)
-        output = BytesIO()
-        df.to_csv(output, index=False)
-        output.seek(0)
-        
-        return send_file(
-            output,
-            mimetype='text/csv',
-            as_attachment=True,
-            download_name=f'properties_{datetime.now().strftime("%Y%m%d")}.csv'
-        )
+
         
     except Exception as e:
         logger.error(f"Error exporting data: {str(e)}")
@@ -272,5 +246,58 @@ def get_changes():
             'error': str(e)
         }), 500
 
+@app.route('/api/export', methods=['POST', 'OPTIONS'])
+@cross_origin()
+def export_data():
+    """Export properties as CSV"""
+    logger.debug(f"Received export request. Method: {request.method}")
+    
+    if request.method == 'OPTIONS':
+        return jsonify({'status': 'ok'}), 200
+    
+    try:
+        # Get filtered properties from request
+        data = request.get_json()
+        logger.debug(f"Received data: {data if data else 'None'}")
+        
+        properties = data.get('properties', [])
+        logger.debug(f"Properties length: {len(properties)}")
+        
+        if not properties:
+            logger.debug("No properties found in request")
+            return jsonify({
+                'status': 'error',
+                'message': 'No data available'
+            }), 404
+            
+        logger.debug(f"Converting {len(properties)} properties to DataFrame")
+        
+        # Convert to DataFrame - data is already formatted from frontend
+        df = pd.DataFrame(properties)
+        
+        # Export to CSV
+        logger.debug("Exporting to CSV")
+        output = BytesIO()
+        df.to_csv(output, index=False)
+        output.seek(0)
+        
+        logger.debug("Sending file response")
+        return send_file(
+            output,
+            mimetype='text/csv',
+            as_attachment=True,
+            download_name=f'properties_{datetime.now().strftime("%Y%m%d")}.csv'
+        )
+    except Exception as e:
+        logger.error(f"Error exporting data: {str(e)}")
+        return jsonify({
+            'status': 'error',
+            'message': str(e)
+        }), 500
+
 if __name__ == '__main__':
+    print('\nRegistered Routes:')
+    for rule in app.url_map.iter_rules():
+        print(f"{rule.endpoint}: {rule.methods} {rule}")
+    print('\n')
     app.run(host='0.0.0.0', port=5000)

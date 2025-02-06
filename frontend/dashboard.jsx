@@ -23,12 +23,15 @@ const Dashboard = () => {
     setLoading(true);
     setError(null);
     try {
+      console.log('Fetching properties...');
       const response = await fetch(`${getApiBaseUrl()}/properties`);
       if (!response.ok) throw new Error('Failed to fetch properties');
       const data = await response.json();
+      console.log('Received properties:', data);
       setProperties(data);
       setLastUpdated(new Date());
     } catch (err) {
+      console.error('Error fetching properties:', err);
       setError(err.message);
     } finally {
       setLoading(false);
@@ -62,9 +65,63 @@ const Dashboard = () => {
 
   const exportData = async () => {
     try {
-      const response = await fetch(`${getApiBaseUrl()}/export`);
-      if (!response.ok) throw new Error('Failed to export data');
+      console.log('Starting export with filtered properties:', filteredProperties);
+      // Define column order to match dashboard
+      const columnOrder = [
+        'Property',
+        'Address',
+        'Floor/Suite',
+        'Space (sq ft)',
+        'Price',
+        'Source',
+        'Listing URL',
+        'Last Updated'
+      ];
+
+      // Log a sample property to see field names
+      if (filteredProperties.length > 0) {
+        console.log('Sample property fields:', Object.keys(filteredProperties[0]));
+        console.log('Sample property data:', filteredProperties[0]);
+      }
+
+      // Format the data to match the dashboard display
+      const formattedProperties = filteredProperties.map(p => {
+        const formatted = {
+          Property: p.property_name || 'N/A',
+          Address: p.address || 'N/A',
+          'Floor/Suite': p.floor_suite || 'N/A',
+          'Space (sq ft)': p.space_available || 'N/A',
+          Price: p.price || 'N/A',
+          Source: p.source || 'N/A',
+          'Listing URL': p.listing_url || 'N/A',
+          'Last Updated': p.updated_at ? format(new Date(p.updated_at), 'MMM d, yyyy HH:mm:ss') : 'N/A'
+        };
+        // Return object with properties in the correct order
+        return columnOrder.reduce((obj, key) => ({ ...obj, [key]: formatted[key] }), {});
+      });
+
+      console.log('Making export request to:', `${getApiBaseUrl()}/export`);
+      const requestData = { properties: formattedProperties };
+      console.log('Request data:', requestData);
+      
+      const response = await fetch(`${getApiBaseUrl()}/export`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData)
+      });
+      
+      console.log('Export response status:', response.status);
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Export error:', errorText);
+        throw new Error(`Failed to export data: ${errorText}`);
+      }
+      
       const blob = await response.blob();
+      console.log('Received blob:', blob);
+      
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
@@ -77,11 +134,19 @@ const Dashboard = () => {
     }
   };
 
-  // Filter properties based on search
-  const filteredProperties = properties.filter(property =>
-    property.name?.toLowerCase().includes(filter.toLowerCase()) ||
-    property.address?.toLowerCase().includes(filter.toLowerCase())
-  );
+  // Filter properties based on search across all relevant fields
+  const filteredProperties = properties.filter(property => {
+    const searchTerm = filter.toLowerCase();
+    return [
+      property.property_name,
+      property.address,
+      property.floor_suite,
+      property.space_available,
+      property.price,
+      property.source,
+      property.listing_url
+    ].some(field => field?.toString().toLowerCase().includes(searchTerm));
+  });
 
   return (
     <div className="min-h-screen bg-gray-100 py-8 px-4">
@@ -164,22 +229,39 @@ const Dashboard = () => {
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Property</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Address</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Floor/Suite</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Space (sq ft)</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Source</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Listing</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Updated</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {filteredProperties.map(property => (
                   <tr key={property.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{property.name}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{property.property_name || 'N/A'}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{property.address}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{property.floor_suite || 'N/A'}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{property.space_available || 'N/A'}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{property.price}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{property.source}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      {format(new Date(property.last_updated), 'MMM d, yyyy HH:mm:ss')}
+                      {property.listing_url ? (
+                        <a 
+                          href={property.listing_url} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="text-blue-600 hover:text-blue-800 hover:underline"
+                        >
+                          View
+                        </a>
+                      ) : 'N/A'}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      {property.updated_at ? format(new Date(property.updated_at), 'MMM d, yyyy HH:mm:ss') : 'N/A'}
                     </td>
                   </tr>
                 ))}
