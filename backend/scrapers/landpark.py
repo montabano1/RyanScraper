@@ -32,9 +32,7 @@ class LandParkScraper(BaseScraper):
             # Extract details from each property's iframe
             all_property_details = await self._extract_property_details(crawler, iframe_urls, url_mapping)
             
-            # Save results
-            self.save_results(all_property_details)
-            
+            # Return results (base class will handle saving)
             return all_property_details
 
     async def _extract_property_urls(self, crawler):

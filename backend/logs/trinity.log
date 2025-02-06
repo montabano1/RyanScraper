@@ -1,0 +1,22 @@
+2025-02-06 01:00:56,701 - scraper.trinity - INFO - Starting trinity scraper
+2025-02-06 01:02:59,910 - scraper.trinity - ERROR - Error in trinity scraper: 'TrinityScraper' object has no attribute 'save_results'
+Traceback (most recent call last):
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/base.py", line 75, in run
+    results = await self.scrape()
+              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/trinity.py", line 33, in scrape
+    self.save_results(all_property_details)
+    ^^^^^^^^^^^^^^^^^
+AttributeError: 'TrinityScraper' object has no attribute 'save_results'
+2025-02-06 01:05:59,145 - scraper.trinity - INFO - Starting trinity scraper
+2025-02-06 01:08:06,278 - scraper.trinity - ERROR - Error in trinity scraper: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'location' column of 'properties' in the schema cache"}
+Traceback (most recent call last):
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/base.py", line 83, in run
+    self.db.insert_properties(results, self.scraper_id)
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/database.py", line 18, in insert_properties
+    self.supabase.table("properties").insert(properties).execute()
+  File "/Users/michaelmontalbano/.pyenv/versions/3.11.2/lib/python3.11/site-packages/postgrest/_sync/request_builder.py", line 68, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'location' column of 'properties' in the schema cache"}
+2025-02-06 01:10:45,491 - scraper.trinity - INFO - Starting trinity scraper
+2025-02-06 01:13:50,406 - scraper.trinity - INFO - Starting trinity scraper

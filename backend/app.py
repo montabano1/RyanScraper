@@ -16,6 +16,7 @@ import logging
 from dotenv import load_dotenv
 
 from backend.config import config_by_name, SCRAPERS, SCHEDULER_CONFIG, DATA_DIR
+from backend.scrapers import *  # Import all scrapers
 from backend.database import Database
 
 # Load environment variables
@@ -26,6 +27,14 @@ app = Flask(__name__, static_folder='static', static_url_path='')
 
 # Get environment and configure app
 env = os.getenv('FLASK_ENV', 'production')
+
+# Map common environment names to our config names
+env_mapping = {
+    'dev': 'development',
+    'prod': 'production',
+    'test': 'test'
+}
+env = env_mapping.get(env, env)  # Map if it's a known alias, otherwise keep as is
 
 # Enable CORS
 CORS(app)

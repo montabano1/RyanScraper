@@ -29,9 +29,7 @@ class LeeScraper(BaseScraper):
             # Extract details from each property
             all_property_details = await self._extract_property_details(crawler, property_urls)
             
-            # Save results
-            self.save_results(all_property_details)
-            
+            # Return results (base class will handle saving)
             return all_property_details
 
     async def _get_iframe_url(self, crawler):
@@ -306,10 +304,11 @@ class LeeScraper(BaseScraper):
                 # Construct the new URL format
                 new_url = f"https://www.lee-associates.com/properties/?propertyId={params.get('propertyId', '')}&address={params.get('address', '')}&officeId={params.get('officeId', '')}&tab=spaces"
                 
+                # Combine address and location for full address
+                full_address = f"{address}, {location}" if location else address
                 unit = {
                     "property_name": property_name,
-                    "address": address,
-                    "location": location,
+                    "address": full_address,
                     "listing_url": new_url,
                     "floor_suite": cells[0].text.strip(),
                     "space_available": cells[2].text.strip(),

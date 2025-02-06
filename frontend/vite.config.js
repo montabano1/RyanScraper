@@ -5,13 +5,20 @@ import { resolve } from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/RyanScraper/',
+  base: '/', // Since we're serving from the root path
   build: {
     outDir: 'dist',
     emptyOutDir: true,
-    sourcemap: true,
-    rollupOptions: {
-      input: resolve(__dirname, 'index.html')
+    sourcemap: true
+  },
+  server: {
+    proxy: {
+      // Proxy API requests to backend during development
+      '/api': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        secure: false
+      }
     }
   },
   resolve: {

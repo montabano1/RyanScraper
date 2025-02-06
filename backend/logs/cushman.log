@@ -2903,3 +2903,45 @@ Code context:
 1358                   )
 1359   
 2025-02-05 21:18:38,339 - scraper.cushman - INFO - Successfully extracted details for 252 properties
+2025-02-06 00:57:10,400 - scraper.cushman - INFO - Starting cushman scraper
+2025-02-06 00:57:12,741 - scraper.cushman - INFO - Starting Cushman & Wakefield property extraction
+2025-02-06 00:57:12,778 - scraper.cushman - INFO - Starting property URL extraction
+2025-02-06 00:57:12,856 - scraper.cushman - INFO - Starting cushman scraper
+2025-02-06 00:57:12,856 - scraper.cushman - INFO - Starting cushman scraper
+2025-02-06 00:57:14,484 - scraper.cushman - INFO - Starting Cushman & Wakefield property extraction
+2025-02-06 00:57:14,484 - scraper.cushman - INFO - Starting Cushman & Wakefield property extraction
+2025-02-06 00:57:14,523 - scraper.cushman - INFO - Starting property URL extraction
+2025-02-06 00:57:14,523 - scraper.cushman - INFO - Starting property URL extraction
+2025-02-06 00:57:23,026 - scraper.cushman - INFO - Found 12 property URLs on page 1
+2025-02-06 00:57:23,026 - scraper.cushman - INFO - Found 12 property URLs on page 1
+2025-02-06 00:57:24,486 - scraper.cushman - INFO - Found 12 property URLs on page 1
+2025-02-06 00:57:24,486 - scraper.cushman - INFO - Found 12 property URLs on page 1
+2025-02-06 00:57:57,658 - scraper.cushman - INFO - Starting cushman scraper
+2025-02-06 00:57:59,155 - scraper.cushman - INFO - Starting Cushman & Wakefield property extraction
+2025-02-06 00:57:59,178 - scraper.cushman - INFO - Starting property URL extraction
+2025-02-06 00:58:08,800 - scraper.cushman - INFO - Found 12 property URLs on page 1
+2025-02-06 00:58:13,662 - scraper.cushman - INFO - Found 12 property URLs on page 2
+2025-02-06 00:58:19,470 - scraper.cushman - INFO - Found 12 property URLs on page 3
+2025-02-06 00:58:25,343 - scraper.cushman - INFO - Found 12 property URLs on page 4
+2025-02-06 00:58:31,202 - scraper.cushman - INFO - Found 12 property URLs on page 5
+2025-02-06 00:58:37,102 - scraper.cushman - INFO - Found 12 property URLs on page 6
+2025-02-06 00:58:42,952 - scraper.cushman - INFO - Found 12 property URLs on page 7
+2025-02-06 00:58:48,866 - scraper.cushman - INFO - Found 12 property URLs on page 8
+2025-02-06 00:58:54,821 - scraper.cushman - INFO - Found 12 property URLs on page 9
+2025-02-06 00:59:00,683 - scraper.cushman - INFO - Found 12 property URLs on page 10
+2025-02-06 00:59:06,608 - scraper.cushman - INFO - Found 12 property URLs on page 11
+2025-02-06 00:59:12,458 - scraper.cushman - INFO - Found 12 property URLs on page 12
+2025-02-06 00:59:18,338 - scraper.cushman - INFO - Found 12 property URLs on page 13
+2025-02-06 00:59:24,198 - scraper.cushman - INFO - Found 12 property URLs on page 14
+2025-02-06 00:59:30,045 - scraper.cushman - INFO - Found 12 property URLs on page 15
+2025-02-06 00:59:35,960 - scraper.cushman - INFO - Found 12 property URLs on page 16
+2025-02-06 00:59:41,842 - scraper.cushman - INFO - Found 12 property URLs on page 17
+2025-02-06 00:59:50,913 - scraper.cushman - INFO - Found 12 property URLs on page 18
+2025-02-06 00:59:56,793 - scraper.cushman - INFO - Found 12 property URLs on page 19
+2025-02-06 01:00:02,850 - scraper.cushman - INFO - Found 12 property URLs on page 20
+2025-02-06 01:00:08,824 - scraper.cushman - INFO - Found 12 property URLs on page 21
+2025-02-06 01:00:14,801 - scraper.cushman - INFO - Found 12 property URLs on page 22
+2025-02-06 01:00:20,644 - scraper.cushman - INFO - Found 12 property URLs on page 23
+2025-02-06 01:00:26,569 - scraper.cushman - INFO - Found 12 property URLs on page 24
+2025-02-06 01:00:32,538 - scraper.cushman - INFO - Found 12 property URLs on page 25
+2025-02-06 01:00:38,500 - scraper.cushman - INFO - Found 12 property URLs on page 26

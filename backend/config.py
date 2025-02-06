@@ -20,43 +20,43 @@ for directory in [DATA_DIR, RESULTS_DIR, LOGS_DIR]:
 SCRAPERS = {
     'cbre': {
         'name': 'CBRE Properties',
-        'class': 'scrapers.cbre.CbreScraper',
+        'class': 'backend.scrapers.cbre.CbreScraper',
         'schedule': '0 0 * * *',  # Run at midnight every day
         'enabled': True
     },
     'cushman': {
         'name': 'Cushman & Wakefield Properties',
-        'class': 'scrapers.cushman.CushmanScraper',
+        'class': 'backend.scrapers.cushman.CushmanScraper',
         'schedule': '0 0 * * *',  # Run at midnight every day
         'enabled': True
     },
     'jll': {
         'name': 'JLL Properties',
-        'class': 'scrapers.jll.JLLScraper',
+        'class': 'backend.scrapers.jll.JLLScraper',
         'schedule': '0 0 * * *',  # Run at midnight every day
         'enabled': True
     },
     'landpark': {
         'name': 'LandPark Properties',
-        'class': 'scrapers.landpark.LandParkScraper',
+        'class': 'backend.scrapers.landpark.LandParkScraper',
         'schedule': '0 0 * * *',  # Run at midnight every day
         'enabled': True
     },
     'lee': {
         'name': 'Lee & Associates Properties',
-        'class': 'scrapers.lee.LeeScraper',
+        'class': 'backend.scrapers.lee.LeeScraper',
         'schedule': '0 0 * * *',  # Run at midnight every day
         'enabled': True
     },
     'lincoln': {
         'name': 'Lincoln Property Company',
-        'class': 'scrapers.lincoln.LincolnScraper',
+        'class': 'backend.scrapers.lincoln.LincolnScraper',
         'schedule': '0 0 * * *',  # Run at midnight every day
         'enabled': True
     },
     'trinity': {
         'name': 'Trinity Partners Properties',
-        'class': 'scrapers.trinity.TrinityScraper',
+        'class': 'backend.scrapers.trinity.TrinityScraper',
         'schedule': '0 0 * * *',  # Run at midnight every day
         'enabled': True
     }

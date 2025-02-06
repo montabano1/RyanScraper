@@ -29,9 +29,7 @@ class LincolnScraper(BaseScraper):
             # Extract details from each property
             all_property_details = await self._extract_property_details(crawler, property_urls)
             
-            # Save results
-            self.save_results(all_property_details)
-            
+            # Return results (base class will handle saving)
             return all_property_details
 
     async def _get_iframe_url(self, crawler):
@@ -321,10 +319,11 @@ class LincolnScraper(BaseScraper):
         for row in soup.select('.js-lease-space-row-toggle.spaces'):
             cells = row.find_all(['th', 'td'])
             if len(cells) >= 5:
+                # Combine address and location for full address
+                full_address = f"{address}, {location}" if location else address
                 unit = {
                     "property_name": property_name,
-                    "address": address,
-                    "location": location,
+                    "address": full_address,
                     "listing_url": f"https://www.lpc.com/properties/properties-search/?propertyId={url.split('propertyId=')[1].split('&')[0]}&tab=spaces",
                     "floor_suite": cells[0].text.strip(),
                     "space_available": cells[2].text.strip(),
