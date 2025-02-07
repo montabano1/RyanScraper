@@ -13,8 +13,10 @@ async def extract_property_urls():
         print(f"\n[{step_name}] Time elapsed: {elapsed}")
     
     browser_config = BrowserConfig(
-        headless=True,
+        headless=False,
         verbose=True,
+        viewport_height=1080,
+        viewport_width=1920,
         ignore_https_errors=True,
         extra_args=[
             '--disable-web-security',
@@ -45,6 +47,8 @@ async def extract_property_urls():
     js_wait1 = """
         await new Promise(r => setTimeout(r, 1500));
         """
+        
+
     
     async with AsyncWebCrawler(config=browser_config, dispatcher=dispatcher) as crawler:
         try:
@@ -81,7 +85,7 @@ async def extract_property_urls():
             print(f"Found {len(current_page_urls)} property URLs on page 1")
             
             page_num = 1
-            while True:
+            while page_num < 2:
                 # Store the current page URLs to compare with next page
                 last_page_urls = current_page_urls
                 
@@ -131,18 +135,35 @@ async def extract_property_urls():
             urls_to_process = list(all_property_urls)
             
             log_time("URL Collection Complete")
-            for link in all_property_urls:
-                print(link)
+
             # Create a run config for property details extraction with streaming enabled
             run_config = CrawlerRunConfig(
                 cache_mode=CacheMode.BYPASS,
+                js_code=js_wait1,
                 page_timeout=300000,
+                wait_for="""js:() => {
+                    return new Promise((resolve) => {
+                        const startTime = Date.now();
+                        const checkCondition = () => {
+                            const blueTitle = document.querySelector('.blue-color-title-div');
+                            if (blueTitle && window.getComputedStyle(blueTitle).display !== 'none') {
+                                resolve(true);
+                            } else if (Date.now() - startTime > 15000) { // 15 seconds timeout
+                                resolve(true);
+                            } else {
+                                setTimeout(checkCondition, 500); // Check every 500ms
+                            }
+                        };
+                        checkCondition();
+                    });
+                }""",
+                delay_before_return_html=5,
                 stream=True  # Process results as they come in
             )
             
             # Set up the memory adaptive dispatcher with more conservative memory settings
             dispatcher = MemoryAdaptiveDispatcher(
-                memory_threshold_percent=60.0,  # Lower threshold to be more conservative
+                memory_threshold_percent=80.0,  # Lower threshold to be more conservative
                 check_interval=0.5,  # Check more frequently
                 max_session_permit=5,  # Reduce concurrent sessions
                 monitor=CrawlerMonitor(
@@ -228,6 +249,10 @@ async def extract_property_urls():
                     
                     # If no availability containers found, try single space info
                     if not units:
+                        if '3-2nd-street' in result.url:
+                            print(f'monteee1 {result.url}')
+                            print(result.html)
+                            print(f'monteee2 ')
                         # Extract details like price and space
                         details_div = soup.find('div', {'class': 'mix_propertyStatistics'})
                         price = "Contact for Details"
