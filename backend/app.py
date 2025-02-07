@@ -1,5 +1,5 @@
 # app.py
-from datetime import datetime, date
+from datetime import datetime, date, timezone
 from flask import Flask, jsonify, request, send_file
 from flask_cors import CORS, cross_origin
 from flask_limiter import Limiter
@@ -89,8 +89,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Initialize scheduler
+# Initialize scheduler and scraper status tracking
 scheduler = BackgroundScheduler(SCHEDULER_CONFIG)
+scraper_status = {}
 
 def load_scraper(scraper_id):
     """Dynamically load scraper module"""
@@ -108,10 +109,13 @@ def load_scraper(scraper_id):
 async def run_scraper(scraper_id):
     """Run a scraper and process results"""
     logger.info(f"Starting scraper: {scraper_id}")
+    scraper_status[scraper_id] = {'state': 'running', 'start_time': datetime.utcnow().isoformat()}
+    
     try:
         scraper_module = load_scraper(scraper_id)
         if not scraper_module:
             logger.error(f"Failed to load scraper: {scraper_id}")
+            scraper_status[scraper_id] = {'state': 'failed', 'error': 'Failed to load scraper'}
             return None
         
         results = await scraper_module.extract_property_urls()
@@ -119,13 +123,17 @@ async def run_scraper(scraper_id):
             # Store results in database
             db.insert_properties(results, scraper_id)
             logger.info(f"Scraper {scraper_id} completed successfully")
+            scraper_status[scraper_id] = {'state': 'completed', 'end_time': datetime.utcnow().isoformat()}
             return True
         else:
             logger.warning(f"Scraper {scraper_id} returned no results")
+            scraper_status[scraper_id] = {'state': 'failed', 'error': 'No results returned'}
             return False
             
     except Exception as e:
-        logger.error(f"Unexpected error in scraper {scraper_id}: {e}", exc_info=True)
+        error_msg = str(e)
+        logger.error(f"Unexpected error in scraper {scraper_id}: {error_msg}", exc_info=True)
+        scraper_status[scraper_id] = {'state': 'failed', 'error': error_msg}
         return False
 
 # Set up scheduled jobs
@@ -190,6 +198,9 @@ def get_properties():
             'message': str(e)
         }), 500
 
+# Create a background task pool
+background_tasks = {}
+
 @app.route('/api/scrapers/<scraper_id>/run', methods=['POST'])
 @limiter.limit("5 per minute")
 def trigger_scraper(scraper_id):
@@ -201,11 +212,49 @@ def trigger_scraper(scraper_id):
         if not SCRAPERS[scraper_id].get('enabled', True):
             return jsonify({'error': 'Scraper is disabled'}), 400
 
-        # Run scraper asynchronously
-        asyncio.run(run_scraper(scraper_id))
+        # Check if scraper is already running
+        current_status = scraper_status.get(scraper_id, {})
+        if current_status.get('state') == 'running':
+            return jsonify({'error': 'Scraper is already running'}), 400
+
+        # Set initial status
+        scraper_status[scraper_id] = {'state': 'running', 'start_time': datetime.utcnow().isoformat()}
+
+        # Create a new event loop for this task
+        loop = asyncio.new_event_loop()
+        
+        def run_scraper_task():
+            asyncio.set_event_loop(loop)
+            try:
+                loop.run_until_complete(run_scraper(scraper_id))
+            finally:
+                loop.close()
+        
+        # Start the scraper in a separate thread
+        import threading
+        thread = threading.Thread(target=run_scraper_task)
+        thread.start()
+        
+        # Store the thread in background tasks
+        background_tasks[scraper_id] = thread
+        
         return jsonify({'status': 'started'})
     except Exception as e:
         logger.error(f"Error triggering scraper {scraper_id}: {e}", exc_info=True)
+        scraper_status[scraper_id] = {'state': 'failed', 'error': str(e)}
+        return jsonify({'error': 'Internal server error'}), 500
+
+@app.route('/api/scrapers/<scraper_id>/status', methods=['GET'])
+def get_scraper_status(scraper_id):
+    """Get the current status of a scraper"""
+    try:
+        if scraper_id not in SCRAPERS:
+            return jsonify({'error': 'Invalid scraper ID'}), 404
+
+        status = scraper_status.get(scraper_id, {'state': 'idle'})
+        return jsonify(status)
+    except Exception as e:
+        logger.error(f"Error getting scraper status {scraper_id}: {e}", exc_info=True)
         return jsonify({'error': 'Internal server error'}), 500
 
 

@@ -50,16 +50,55 @@ const Dashboard = () => {
   };
 
   const runScraper = async (scraperId) => {
+    // Prevent running if scraper is already running
+    if (runningScrapers.includes(scraperId)) {
+      console.log('Scraper already running');
+      return;
+    }
+
+    // Immediately update UI to show scraper is running
+    setRunningScrapers(prev => [...prev, scraperId]);
+
     try {
       const response = await fetch(`${getApiBaseUrl()}/scrapers/${scraperId}/run`, {
         method: 'POST'
       });
-      if (!response.ok) throw new Error('Failed to run scraper');
-      setRunningScrapers(prev => [...prev, scraperId]);
-      // Refresh properties after scraper runs
-      setTimeout(fetchProperties, 5000);
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || 'Failed to run scraper');
+      }
+      
+      // Start polling for updates
+      const pollInterval = setInterval(async () => {
+        try {
+          const statusResponse = await fetch(`${getApiBaseUrl()}/scrapers/${scraperId}/status`);
+          if (!statusResponse.ok) {
+            throw new Error('Failed to get scraper status');
+          }
+          
+          const status = await statusResponse.json();
+          console.log(`Scraper ${scraperId} status:`, status);
+          
+          if (status.state === 'completed' || status.state === 'failed') {
+            clearInterval(pollInterval);
+            setRunningScrapers(prev => prev.filter(id => id !== scraperId));
+            await fetchProperties();
+            
+            if (status.state === 'failed') {
+              console.error(`Scraper ${scraperId} failed:`, status.error);
+            }
+          }
+        } catch (pollError) {
+          console.error('Error polling scraper status:', pollError);
+          clearInterval(pollInterval);
+          setRunningScrapers(prev => prev.filter(id => id !== scraperId));
+        }
+      }, 2000); // Poll every 2 seconds for more responsive updates
+
     } catch (err) {
       console.error('Error running scraper:', err);
+      // Remove from running scrapers if there's an error
+      setRunningScrapers(prev => prev.filter(id => id !== scraperId));
     }
   };
 
