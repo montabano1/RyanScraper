@@ -66,9 +66,7 @@ async def extract_property_urls():
                 simulate_user=True,
                 override_navigator=True,
                 remove_overlay_elements=True,
-                magic=True,
-                cleanup_dom=True,  # Clean up DOM after extraction
-                max_retries=2      # Limit retries
+                magic=True
             )
             result1 = await crawler.arun(
                 url=current_url,
@@ -98,8 +96,9 @@ async def extract_property_urls():
                 gc.collect()
                 
                 config_next = CrawlerRunConfig(
-                    session_id=session_id,
+                    # session_id=session_id,
                     js_code=js_wait1,
+                    # js_only=True,      
                     wait_for="""js:() => {
                         return document.querySelectorAll('div.CoveoResult').length > 1;
                     }""",
@@ -107,9 +106,7 @@ async def extract_property_urls():
                     page_timeout=30000,  # Reduced timeout
                     simulate_user=True,
                     override_navigator=True,
-                    magic=True,
-                    cleanup_dom=True,    # Clean up DOM after extraction
-                    max_retries=2        # Limit retries
+                    magic=True
                 )
                 result2 = await crawler.arun(
                     url=f'https://www.cushmanwakefield.com/en/united-states/properties/lease/lease-property-search#first={page_num * 12}&sort=%40propertylastupdateddate%20ascending&f:PropertyType=[Office]&f:Country=[United%20States]',
