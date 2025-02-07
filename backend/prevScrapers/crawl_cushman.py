@@ -34,7 +34,7 @@ async def extract_property_urls():
     dispatcher = MemoryAdaptiveDispatcher(
         memory_threshold_percent=90,  # Pause when memory usage hits 90%
         check_interval=1,            # Check every 1 second
-        max_session_permit=20,       # Allow up to 20 concurrent sessions
+        max_session_permit=5,       # Allow up to 20 concurrent sessions
         memory_wait_timeout=300      # Wait up to 300 seconds for memory to free up
     )
     
