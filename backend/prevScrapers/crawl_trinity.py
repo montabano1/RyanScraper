@@ -1,7 +1,7 @@
 import asyncio
 import json
 import arrow
-from datetime import datetime
+from datetime import datetime, timezone
 from bs4 import BeautifulSoup
 from crawl4ai import AsyncWebCrawler, BrowserConfig, CrawlerRunConfig, CacheMode, MemoryAdaptiveDispatcher, CrawlerMonitor, DisplayMode
 
@@ -330,13 +330,12 @@ async def extract_property_urls():
                         if len(cells) >= 5:
                             unit = {
                                 "property_name": property_name,
-                                "address": address,
-                                "location": location,
+                                "address": f"{address}, {location}",
                                 "listing_url": f"https://www.lpc.com/properties/properties-search/?propertyId={result.url.split('propertyId=')[1].split('&')[0]}&tab=spaces",
                                 "floor_suite": cells[0].text.strip(),
                                 "space_available": cells[2].text.strip(),
                                 "price": cells[3].text.strip(),
-                                "updated_at": arrow.now().format('h:mm:ssA M/D/YY')
+                                "updated_at": datetime.now(timezone.utc).isoformat()
                             }
                             units.append(unit)
                     

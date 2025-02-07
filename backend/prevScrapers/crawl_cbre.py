@@ -2,6 +2,7 @@ import asyncio
 import json
 import arrow
 from bs4 import BeautifulSoup
+from datetime import datetime, timezone
 from crawl4ai import AsyncWebCrawler, BrowserConfig, CrawlerRunConfig, CacheMode, MemoryAdaptiveDispatcher, CrawlerMonitor, DisplayMode
 
 async def extract_property_urls():
@@ -204,7 +205,7 @@ async def extract_property_urls():
                                     "floor_suite": name_elem.text.strip(),
                                     "space_available": space_available,
                                     "price": price,
-                                    "updated_at": arrow.now().format('h:mm:ssA M/D/YY')
+                                    "updated_at": datetime.now(timezone.utc).isoformat()
                                 }
                                 units.append(unit)
                     
@@ -243,7 +244,7 @@ async def extract_property_urls():
                             "floor_suite": "",  # No floor/suite info in alternative layout
                             "space_available": space_available,
                             "price": price,
-                            "updated_at": arrow.now().format('h:mm:ssA M/D/YY')
+                            "updated_at": datetime.now(timezone.utc).isoformat()
                         }
                         units.append(unit)
                     
