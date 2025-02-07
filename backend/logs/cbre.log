@@ -578,3 +578,1700 @@ Traceback (most recent call last):
 UnboundLocalError: cannot access local variable 'space_available' where it is not associated with a value
 2025-02-06 12:57:47,228 - scraper.cbre - INFO - Extracted 13 total units from 4957 properties
 2025-02-06 12:57:49,505 - scraper.cbre - INFO - Stored 13 properties in database
+2025-02-06 13:07:37,896 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-06 13:07:39,183 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-06 13:07:39,184 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-06 13:07:48,742 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-06 13:07:50,357 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-06 13:07:51,844 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-06 13:07:53,466 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-06 13:07:55,064 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-06 13:07:56,562 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-06 13:07:58,099 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-06 13:07:59,654 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-06 13:08:01,137 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-06 13:08:02,663 - scraper.cbre - INFO - Found 24 property URLs on page 10
+2025-02-06 13:08:04,211 - scraper.cbre - INFO - Found 24 property URLs on page 11
+2025-02-06 13:08:05,654 - scraper.cbre - INFO - Found 24 property URLs on page 12
+2025-02-06 13:08:07,264 - scraper.cbre - INFO - Found 24 property URLs on page 13
+2025-02-06 13:08:08,763 - scraper.cbre - INFO - Found 24 property URLs on page 14
+2025-02-06 13:08:10,124 - scraper.cbre - INFO - Found 24 property URLs on page 15
+2025-02-06 13:08:11,451 - scraper.cbre - INFO - Found 24 property URLs on page 16
+2025-02-06 13:08:12,685 - scraper.cbre - INFO - Found 24 property URLs on page 17
+2025-02-06 13:08:13,989 - scraper.cbre - INFO - Found 24 property URLs on page 18
+2025-02-06 13:08:15,215 - scraper.cbre - INFO - Found 24 property URLs on page 19
+2025-02-06 13:08:16,527 - scraper.cbre - INFO - Found 24 property URLs on page 20
+2025-02-06 13:08:17,852 - scraper.cbre - INFO - Found 24 property URLs on page 21
+2025-02-06 13:08:19,088 - scraper.cbre - INFO - Found 24 property URLs on page 22
+2025-02-06 13:08:20,420 - scraper.cbre - INFO - Found 24 property URLs on page 23
+2025-02-06 13:08:21,630 - scraper.cbre - INFO - Found 24 property URLs on page 24
+2025-02-06 13:08:22,936 - scraper.cbre - INFO - Found 24 property URLs on page 25
+2025-02-06 13:08:24,298 - scraper.cbre - INFO - Found 24 property URLs on page 26
+2025-02-06 13:08:25,502 - scraper.cbre - INFO - Found 24 property URLs on page 27
+2025-02-06 13:08:26,813 - scraper.cbre - INFO - Found 24 property URLs on page 28
+2025-02-06 13:08:28,010 - scraper.cbre - INFO - Found 24 property URLs on page 29
+2025-02-06 13:08:29,316 - scraper.cbre - INFO - Found 24 property URLs on page 30
+2025-02-06 13:08:30,514 - scraper.cbre - INFO - Found 24 property URLs on page 31
+2025-02-06 13:08:31,822 - scraper.cbre - INFO - Found 24 property URLs on page 32
+2025-02-06 13:08:33,155 - scraper.cbre - INFO - Found 24 property URLs on page 33
+2025-02-06 13:08:34,389 - scraper.cbre - INFO - Found 24 property URLs on page 34
+2025-02-06 13:08:35,723 - scraper.cbre - INFO - Found 24 property URLs on page 35
+2025-02-06 13:08:36,990 - scraper.cbre - INFO - Found 24 property URLs on page 36
+2025-02-06 13:08:38,304 - scraper.cbre - INFO - Found 24 property URLs on page 37
+2025-02-06 13:08:39,629 - scraper.cbre - INFO - Found 24 property URLs on page 38
+2025-02-06 13:08:40,839 - scraper.cbre - INFO - Found 24 property URLs on page 39
+2025-02-06 13:08:42,152 - scraper.cbre - INFO - Found 24 property URLs on page 40
+2025-02-06 13:08:43,355 - scraper.cbre - INFO - Found 24 property URLs on page 41
+2025-02-06 13:08:44,662 - scraper.cbre - INFO - Found 24 property URLs on page 42
+2025-02-06 13:08:45,893 - scraper.cbre - INFO - Found 24 property URLs on page 43
+2025-02-06 13:08:47,193 - scraper.cbre - INFO - Found 24 property URLs on page 44
+2025-02-06 13:08:48,504 - scraper.cbre - INFO - Found 24 property URLs on page 45
+2025-02-06 13:08:49,714 - scraper.cbre - INFO - Found 24 property URLs on page 46
+2025-02-06 13:08:51,014 - scraper.cbre - INFO - Found 24 property URLs on page 47
+2025-02-06 13:08:52,212 - scraper.cbre - INFO - Found 24 property URLs on page 48
+2025-02-06 13:08:53,511 - scraper.cbre - INFO - Found 24 property URLs on page 49
+2025-02-06 13:08:54,831 - scraper.cbre - INFO - Found 24 property URLs on page 50
+2025-02-06 13:08:56,077 - scraper.cbre - INFO - Found 24 property URLs on page 51
+2025-02-06 13:08:57,422 - scraper.cbre - INFO - Found 24 property URLs on page 52
+2025-02-06 13:08:58,612 - scraper.cbre - INFO - Found 24 property URLs on page 53
+2025-02-06 13:08:59,952 - scraper.cbre - INFO - Found 24 property URLs on page 54
+2025-02-06 13:09:01,251 - scraper.cbre - INFO - Found 24 property URLs on page 55
+2025-02-06 13:09:02,456 - scraper.cbre - INFO - Found 24 property URLs on page 56
+2025-02-06 13:09:03,754 - scraper.cbre - INFO - Found 24 property URLs on page 57
+2025-02-06 13:09:04,994 - scraper.cbre - INFO - Found 24 property URLs on page 58
+2025-02-06 13:09:06,294 - scraper.cbre - INFO - Found 24 property URLs on page 59
+2025-02-06 13:09:07,497 - scraper.cbre - INFO - Found 24 property URLs on page 60
+2025-02-06 13:09:08,812 - scraper.cbre - INFO - Found 24 property URLs on page 61
+2025-02-06 13:09:10,125 - scraper.cbre - INFO - Found 24 property URLs on page 62
+2025-02-06 13:09:11,346 - scraper.cbre - INFO - Found 24 property URLs on page 63
+2025-02-06 13:09:12,646 - scraper.cbre - INFO - Found 24 property URLs on page 64
+2025-02-06 13:09:13,905 - scraper.cbre - INFO - Found 24 property URLs on page 65
+2025-02-06 13:09:15,230 - scraper.cbre - INFO - Found 24 property URLs on page 66
+2025-02-06 13:09:16,444 - scraper.cbre - INFO - Found 24 property URLs on page 67
+2025-02-06 13:09:17,775 - scraper.cbre - INFO - Found 24 property URLs on page 68
+2025-02-06 13:09:18,997 - scraper.cbre - INFO - Found 24 property URLs on page 69
+2025-02-06 13:09:20,302 - scraper.cbre - INFO - Found 24 property URLs on page 70
+2025-02-06 13:09:21,510 - scraper.cbre - INFO - Found 24 property URLs on page 71
+2025-02-06 13:09:22,826 - scraper.cbre - INFO - Found 24 property URLs on page 72
+2025-02-06 13:09:24,163 - scraper.cbre - INFO - Found 24 property URLs on page 73
+2025-02-06 13:09:25,376 - scraper.cbre - INFO - Found 24 property URLs on page 74
+2025-02-06 13:09:26,679 - scraper.cbre - INFO - Found 24 property URLs on page 75
+2025-02-06 13:09:27,875 - scraper.cbre - INFO - Found 24 property URLs on page 76
+2025-02-06 13:09:29,214 - scraper.cbre - INFO - Found 24 property URLs on page 77
+2025-02-06 13:09:30,471 - scraper.cbre - INFO - Found 24 property URLs on page 78
+2025-02-06 13:09:31,812 - scraper.cbre - INFO - Found 24 property URLs on page 79
+2025-02-06 13:09:33,057 - scraper.cbre - INFO - Found 24 property URLs on page 80
+2025-02-06 13:09:34,403 - scraper.cbre - INFO - Found 24 property URLs on page 81
+2025-02-06 13:09:35,615 - scraper.cbre - INFO - Found 24 property URLs on page 82
+2025-02-06 13:09:36,923 - scraper.cbre - INFO - Found 24 property URLs on page 83
+2025-02-06 13:09:38,144 - scraper.cbre - INFO - Found 24 property URLs on page 84
+2025-02-06 13:09:39,454 - scraper.cbre - INFO - Found 24 property URLs on page 85
+2025-02-06 13:09:40,646 - scraper.cbre - INFO - Found 24 property URLs on page 86
+2025-02-06 13:09:41,999 - scraper.cbre - INFO - Found 24 property URLs on page 87
+2025-02-06 13:09:43,245 - scraper.cbre - INFO - Found 24 property URLs on page 88
+2025-02-06 13:09:44,599 - scraper.cbre - INFO - Found 24 property URLs on page 89
+2025-02-06 13:09:45,860 - scraper.cbre - INFO - Found 24 property URLs on page 90
+2025-02-06 13:09:47,253 - scraper.cbre - INFO - Found 24 property URLs on page 91
+2025-02-06 13:09:48,482 - scraper.cbre - INFO - Found 24 property URLs on page 92
+2025-02-06 13:09:49,835 - scraper.cbre - INFO - Found 24 property URLs on page 93
+2025-02-06 13:09:51,034 - scraper.cbre - INFO - Found 24 property URLs on page 94
+2025-02-06 13:09:52,350 - scraper.cbre - INFO - Found 24 property URLs on page 95
+2025-02-06 13:09:53,683 - scraper.cbre - INFO - Found 24 property URLs on page 96
+2025-02-06 13:09:54,923 - scraper.cbre - INFO - Found 24 property URLs on page 97
+2025-02-06 13:09:56,233 - scraper.cbre - INFO - Found 24 property URLs on page 98
+2025-02-06 13:09:57,439 - scraper.cbre - INFO - Found 24 property URLs on page 99
+2025-02-06 13:09:58,785 - scraper.cbre - INFO - Found 24 property URLs on page 100
+2025-02-06 13:09:59,992 - scraper.cbre - INFO - Found 24 property URLs on page 101
+2025-02-06 13:10:01,327 - scraper.cbre - INFO - Found 24 property URLs on page 102
+2025-02-06 13:10:02,520 - scraper.cbre - INFO - Found 24 property URLs on page 103
+2025-02-06 13:10:03,867 - scraper.cbre - INFO - Found 24 property URLs on page 104
+2025-02-06 13:10:05,065 - scraper.cbre - INFO - Found 24 property URLs on page 105
+2025-02-06 13:10:06,408 - scraper.cbre - INFO - Found 24 property URLs on page 106
+2025-02-06 13:10:07,620 - scraper.cbre - INFO - Found 24 property URLs on page 107
+2025-02-06 13:10:08,942 - scraper.cbre - INFO - Found 24 property URLs on page 108
+2025-02-06 13:10:10,159 - scraper.cbre - INFO - Found 24 property URLs on page 109
+2025-02-06 13:10:11,519 - scraper.cbre - INFO - Found 24 property URLs on page 110
+2025-02-06 13:10:12,709 - scraper.cbre - INFO - Found 24 property URLs on page 111
+2025-02-06 13:10:14,037 - scraper.cbre - INFO - Found 24 property URLs on page 112
+2025-02-06 13:10:15,333 - scraper.cbre - INFO - Found 24 property URLs on page 113
+2025-02-06 13:10:16,685 - scraper.cbre - INFO - Found 24 property URLs on page 114
+2025-02-06 13:10:17,956 - scraper.cbre - INFO - Found 24 property URLs on page 115
+2025-02-06 13:10:19,326 - scraper.cbre - INFO - Found 24 property URLs on page 116
+2025-02-06 13:10:20,571 - scraper.cbre - INFO - Found 24 property URLs on page 117
+2025-02-06 13:10:21,938 - scraper.cbre - INFO - Found 24 property URLs on page 118
+2025-02-06 13:10:23,207 - scraper.cbre - INFO - Found 24 property URLs on page 119
+2025-02-06 13:10:24,570 - scraper.cbre - INFO - Found 24 property URLs on page 120
+2025-02-06 13:10:25,790 - scraper.cbre - INFO - Found 24 property URLs on page 121
+2025-02-06 13:10:27,119 - scraper.cbre - INFO - Found 24 property URLs on page 122
+2025-02-06 13:10:28,401 - scraper.cbre - INFO - Found 24 property URLs on page 123
+2025-02-06 13:10:29,741 - scraper.cbre - INFO - Found 24 property URLs on page 124
+2025-02-06 13:10:30,926 - scraper.cbre - INFO - Found 24 property URLs on page 125
+2025-02-06 13:10:32,294 - scraper.cbre - INFO - Found 24 property URLs on page 126
+2025-02-06 13:10:33,515 - scraper.cbre - INFO - Found 24 property URLs on page 127
+2025-02-06 13:10:34,857 - scraper.cbre - INFO - Found 24 property URLs on page 128
+2025-02-06 13:10:36,074 - scraper.cbre - INFO - Found 24 property URLs on page 129
+2025-02-06 13:10:37,373 - scraper.cbre - INFO - Found 24 property URLs on page 130
+2025-02-06 13:10:38,572 - scraper.cbre - INFO - Found 24 property URLs on page 131
+2025-02-06 13:10:39,894 - scraper.cbre - INFO - Found 24 property URLs on page 132
+2025-02-06 13:10:41,104 - scraper.cbre - INFO - Found 24 property URLs on page 133
+2025-02-06 13:10:42,430 - scraper.cbre - INFO - Found 24 property URLs on page 134
+2025-02-06 13:10:43,626 - scraper.cbre - INFO - Found 24 property URLs on page 135
+2025-02-06 13:10:44,994 - scraper.cbre - INFO - Found 24 property URLs on page 136
+2025-02-06 13:10:46,268 - scraper.cbre - INFO - Found 24 property URLs on page 137
+2025-02-06 13:10:47,602 - scraper.cbre - INFO - Found 24 property URLs on page 138
+2025-02-06 13:10:48,831 - scraper.cbre - INFO - Found 24 property URLs on page 139
+2025-02-06 13:10:50,035 - scraper.cbre - INFO - Found 24 property URLs on page 140
+2025-02-06 13:10:51,408 - scraper.cbre - INFO - Found 24 property URLs on page 141
+2025-02-06 13:10:52,630 - scraper.cbre - INFO - Found 24 property URLs on page 142
+2025-02-06 13:10:53,971 - scraper.cbre - INFO - Found 24 property URLs on page 143
+2025-02-06 13:10:55,159 - scraper.cbre - INFO - Found 24 property URLs on page 144
+2025-02-06 13:10:56,506 - scraper.cbre - INFO - Found 24 property URLs on page 145
+2025-02-06 13:10:57,732 - scraper.cbre - INFO - Found 24 property URLs on page 146
+2025-02-06 13:10:59,120 - scraper.cbre - INFO - Found 24 property URLs on page 147
+2025-02-06 13:11:00,351 - scraper.cbre - INFO - Found 24 property URLs on page 148
+2025-02-06 13:11:01,732 - scraper.cbre - INFO - Found 24 property URLs on page 149
+2025-02-06 13:11:02,978 - scraper.cbre - INFO - Found 24 property URLs on page 150
+2025-02-06 13:11:04,217 - scraper.cbre - INFO - Found 24 property URLs on page 151
+2025-02-06 13:11:05,588 - scraper.cbre - INFO - Found 24 property URLs on page 152
+2025-02-06 13:11:06,817 - scraper.cbre - INFO - Found 24 property URLs on page 153
+2025-02-06 13:11:08,169 - scraper.cbre - INFO - Found 24 property URLs on page 154
+2025-02-06 13:11:09,352 - scraper.cbre - INFO - Found 24 property URLs on page 155
+2025-02-06 13:11:10,690 - scraper.cbre - INFO - Found 24 property URLs on page 156
+2025-02-06 13:11:11,937 - scraper.cbre - INFO - Found 24 property URLs on page 157
+2025-02-06 13:11:13,264 - scraper.cbre - INFO - Found 24 property URLs on page 158
+2025-02-06 13:11:14,466 - scraper.cbre - INFO - Found 24 property URLs on page 159
+2025-02-06 13:11:15,855 - scraper.cbre - INFO - Found 24 property URLs on page 160
+2025-02-06 13:11:17,110 - scraper.cbre - INFO - Found 24 property URLs on page 161
+2025-02-06 13:11:18,365 - scraper.cbre - INFO - Found 24 property URLs on page 162
+2025-02-06 13:11:19,758 - scraper.cbre - INFO - Found 24 property URLs on page 163
+2025-02-06 13:11:20,952 - scraper.cbre - INFO - Found 24 property URLs on page 164
+2025-02-06 13:11:22,291 - scraper.cbre - INFO - Found 24 property URLs on page 165
+2025-02-06 13:11:23,524 - scraper.cbre - INFO - Found 24 property URLs on page 166
+2025-02-06 13:11:24,896 - scraper.cbre - INFO - Found 24 property URLs on page 167
+2025-02-06 13:11:26,147 - scraper.cbre - INFO - Found 24 property URLs on page 168
+2025-02-06 13:11:27,485 - scraper.cbre - INFO - Found 24 property URLs on page 169
+2025-02-06 13:11:28,672 - scraper.cbre - INFO - Found 24 property URLs on page 170
+2025-02-06 13:11:29,867 - scraper.cbre - INFO - Found 24 property URLs on page 171
+2025-02-06 13:11:31,207 - scraper.cbre - INFO - Found 24 property URLs on page 172
+2025-02-06 13:11:32,456 - scraper.cbre - INFO - Found 24 property URLs on page 173
+2025-02-06 13:11:33,831 - scraper.cbre - INFO - Found 24 property URLs on page 174
+2025-02-06 13:11:35,022 - scraper.cbre - INFO - Found 24 property URLs on page 175
+2025-02-06 13:11:36,357 - scraper.cbre - INFO - Found 24 property URLs on page 176
+2025-02-06 13:11:37,581 - scraper.cbre - INFO - Found 24 property URLs on page 177
+2025-02-06 13:11:38,958 - scraper.cbre - INFO - Found 24 property URLs on page 178
+2025-02-06 13:11:40,174 - scraper.cbre - INFO - Found 24 property URLs on page 179
+2025-02-06 13:11:41,382 - scraper.cbre - INFO - Found 24 property URLs on page 180
+2025-02-06 13:11:42,743 - scraper.cbre - INFO - Found 24 property URLs on page 181
+2025-02-06 13:11:43,944 - scraper.cbre - INFO - Found 24 property URLs on page 182
+2025-02-06 13:11:45,361 - scraper.cbre - INFO - Found 24 property URLs on page 183
+2025-02-06 13:11:46,565 - scraper.cbre - INFO - Found 24 property URLs on page 184
+2025-02-06 13:11:48,035 - scraper.cbre - INFO - Found 24 property URLs on page 185
+2025-02-06 13:11:49,273 - scraper.cbre - INFO - Found 24 property URLs on page 186
+2025-02-06 13:11:50,630 - scraper.cbre - INFO - Found 24 property URLs on page 187
+2025-02-06 13:11:51,883 - scraper.cbre - INFO - Found 24 property URLs on page 188
+2025-02-06 13:11:53,220 - scraper.cbre - INFO - Found 24 property URLs on page 189
+2025-02-06 13:11:54,690 - scraper.cbre - INFO - Found 24 property URLs on page 190
+2025-02-06 13:11:55,992 - scraper.cbre - INFO - Found 24 property URLs on page 191
+2025-02-06 13:11:57,393 - scraper.cbre - INFO - Found 24 property URLs on page 192
+2025-02-06 13:11:58,626 - scraper.cbre - INFO - Found 24 property URLs on page 193
+2025-02-06 13:12:00,004 - scraper.cbre - INFO - Found 24 property URLs on page 194
+2025-02-06 13:12:01,233 - scraper.cbre - INFO - Found 24 property URLs on page 195
+2025-02-06 13:12:02,628 - scraper.cbre - INFO - Found 24 property URLs on page 196
+2025-02-06 13:12:03,850 - scraper.cbre - INFO - Found 24 property URLs on page 197
+2025-02-06 13:12:05,073 - scraper.cbre - INFO - Found 24 property URLs on page 198
+2025-02-06 13:12:06,463 - scraper.cbre - INFO - Found 24 property URLs on page 199
+2025-02-06 13:12:07,652 - scraper.cbre - INFO - Found 24 property URLs on page 200
+2025-02-06 13:12:08,982 - scraper.cbre - INFO - Found 24 property URLs on page 201
+2025-02-06 13:12:10,191 - scraper.cbre - INFO - Found 24 property URLs on page 202
+2025-02-06 13:12:11,547 - scraper.cbre - INFO - Found 24 property URLs on page 203
+2025-02-06 13:12:12,760 - scraper.cbre - INFO - Found 24 property URLs on page 204
+2025-02-06 13:12:13,955 - scraper.cbre - INFO - Found 24 property URLs on page 205
+2025-02-06 13:12:15,370 - scraper.cbre - INFO - Found 24 property URLs on page 206
+2025-02-06 13:12:16,561 - scraper.cbre - INFO - Found 14 property URLs on page 207
+2025-02-06 13:12:16,571 - scraper.cbre - INFO - Total unique properties found: 4957
+2025-02-06 13:12:16,572 - scraper.cbre - INFO - Found 4957 properties to process
+2025-02-06 13:12:16,573 - scraper.cbre - INFO - Starting property detail extraction for 4957 properties
+2025-02-06 13:12:34,416 - scraper.cbre - ERROR - Error processing stream: cannot access local variable 'space_available' where it is not associated with a value
+Traceback (most recent call last):
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 387, in _extract_property_details
+    units = self._parse_property_page(result.html, result.url)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 491, in _parse_property_page
+    "space_available": space_available,
+                       ^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'space_available' where it is not associated with a value
+2025-02-06 13:12:34,416 - scraper.cbre - INFO - Extracted 20 total units from 4957 properties
+2025-02-06 13:12:35,419 - scraper.cbre - ERROR - Error in cbre scraper: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'new_values' column of 'property_changes' in the schema cache"}
+Traceback (most recent call last):
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/base.py", line 87, in run
+    self.db.insert_properties(results, self.scraper_id)
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/database.py", line 47, in insert_properties
+    }).execute()
+       ^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'new_values' column of 'property_changes' in the schema cache"}
+2025-02-06 17:55:31,603 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-06 17:55:36,504 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-06 17:55:36,530 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-06 18:07:04,784 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-06 18:07:06,071 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-06 18:07:06,108 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-06 18:07:17,530 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-06 18:07:19,145 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-06 18:07:20,710 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-06 18:07:22,748 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-06 18:07:24,716 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-06 18:07:26,349 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-06 18:07:28,092 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-06 18:07:30,350 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-06 18:07:31,953 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-06 18:07:33,738 - scraper.cbre - INFO - Found 24 property URLs on page 10
+2025-02-06 18:07:35,786 - scraper.cbre - INFO - Found 24 property URLs on page 11
+2025-02-06 18:07:38,126 - scraper.cbre - INFO - Found 24 property URLs on page 12
+2025-02-06 18:07:40,098 - scraper.cbre - INFO - Found 24 property URLs on page 13
+2025-02-06 18:07:41,626 - scraper.cbre - INFO - Found 24 property URLs on page 14
+2025-02-06 18:07:43,286 - scraper.cbre - INFO - Found 24 property URLs on page 15
+2025-02-06 18:07:45,060 - scraper.cbre - INFO - Found 24 property URLs on page 16
+2025-02-06 18:08:46,483 - scraper.cbre - INFO - Found 0 property URLs on page 17
+2025-02-06 18:09:47,889 - scraper.cbre - INFO - Found 0 property URLs on page 18
+2025-02-06 18:10:49,273 - scraper.cbre - INFO - Found 0 property URLs on page 19
+2025-02-06 18:12:34,715 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-06 18:12:36,065 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-06 18:12:36,065 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-06 18:12:44,041 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-06 18:12:46,652 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-06 18:12:49,189 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-06 18:12:51,809 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-06 18:12:54,428 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-06 18:12:57,061 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-06 18:12:59,686 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-06 18:13:02,269 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-06 18:13:04,782 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-06 18:13:07,553 - scraper.cbre - INFO - Found 24 property URLs on page 10
+2025-02-06 18:13:10,184 - scraper.cbre - INFO - Found 24 property URLs on page 11
+2025-02-06 18:13:13,036 - scraper.cbre - INFO - Found 0 property URLs on page 12
+2025-02-06 18:13:18,512 - scraper.cbre - ERROR - Failed to load page 13: Unexpected error in _crawl_web at line 528 in wrap_api_call (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/playwright/_impl/_connection.py):
+Error: Page.content: Target page, context or browser has been closed
+
+Code context:
+ 523           parsed_st = _extract_stack_trace_information_from_stack(st, is_internal)
+ 524           self._api_zone.set(parsed_st)
+ 525           try:
+ 526               return await cb()
+ 527           except Exception as error:
+ 528 →             raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+ 529           finally:
+ 530               self._api_zone.set(None)
+ 531   
+ 532       def wrap_api_call_sync(
+ 533           self, cb: Callable[[], Any], is_internal: bool = False
+2025-02-06 18:13:18,512 - scraper.cbre - INFO - Total unique properties found: 263
+2025-02-06 18:13:18,513 - scraper.cbre - INFO - Found 263 properties to process
+2025-02-06 18:13:18,513 - scraper.cbre - INFO - Starting property detail extraction for 263 properties
+2025-02-06 18:13:46,909 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-06 18:13:48,198 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-06 18:13:48,218 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-06 18:13:56,019 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-06 18:13:58,606 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-06 18:14:01,082 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-06 18:14:03,662 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-06 18:14:06,253 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-06 18:14:08,740 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-06 18:14:11,303 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-06 18:14:13,894 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-06 18:14:16,397 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-06 18:14:18,939 - scraper.cbre - INFO - Found 24 property URLs on page 10
+2025-02-06 18:14:21,504 - scraper.cbre - INFO - Found 24 property URLs on page 11
+2025-02-06 18:14:23,959 - scraper.cbre - INFO - Found 24 property URLs on page 12
+2025-02-06 18:14:26,492 - scraper.cbre - INFO - Found 24 property URLs on page 13
+2025-02-06 18:14:28,921 - scraper.cbre - INFO - Found 24 property URLs on page 14
+2025-02-06 18:14:31,466 - scraper.cbre - INFO - Found 24 property URLs on page 15
+2025-02-06 18:14:34,058 - scraper.cbre - INFO - Found 24 property URLs on page 16
+2025-02-06 18:14:36,509 - scraper.cbre - INFO - Found 24 property URLs on page 17
+2025-02-06 18:14:39,014 - scraper.cbre - INFO - Found 24 property URLs on page 18
+2025-02-06 18:14:41,525 - scraper.cbre - INFO - Found 24 property URLs on page 19
+2025-02-06 18:14:44,020 - scraper.cbre - INFO - Found 24 property URLs on page 20
+2025-02-06 18:14:46,558 - scraper.cbre - INFO - Found 24 property URLs on page 21
+2025-02-06 18:14:49,000 - scraper.cbre - INFO - Found 24 property URLs on page 22
+2025-02-06 18:14:51,543 - scraper.cbre - INFO - Found 24 property URLs on page 23
+2025-02-06 18:14:54,083 - scraper.cbre - INFO - Found 24 property URLs on page 24
+2025-02-06 18:14:56,525 - scraper.cbre - INFO - Found 24 property URLs on page 25
+2025-02-06 18:14:59,034 - scraper.cbre - INFO - Found 24 property URLs on page 26
+2025-02-06 18:15:01,486 - scraper.cbre - INFO - Found 24 property URLs on page 27
+2025-02-06 18:15:04,019 - scraper.cbre - INFO - Found 24 property URLs on page 28
+2025-02-06 18:15:06,575 - scraper.cbre - INFO - Found 24 property URLs on page 29
+2025-02-06 18:15:08,997 - scraper.cbre - INFO - Found 24 property URLs on page 30
+2025-02-06 18:15:11,518 - scraper.cbre - INFO - Found 24 property URLs on page 31
+2025-02-06 18:15:13,961 - scraper.cbre - INFO - Found 24 property URLs on page 32
+2025-02-06 18:15:16,576 - scraper.cbre - INFO - Found 24 property URLs on page 33
+2025-02-06 18:15:18,996 - scraper.cbre - INFO - Found 24 property URLs on page 34
+2025-02-06 18:15:21,537 - scraper.cbre - INFO - Found 24 property URLs on page 35
+2025-02-06 18:15:24,067 - scraper.cbre - INFO - Found 24 property URLs on page 36
+2025-02-06 18:15:26,520 - scraper.cbre - INFO - Found 24 property URLs on page 37
+2025-02-06 18:15:29,096 - scraper.cbre - INFO - Found 24 property URLs on page 38
+2025-02-06 18:15:31,548 - scraper.cbre - INFO - Found 24 property URLs on page 39
+2025-02-06 18:15:34,109 - scraper.cbre - INFO - Found 24 property URLs on page 40
+2025-02-06 18:15:36,664 - scraper.cbre - INFO - Found 24 property URLs on page 41
+2025-02-06 18:15:39,085 - scraper.cbre - INFO - Found 24 property URLs on page 42
+2025-02-06 18:15:41,674 - scraper.cbre - INFO - Found 24 property URLs on page 43
+2025-02-06 18:15:44,109 - scraper.cbre - INFO - Found 24 property URLs on page 44
+2025-02-06 18:15:46,647 - scraper.cbre - INFO - Found 24 property URLs on page 45
+2025-02-06 18:15:49,234 - scraper.cbre - INFO - Found 24 property URLs on page 46
+2025-02-06 18:15:52,412 - scraper.cbre - INFO - Found 24 property URLs on page 47
+2025-02-06 18:15:54,938 - scraper.cbre - INFO - Found 24 property URLs on page 48
+2025-02-06 18:15:57,386 - scraper.cbre - INFO - Found 24 property URLs on page 49
+2025-02-06 18:15:59,906 - scraper.cbre - INFO - Found 24 property URLs on page 50
+2025-02-06 18:16:02,462 - scraper.cbre - INFO - Found 24 property URLs on page 51
+2025-02-06 18:16:04,922 - scraper.cbre - INFO - Found 24 property URLs on page 52
+2025-02-06 18:16:07,519 - scraper.cbre - INFO - Found 24 property URLs on page 53
+2025-02-06 18:16:09,969 - scraper.cbre - INFO - Found 24 property URLs on page 54
+2025-02-06 18:16:12,520 - scraper.cbre - INFO - Found 24 property URLs on page 55
+2025-02-06 18:16:14,944 - scraper.cbre - INFO - Found 24 property URLs on page 56
+2025-02-06 18:16:17,518 - scraper.cbre - INFO - Found 24 property URLs on page 57
+2025-02-06 18:16:20,095 - scraper.cbre - INFO - Found 24 property URLs on page 58
+2025-02-06 18:16:22,525 - scraper.cbre - INFO - Found 24 property URLs on page 59
+2025-02-06 18:16:25,059 - scraper.cbre - INFO - Found 24 property URLs on page 60
+2025-02-06 18:16:27,488 - scraper.cbre - INFO - Found 24 property URLs on page 61
+2025-02-06 18:16:30,049 - scraper.cbre - INFO - Found 24 property URLs on page 62
+2025-02-06 18:16:32,480 - scraper.cbre - INFO - Found 24 property URLs on page 63
+2025-02-06 18:16:35,050 - scraper.cbre - INFO - Found 24 property URLs on page 64
+2025-02-06 18:16:37,595 - scraper.cbre - INFO - Found 24 property URLs on page 65
+2025-02-06 18:16:40,038 - scraper.cbre - INFO - Found 24 property URLs on page 66
+2025-02-06 18:16:42,592 - scraper.cbre - INFO - Found 24 property URLs on page 67
+2025-02-06 18:16:45,030 - scraper.cbre - INFO - Found 24 property URLs on page 68
+2025-02-06 18:16:47,566 - scraper.cbre - INFO - Found 24 property URLs on page 69
+2025-02-06 18:16:49,839 - scraper.cbre - INFO - Found 24 property URLs on page 70
+2025-02-06 18:16:52,175 - scraper.cbre - INFO - Found 24 property URLs on page 71
+2025-02-06 18:16:54,365 - scraper.cbre - INFO - Found 24 property URLs on page 72
+2025-02-06 18:16:56,746 - scraper.cbre - INFO - Found 24 property URLs on page 73
+2025-02-06 18:16:58,916 - scraper.cbre - INFO - Found 24 property URLs on page 74
+2025-02-06 18:17:01,212 - scraper.cbre - INFO - Found 24 property URLs on page 75
+2025-02-06 18:17:03,439 - scraper.cbre - INFO - Found 24 property URLs on page 76
+2025-02-06 18:17:05,789 - scraper.cbre - INFO - Found 24 property URLs on page 77
+2025-02-06 18:17:07,975 - scraper.cbre - INFO - Found 24 property URLs on page 78
+2025-02-06 18:17:10,269 - scraper.cbre - INFO - Found 24 property URLs on page 79
+2025-02-06 18:17:12,453 - scraper.cbre - INFO - Found 24 property URLs on page 80
+2025-02-06 18:17:14,819 - scraper.cbre - INFO - Found 24 property URLs on page 81
+2025-02-06 18:17:17,139 - scraper.cbre - INFO - Found 24 property URLs on page 82
+2025-02-06 18:17:19,348 - scraper.cbre - INFO - Found 24 property URLs on page 83
+2025-02-06 18:17:21,673 - scraper.cbre - INFO - Found 24 property URLs on page 84
+2025-02-06 18:17:23,923 - scraper.cbre - INFO - Found 24 property URLs on page 85
+2025-02-06 18:17:26,213 - scraper.cbre - INFO - Found 24 property URLs on page 86
+2025-02-06 18:17:28,432 - scraper.cbre - INFO - Found 24 property URLs on page 87
+2025-02-06 18:17:30,790 - scraper.cbre - INFO - Found 24 property URLs on page 88
+2025-02-06 18:17:32,973 - scraper.cbre - INFO - Found 24 property URLs on page 89
+2025-02-06 18:17:35,279 - scraper.cbre - INFO - Found 24 property URLs on page 90
+2025-02-06 18:17:37,521 - scraper.cbre - INFO - Found 24 property URLs on page 91
+2025-02-06 18:17:39,820 - scraper.cbre - INFO - Found 24 property URLs on page 92
+2025-02-06 18:17:42,002 - scraper.cbre - INFO - Found 24 property URLs on page 93
+2025-02-06 18:17:44,372 - scraper.cbre - INFO - Found 24 property URLs on page 94
+2025-02-06 18:17:46,544 - scraper.cbre - INFO - Found 24 property URLs on page 95
+2025-02-06 18:17:48,851 - scraper.cbre - INFO - Found 24 property URLs on page 96
+2025-02-06 18:17:51,054 - scraper.cbre - INFO - Found 24 property URLs on page 97
+2025-02-06 18:17:53,364 - scraper.cbre - INFO - Found 24 property URLs on page 98
+2025-02-06 18:17:55,550 - scraper.cbre - INFO - Found 24 property URLs on page 99
+2025-02-06 18:17:57,865 - scraper.cbre - INFO - Found 24 property URLs on page 100
+2025-02-06 18:18:00,080 - scraper.cbre - INFO - Found 24 property URLs on page 101
+2025-02-06 18:18:02,429 - scraper.cbre - INFO - Found 24 property URLs on page 102
+2025-02-06 18:18:04,611 - scraper.cbre - INFO - Found 24 property URLs on page 103
+2025-02-06 18:18:06,885 - scraper.cbre - INFO - Found 24 property URLs on page 104
+2025-02-06 18:18:09,059 - scraper.cbre - INFO - Found 24 property URLs on page 105
+2025-02-06 18:18:11,350 - scraper.cbre - INFO - Found 24 property URLs on page 106
+2025-02-06 18:18:13,557 - scraper.cbre - INFO - Found 24 property URLs on page 107
+2025-02-06 18:18:15,874 - scraper.cbre - INFO - Found 24 property URLs on page 108
+2025-02-06 18:18:18,079 - scraper.cbre - INFO - Found 24 property URLs on page 109
+2025-02-06 18:18:20,406 - scraper.cbre - INFO - Found 24 property URLs on page 110
+2025-02-06 18:18:22,576 - scraper.cbre - INFO - Found 24 property URLs on page 111
+2025-02-06 18:18:24,891 - scraper.cbre - INFO - Found 24 property URLs on page 112
+2025-02-06 18:18:27,085 - scraper.cbre - INFO - Found 24 property URLs on page 113
+2025-02-06 18:18:29,445 - scraper.cbre - INFO - Found 24 property URLs on page 114
+2025-02-06 18:18:31,718 - scraper.cbre - INFO - Found 24 property URLs on page 115
+2025-02-06 18:18:34,046 - scraper.cbre - INFO - Found 24 property URLs on page 116
+2025-02-06 18:18:36,262 - scraper.cbre - INFO - Found 24 property URLs on page 117
+2025-02-06 18:18:38,619 - scraper.cbre - INFO - Found 24 property URLs on page 118
+2025-02-06 18:18:40,815 - scraper.cbre - INFO - Found 24 property URLs on page 119
+2025-02-06 18:18:43,162 - scraper.cbre - INFO - Found 24 property URLs on page 120
+2025-02-06 18:18:45,357 - scraper.cbre - INFO - Found 24 property URLs on page 121
+2025-02-06 18:18:47,663 - scraper.cbre - INFO - Found 24 property URLs on page 122
+2025-02-06 18:18:49,892 - scraper.cbre - INFO - Found 24 property URLs on page 123
+2025-02-06 18:18:52,236 - scraper.cbre - INFO - Found 24 property URLs on page 124
+2025-02-06 18:18:54,423 - scraper.cbre - INFO - Found 24 property URLs on page 125
+2025-02-06 18:18:56,766 - scraper.cbre - INFO - Found 24 property URLs on page 126
+2025-02-06 18:18:58,952 - scraper.cbre - INFO - Found 24 property URLs on page 127
+2025-02-06 18:19:01,296 - scraper.cbre - INFO - Found 24 property URLs on page 128
+2025-02-06 18:19:03,576 - scraper.cbre - INFO - Found 24 property URLs on page 129
+2025-02-06 18:19:05,906 - scraper.cbre - INFO - Found 24 property URLs on page 130
+2025-02-06 18:19:08,098 - scraper.cbre - INFO - Found 24 property URLs on page 131
+2025-02-06 18:19:10,460 - scraper.cbre - INFO - Found 24 property URLs on page 132
+2025-02-06 18:19:12,682 - scraper.cbre - INFO - Found 24 property URLs on page 133
+2025-02-06 18:19:14,907 - scraper.cbre - INFO - Found 24 property URLs on page 134
+2025-02-06 18:19:17,271 - scraper.cbre - INFO - Found 24 property URLs on page 135
+2025-02-06 18:19:19,499 - scraper.cbre - INFO - Found 24 property URLs on page 136
+2025-02-06 18:19:21,881 - scraper.cbre - INFO - Found 24 property URLs on page 137
+2025-02-06 18:19:24,084 - scraper.cbre - INFO - Found 24 property URLs on page 138
+2025-02-06 18:19:26,407 - scraper.cbre - INFO - Found 24 property URLs on page 139
+2025-02-06 18:19:28,566 - scraper.cbre - INFO - Found 24 property URLs on page 140
+2025-02-06 18:19:30,856 - scraper.cbre - INFO - Found 24 property URLs on page 141
+2025-02-06 18:19:33,053 - scraper.cbre - INFO - Found 24 property URLs on page 142
+2025-02-06 18:19:35,394 - scraper.cbre - INFO - Found 24 property URLs on page 143
+2025-02-06 18:19:37,588 - scraper.cbre - INFO - Found 24 property URLs on page 144
+2025-02-06 18:19:39,932 - scraper.cbre - INFO - Found 24 property URLs on page 145
+2025-02-06 18:19:42,145 - scraper.cbre - INFO - Found 24 property URLs on page 146
+2025-02-06 18:19:44,486 - scraper.cbre - INFO - Found 24 property URLs on page 147
+2025-02-06 18:19:46,676 - scraper.cbre - INFO - Found 24 property URLs on page 148
+2025-02-06 18:19:48,844 - scraper.cbre - INFO - Found 24 property URLs on page 149
+2025-02-06 18:19:51,193 - scraper.cbre - INFO - Found 24 property URLs on page 150
+2025-02-06 18:19:53,380 - scraper.cbre - INFO - Found 24 property URLs on page 151
+2025-02-06 18:19:55,739 - scraper.cbre - INFO - Found 24 property URLs on page 152
+2025-02-06 18:19:57,970 - scraper.cbre - INFO - Found 24 property URLs on page 153
+2025-02-06 18:20:00,296 - scraper.cbre - INFO - Found 24 property URLs on page 154
+2025-02-06 18:20:02,540 - scraper.cbre - INFO - Found 24 property URLs on page 155
+2025-02-06 18:20:04,939 - scraper.cbre - INFO - Found 24 property URLs on page 156
+2025-02-06 18:20:07,234 - scraper.cbre - INFO - Found 24 property URLs on page 157
+2025-02-06 18:20:09,621 - scraper.cbre - INFO - Found 24 property URLs on page 158
+2025-02-06 18:20:11,863 - scraper.cbre - INFO - Found 24 property URLs on page 159
+2025-02-06 18:20:14,120 - scraper.cbre - INFO - Found 24 property URLs on page 160
+2025-02-06 18:20:16,513 - scraper.cbre - INFO - Found 24 property URLs on page 161
+2025-02-06 18:20:18,775 - scraper.cbre - INFO - Found 24 property URLs on page 162
+2025-02-06 18:20:21,175 - scraper.cbre - INFO - Found 24 property URLs on page 163
+2025-02-06 18:20:23,429 - scraper.cbre - INFO - Found 24 property URLs on page 164
+2025-02-06 18:20:25,831 - scraper.cbre - INFO - Found 24 property URLs on page 165
+2025-02-06 18:20:28,074 - scraper.cbre - INFO - Found 24 property URLs on page 166
+2025-02-06 18:20:30,451 - scraper.cbre - INFO - Found 24 property URLs on page 167
+2025-02-06 18:20:32,686 - scraper.cbre - INFO - Found 24 property URLs on page 168
+2025-02-06 18:20:35,077 - scraper.cbre - INFO - Found 24 property URLs on page 169
+2025-02-06 18:20:37,289 - scraper.cbre - INFO - Found 24 property URLs on page 170
+2025-02-06 18:20:39,532 - scraper.cbre - INFO - Found 24 property URLs on page 171
+2025-02-06 18:20:41,891 - scraper.cbre - INFO - Found 24 property URLs on page 172
+2025-02-06 18:20:44,131 - scraper.cbre - INFO - Found 24 property URLs on page 173
+2025-02-06 18:20:46,552 - scraper.cbre - INFO - Found 24 property URLs on page 174
+2025-02-06 18:20:48,826 - scraper.cbre - INFO - Found 24 property URLs on page 175
+2025-02-06 18:20:51,210 - scraper.cbre - INFO - Found 24 property URLs on page 176
+2025-02-06 18:20:53,521 - scraper.cbre - INFO - Found 24 property URLs on page 177
+2025-02-06 18:20:55,769 - scraper.cbre - INFO - Found 24 property URLs on page 178
+2025-02-06 18:20:58,142 - scraper.cbre - INFO - Found 24 property URLs on page 179
+2025-02-06 18:21:00,398 - scraper.cbre - INFO - Found 24 property URLs on page 180
+2025-02-06 18:21:02,822 - scraper.cbre - INFO - Found 24 property URLs on page 181
+2025-02-06 18:21:05,165 - scraper.cbre - INFO - Found 24 property URLs on page 182
+2025-02-06 18:21:07,592 - scraper.cbre - INFO - Found 24 property URLs on page 183
+2025-02-06 18:21:09,822 - scraper.cbre - INFO - Found 24 property URLs on page 184
+2025-02-06 18:21:12,234 - scraper.cbre - INFO - Found 24 property URLs on page 185
+2025-02-06 18:21:14,481 - scraper.cbre - INFO - Found 24 property URLs on page 186
+2025-02-06 18:21:16,746 - scraper.cbre - INFO - Found 24 property URLs on page 187
+2025-02-06 18:21:19,137 - scraper.cbre - INFO - Found 24 property URLs on page 188
+2025-02-06 18:21:21,430 - scraper.cbre - INFO - Found 24 property URLs on page 189
+2025-02-06 18:21:23,840 - scraper.cbre - INFO - Found 24 property URLs on page 190
+2025-02-06 18:21:26,084 - scraper.cbre - INFO - Found 24 property URLs on page 191
+2025-02-06 18:21:28,484 - scraper.cbre - INFO - Found 24 property URLs on page 192
+2025-02-06 18:21:30,708 - scraper.cbre - INFO - Found 24 property URLs on page 193
+2025-02-06 18:21:33,090 - scraper.cbre - INFO - Found 24 property URLs on page 194
+2025-02-06 18:21:35,324 - scraper.cbre - INFO - Found 24 property URLs on page 195
+2025-02-06 18:21:37,562 - scraper.cbre - INFO - Found 24 property URLs on page 196
+2025-02-06 18:21:39,980 - scraper.cbre - INFO - Found 24 property URLs on page 197
+2025-02-06 18:21:42,190 - scraper.cbre - INFO - Found 24 property URLs on page 198
+2025-02-06 18:21:44,612 - scraper.cbre - INFO - Found 24 property URLs on page 199
+2025-02-06 18:21:46,827 - scraper.cbre - INFO - Found 24 property URLs on page 200
+2025-02-06 18:21:49,045 - scraper.cbre - INFO - Found 24 property URLs on page 201
+2025-02-06 18:21:51,439 - scraper.cbre - INFO - Found 24 property URLs on page 202
+2025-02-06 18:21:53,743 - scraper.cbre - INFO - Found 24 property URLs on page 203
+2025-02-06 18:21:56,142 - scraper.cbre - INFO - Found 24 property URLs on page 204
+2025-02-06 18:21:58,383 - scraper.cbre - INFO - Found 24 property URLs on page 205
+2025-02-06 18:22:00,615 - scraper.cbre - INFO - Found 24 property URLs on page 206
+2025-02-06 18:22:02,939 - scraper.cbre - INFO - Found 15 property URLs on page 207
+2025-02-06 18:22:02,945 - scraper.cbre - INFO - Total unique properties found: 4958
+2025-02-06 18:22:02,945 - scraper.cbre - INFO - Found 4958 properties to process
+2025-02-06 18:22:02,946 - scraper.cbre - INFO - Starting property detail extraction for 4958 properties
+2025-02-06 18:22:16,286 - scraper.cbre - ERROR - Error processing stream: cannot access local variable 'space_available' where it is not associated with a value
+Traceback (most recent call last):
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 385, in _extract_property_details
+    units = self._parse_property_page(result.html, result.url)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 489, in _parse_property_page
+    "space_available": space_available,
+                       ^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'space_available' where it is not associated with a value
+2025-02-06 18:22:16,287 - scraper.cbre - INFO - Extracted 1 total units from 4958 properties
+2025-02-06 18:22:17,623 - scraper.cbre - INFO - Stored 1 properties in database
+2025-02-06 22:51:39,799 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-06 22:51:41,208 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-06 22:51:41,209 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-06 22:51:49,763 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-06 22:51:52,307 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-06 22:51:54,785 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-06 22:51:57,347 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-06 22:51:59,922 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-06 22:54:50,741 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-06 22:54:52,066 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-06 22:54:52,067 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-06 22:55:00,165 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-06 22:55:02,711 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-06 22:55:05,206 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-06 22:55:07,755 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-06 22:55:10,322 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-06 22:55:12,813 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-06 22:55:15,384 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-06 22:55:17,912 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-06 22:55:20,363 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-06 22:55:20,373 - scraper.cbre - INFO - Total unique properties found: 216
+2025-02-06 22:55:20,374 - scraper.cbre - INFO - Found 216 properties to process
+2025-02-06 22:55:20,375 - scraper.cbre - INFO - Starting property detail extraction for 216 properties
+2025-02-06 22:56:01,589 - scraper.cbre - ERROR - Error processing stream: cannot access local variable 'space_available' where it is not associated with a value
+Traceback (most recent call last):
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 385, in _extract_property_details
+    units = self._parse_property_page(result.html, result.url)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 489, in _parse_property_page
+    "space_available": space_available,
+                       ^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'space_available' where it is not associated with a value
+2025-02-06 22:56:01,590 - scraper.cbre - INFO - Extracted 108 total units from 216 properties
+2025-02-06 22:56:14,273 - scraper.cbre - INFO - Stored 108 properties in database
+2025-02-06 23:07:07,923 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-06 23:07:09,302 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-06 23:07:09,339 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-06 23:07:17,301 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-06 23:07:19,893 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-06 23:07:22,390 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-06 23:07:24,940 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-06 23:07:27,515 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-06 23:07:30,023 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-06 23:07:32,633 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-06 23:07:35,193 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-06 23:07:37,804 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-06 23:07:37,813 - scraper.cbre - INFO - Total unique properties found: 216
+2025-02-06 23:07:37,815 - scraper.cbre - INFO - Found 216 properties to process
+2025-02-06 23:07:37,816 - scraper.cbre - INFO - Starting property detail extraction for 216 properties
+2025-02-06 23:07:38,202 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-85766/one-thorn-run-1187-thorn-run-road-carnot-moon-pa-15108: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-85766/one-thorn-run-1187-thorn-run-road-carnot-moon-pa-15108
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-85766/one-thorn-run-1187-thorn-run-road-carnot-moon-pa-15108", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:07:39,521 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-19949/cherrington-500-500-cherrington-parkway-moon-township-pa-15108: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-19949/cherrington-500-500-cherrington-parkway-moon-township-pa-15108
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-19949/cherrington-500-500-cherrington-parkway-moon-township-pa-15108", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:07:41,663 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-67488/commerce-plaza-5701-south-eastern-avenue-commerce-ca-90040: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-67488/commerce-plaza-5701-south-eastern-avenue-commerce-ca-90040
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-67488/commerce-plaza-5701-south-eastern-avenue-commerce-ca-90040", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:07:43,463 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-171199/the-sunkist-building-612-west-main-street-madison-wi-53703: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-171199/the-sunkist-building-612-west-main-street-madison-wi-53703
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-171199/the-sunkist-building-612-west-main-street-madison-wi-53703", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:07:45,435 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-157745/74-west-broad-street-bethlehem-pa-18018: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-157745/74-west-broad-street-bethlehem-pa-18018
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-157745/74-west-broad-street-bethlehem-pa-18018", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:07:48,430 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-65846/the-torrance-21250-hawthorne-boulevard-torrance-ca-90503: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-65846/the-torrance-21250-hawthorne-boulevard-torrance-ca-90503
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-65846/the-torrance-21250-hawthorne-boulevard-torrance-ca-90503", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:07:50,625 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-19951/cherrington-625-625-cherrington-parkway-moon-township-pa-15108: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-19951/cherrington-625-625-cherrington-parkway-moon-township-pa-15108
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-19951/cherrington-625-625-cherrington-parkway-moon-township-pa-15108", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:07:53,853 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-30450/maitland-promenade-two-495-north-keller-road-maitland-fl-32751: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-30450/maitland-promenade-two-495-north-keller-road-maitland-fl-32751
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-30450/maitland-promenade-two-495-north-keller-road-maitland-fl-32751", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:08:00,315 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-97593/5945-elementary-way-collegedale-tn-37363: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-97593/5945-elementary-way-collegedale-tn-37363
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-97593/5945-elementary-way-collegedale-tn-37363", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:08:02,317 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-89925/parkway-center-building-2-875-greentree-road-pittsburgh-pa-15220: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-89925/parkway-center-building-2-875-greentree-road-pittsburgh-pa-15220
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-89925/parkway-center-building-2-875-greentree-road-pittsburgh-pa-15220", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:08:04,550 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-37497/the-555-building-555-east-city-avenue-bala-cynwyd-pa-19004: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-37497/the-555-building-555-east-city-avenue-bala-cynwyd-pa-19004
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-37497/the-555-building-555-east-city-avenue-bala-cynwyd-pa-19004", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:08:10,485 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-171428/41-west-25th-street-new-york-ny-10010: Unexpected error in _crawl_web at line 528 in wrap_api_call (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/playwright/_impl/_connection.py):
+Error: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+
+Code context:
+ 523           parsed_st = _extract_stack_trace_information_from_stack(st, is_internal)
+ 524           self._api_zone.set(parsed_st)
+ 525           try:
+ 526               return await cb()
+ 527           except Exception as error:
+ 528 →             raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+ 529           finally:
+ 530               self._api_zone.set(None)
+ 531   
+ 532       def wrap_api_call_sync(
+ 533           self, cb: Callable[[], Any], is_internal: bool = False
+2025-02-06 23:08:10,485 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-76958/1245-broadway-new-york-ny-10001: Unexpected error in _crawl_web at line 528 in wrap_api_call (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/playwright/_impl/_connection.py):
+Error: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+
+Code context:
+ 523           parsed_st = _extract_stack_trace_information_from_stack(st, is_internal)
+ 524           self._api_zone.set(parsed_st)
+ 525           try:
+ 526               return await cb()
+ 527           except Exception as error:
+ 528 →             raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+ 529           finally:
+ 530               self._api_zone.set(None)
+ 531   
+ 532       def wrap_api_call_sync(
+ 533           self, cb: Callable[[], Any], is_internal: bool = False
+2025-02-06 23:08:14,780 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-59856/1125-seventeenth-street-1125-17th-street-denver-co-80202-usa-denver-co-80202: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-59856/1125-seventeenth-street-1125-17th-street-denver-co-80202-usa-denver-co-80202
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-59856/1125-seventeenth-street-1125-17th-street-denver-co-80202-usa-denver-co-80202", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:08:21,667 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-96567/umpqua-bank-plaza-1-southwest-columbia-street-portland-or-97258: Unexpected error in _crawl_web at line 528 in wrap_api_call (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/playwright/_impl/_connection.py):
+Error: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+
+Code context:
+ 523           parsed_st = _extract_stack_trace_information_from_stack(st, is_internal)
+ 524           self._api_zone.set(parsed_st)
+ 525           try:
+ 526               return await cb()
+ 527           except Exception as error:
+ 528 →             raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+ 529           finally:
+ 530               self._api_zone.set(None)
+ 531   
+ 532       def wrap_api_call_sync(
+ 533           self, cb: Callable[[], Any], is_internal: bool = False
+2025-02-06 23:13:56,290 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-06 23:13:57,701 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-06 23:13:57,722 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-06 23:14:06,369 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-06 23:14:08,927 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-06 23:14:08,936 - scraper.cbre - INFO - Total unique properties found: 48
+2025-02-06 23:14:08,937 - scraper.cbre - INFO - Found 48 properties to process
+2025-02-06 23:14:08,938 - scraper.cbre - INFO - Starting property detail extraction for 48 properties
+2025-02-06 23:14:09,306 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-31112/haven-commerce-center-9035-9045-9065-haven-avenue-rancho-cucamonga-ca-91730: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-31112/haven-commerce-center-9035-9045-9065-haven-avenue-rancho-cucamonga-ca-91730
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-31112/haven-commerce-center-9035-9045-9065-haven-avenue-rancho-cucamonga-ca-91730", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:14:10,665 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-21935/2130-professional-drive-roseville-ca-95661: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-21935/2130-professional-drive-roseville-ca-95661
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-21935/2130-professional-drive-roseville-ca-95661", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:17:14,196 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-06 23:17:15,530 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-06 23:17:15,551 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-06 23:17:23,325 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-06 23:17:25,907 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-06 23:17:25,916 - scraper.cbre - INFO - Total unique properties found: 48
+2025-02-06 23:17:25,917 - scraper.cbre - INFO - Found 48 properties to process
+2025-02-06 23:17:25,918 - scraper.cbre - INFO - Starting property detail extraction for 48 properties
+2025-02-06 23:17:28,608 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-169597/3600-south-yosemite-street-denver-co-80237: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-169597/3600-south-yosemite-street-denver-co-80237
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-169597/3600-south-yosemite-street-denver-co-80237", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:17:30,545 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-95096/two-centerpointe-2-centerpointe-drive-lake-oswego-or-97035: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-95096/two-centerpointe-2-centerpointe-drive-lake-oswego-or-97035
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-95096/two-centerpointe-2-centerpointe-drive-lake-oswego-or-97035", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:17:32,668 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-124580/7301-west-alaska-drive-lakewood-co-80226: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-124580/7301-west-alaska-drive-lakewood-co-80226
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-124580/7301-west-alaska-drive-lakewood-co-80226", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:17:34,756 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-171587/24100-chagrin-blvd-24100-chagrin-boulevard-beachwood-oh-44122: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-171587/24100-chagrin-blvd-24100-chagrin-boulevard-beachwood-oh-44122
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-171587/24100-chagrin-blvd-24100-chagrin-boulevard-beachwood-oh-44122", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:17:38,938 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-96007/south-place-19801-southwest-72nd-avenue-tualatin-or-97062: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-96007/south-place-19801-southwest-72nd-avenue-tualatin-or-97062
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-96007/south-place-19801-southwest-72nd-avenue-tualatin-or-97062", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:17:38,938 - scraper.cbre - WARNING - Failed to process https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-171523/renaissance-tower-801-k-street-sacramento-ca-95814: Unexpected error in _crawl_web at line 1354 in _crawl_web (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_crawler_strategy.py):
+Error: Failed on navigating ACS-GOTO:
+Page.goto: net::ERR_ABORTED at https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-171523/renaissance-tower-801-k-street-sacramento-ca-95814
+Call log:
+  - navigating to "https://www.cbre.com/properties/properties-for-lease/commercial-space/details/US-SMPL-171523/renaissance-tower-801-k-street-sacramento-ca-95814", waiting until "domcontentloaded"
+
+
+Code context:
+1349                       response = await page.goto(
+1350                           url, wait_until=config.wait_until, timeout=config.page_timeout
+1351                       )
+1352                       redirected_url = page.url
+1353                   except Error as e:
+1354 →                     raise RuntimeError(f"Failed on navigating ACS-GOTO:\n{str(e)}")
+1355   
+1356                   await self.execute_hook(
+1357                       "after_goto", page, context=context, url=url, response=response, config=config
+1358                   )
+1359   
+2025-02-06 23:21:43,050 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-06 23:21:44,339 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-06 23:21:44,361 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-06 23:21:52,157 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-06 23:21:54,759 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-06 23:21:54,768 - scraper.cbre - INFO - Total unique properties found: 48
+2025-02-06 23:21:54,768 - scraper.cbre - INFO - Found 48 properties to process
+2025-02-06 23:21:54,769 - scraper.cbre - INFO - Starting property detail extraction for 48 properties
+2025-02-06 23:23:03,079 - scraper.cbre - INFO - Extracted 229 total units from 48 properties
+2025-02-06 23:23:24,963 - scraper.cbre - INFO - Stored 229 properties in database
+2025-02-06 23:23:55,347 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-06 23:23:55,347 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-06 23:23:56,553 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-06 23:23:56,553 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-06 23:23:56,576 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-06 23:23:56,576 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-06 23:24:04,415 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-06 23:24:04,415 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-06 23:24:06,965 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-06 23:24:06,965 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-06 23:24:06,975 - scraper.cbre - INFO - Total unique properties found: 48
+2025-02-06 23:24:06,975 - scraper.cbre - INFO - Total unique properties found: 48
+2025-02-06 23:24:06,975 - scraper.cbre - INFO - Found 48 properties to process
+2025-02-06 23:24:06,975 - scraper.cbre - INFO - Found 48 properties to process
+2025-02-06 23:24:06,976 - scraper.cbre - INFO - Starting property detail extraction for 48 properties
+2025-02-06 23:24:06,976 - scraper.cbre - INFO - Starting property detail extraction for 48 properties
+2025-02-06 23:25:04,839 - scraper.cbre - INFO - Extracted 229 total units from 48 properties
+2025-02-06 23:25:04,839 - scraper.cbre - INFO - Extracted 229 total units from 48 properties
+2025-02-06 23:25:25,742 - scraper.cbre - INFO - Stored 229 properties in database
+2025-02-06 23:25:25,742 - scraper.cbre - INFO - Stored 229 properties in database
+2025-02-06 23:28:04,402 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-06 23:28:05,687 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-06 23:28:05,708 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-06 23:28:13,224 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-06 23:28:15,789 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-06 23:28:18,268 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-06 23:28:20,811 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-06 23:28:23,379 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-06 23:28:25,854 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-06 23:28:28,405 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-06 23:28:30,939 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-06 23:28:33,462 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-06 23:28:36,239 - scraper.cbre - INFO - Found 24 property URLs on page 10
+2025-02-06 23:28:38,778 - scraper.cbre - INFO - Found 24 property URLs on page 11
+2025-02-06 23:28:41,204 - scraper.cbre - INFO - Found 24 property URLs on page 12
+2025-02-06 23:28:41,214 - scraper.cbre - INFO - Total unique properties found: 288
+2025-02-06 23:28:41,214 - scraper.cbre - INFO - Found 288 properties to process
+2025-02-06 23:28:41,215 - scraper.cbre - INFO - Starting property detail extraction for 288 properties
+2025-02-06 23:28:53,192 - scraper.cbre - ERROR - Error processing stream: cannot access local variable 'space_available' where it is not associated with a value
+Traceback (most recent call last):
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 220, in _extract_property_details
+    units = self._parse_property_page(result.html, result.url)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 324, in _parse_property_page
+    "space_available": space_available,
+                       ^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'space_available' where it is not associated with a value
+2025-02-06 23:28:53,193 - scraper.cbre - INFO - Extracted 22 total units from 288 properties
+2025-02-06 23:28:56,534 - scraper.cbre - INFO - Stored 22 properties in database
+2025-02-06 23:51:00,407 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-06 23:51:00,407 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-06 23:51:04,145 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-06 23:51:04,145 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-06 23:51:04,165 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-06 23:51:04,165 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-06 23:51:11,860 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-06 23:51:11,860 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-06 23:51:14,160 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-06 23:51:14,160 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-06 23:51:16,343 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-06 23:51:16,343 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-06 23:51:18,641 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-06 23:51:18,641 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-06 23:51:20,928 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-06 23:51:20,928 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-06 23:51:23,146 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-06 23:51:23,146 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-06 23:51:25,422 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-06 23:51:25,422 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-06 23:51:27,704 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-06 23:51:27,704 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-06 23:51:29,894 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-06 23:51:29,894 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-06 23:51:32,158 - scraper.cbre - INFO - Found 24 property URLs on page 10
+2025-02-06 23:51:32,158 - scraper.cbre - INFO - Found 24 property URLs on page 10
+2025-02-06 23:51:34,319 - scraper.cbre - INFO - Found 24 property URLs on page 11
+2025-02-06 23:51:34,319 - scraper.cbre - INFO - Found 24 property URLs on page 11
+2025-02-06 23:51:36,584 - scraper.cbre - INFO - Found 24 property URLs on page 12
+2025-02-06 23:51:36,584 - scraper.cbre - INFO - Found 24 property URLs on page 12
+2025-02-06 23:51:36,590 - scraper.cbre - INFO - Total unique properties found: 288
+2025-02-06 23:51:36,590 - scraper.cbre - INFO - Total unique properties found: 288
+2025-02-06 23:51:36,591 - scraper.cbre - INFO - Found 288 properties to process
+2025-02-06 23:51:36,591 - scraper.cbre - INFO - Found 288 properties to process
+2025-02-06 23:51:36,592 - scraper.cbre - INFO - Starting property detail extraction for 288 properties
+2025-02-06 23:51:36,592 - scraper.cbre - INFO - Starting property detail extraction for 288 properties
+2025-02-06 23:51:45,954 - scraper.cbre - ERROR - Error processing stream: cannot access local variable 'space_available' where it is not associated with a value
+Traceback (most recent call last):
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 220, in _extract_property_details
+    units = self._parse_property_page(result.html, result.url)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 324, in _parse_property_page
+    "space_available": space_available,
+                       ^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'space_available' where it is not associated with a value
+2025-02-06 23:51:45,954 - scraper.cbre - ERROR - Error processing stream: cannot access local variable 'space_available' where it is not associated with a value
+Traceback (most recent call last):
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 220, in _extract_property_details
+    units = self._parse_property_page(result.html, result.url)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 324, in _parse_property_page
+    "space_available": space_available,
+                       ^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'space_available' where it is not associated with a value
+2025-02-06 23:51:45,955 - scraper.cbre - INFO - Extracted 17 total units from 288 properties
+2025-02-06 23:51:45,955 - scraper.cbre - INFO - Extracted 17 total units from 288 properties
+2025-02-06 23:51:48,650 - scraper.cbre - INFO - Stored 17 properties in database
+2025-02-06 23:51:48,650 - scraper.cbre - INFO - Stored 17 properties in database
+2025-02-06 23:58:28,412 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-06 23:58:29,360 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-06 23:58:29,397 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-06 23:58:36,458 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-06 23:58:38,766 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-06 23:58:40,986 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-06 23:58:43,300 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-06 23:58:45,805 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-06 23:59:05,966 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-06 23:59:06,848 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-06 23:59:06,849 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-06 23:59:13,666 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-06 23:59:15,945 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-06 23:59:18,148 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-06 23:59:20,442 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-06 23:59:22,745 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-06 23:59:24,995 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-06 23:59:27,322 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-06 23:59:29,602 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-06 23:59:31,795 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-06 23:59:34,062 - scraper.cbre - INFO - Found 24 property URLs on page 10
+2025-02-06 23:59:36,321 - scraper.cbre - INFO - Found 24 property URLs on page 11
+2025-02-06 23:59:38,521 - scraper.cbre - INFO - Found 24 property URLs on page 12
+2025-02-06 23:59:38,527 - scraper.cbre - INFO - Total unique properties found: 288
+2025-02-06 23:59:38,527 - scraper.cbre - INFO - Found 288 properties to process
+2025-02-06 23:59:38,528 - scraper.cbre - INFO - Starting property detail extraction for 288 properties
+2025-02-07 00:00:00,192 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-07 00:00:00,192 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-07 00:00:01,951 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-07 00:00:01,951 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-07 00:00:01,998 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-07 00:00:01,998 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-07 00:00:14,822 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-07 00:00:14,822 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-07 00:00:20,974 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-07 00:00:20,974 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-07 00:00:28,108 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-07 00:00:28,108 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-07 00:00:35,174 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-07 00:00:35,174 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-07 00:00:40,519 - scraper.cbre - ERROR - Error processing stream: cannot access local variable 'space_available' where it is not associated with a value
+Traceback (most recent call last):
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 224, in _extract_property_details
+    units = self._parse_property_page(result.html, result.url)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 328, in _parse_property_page
+    "space_available": space_available,
+                       ^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'space_available' where it is not associated with a value
+2025-02-07 00:00:40,519 - scraper.cbre - ERROR - Error processing stream: cannot access local variable 'space_available' where it is not associated with a value
+Traceback (most recent call last):
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 224, in _extract_property_details
+    units = self._parse_property_page(result.html, result.url)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 328, in _parse_property_page
+    "space_available": space_available,
+                       ^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'space_available' where it is not associated with a value
+2025-02-07 00:00:40,520 - scraper.cbre - INFO - Extracted 155 total units from 288 properties
+2025-02-07 00:00:40,520 - scraper.cbre - INFO - Extracted 155 total units from 288 properties
+2025-02-07 00:00:41,752 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-07 00:00:41,752 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-07 00:00:47,768 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-07 00:00:47,768 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-07 00:00:52,852 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-07 00:00:52,852 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-07 00:05:11,288 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-07 00:05:12,250 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-07 00:05:12,287 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-07 00:05:19,384 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-07 00:05:21,714 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-07 00:05:23,954 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-07 00:05:26,270 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-07 00:05:28,604 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-07 00:05:30,831 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-07 00:05:33,179 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-07 00:05:35,509 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-07 00:05:37,744 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-07 00:05:40,049 - scraper.cbre - INFO - Found 24 property URLs on page 10
+2025-02-07 00:05:42,334 - scraper.cbre - INFO - Found 24 property URLs on page 11
+2025-02-07 00:05:44,578 - scraper.cbre - INFO - Found 24 property URLs on page 12
+2025-02-07 00:05:44,585 - scraper.cbre - INFO - Total unique properties found: 288
+2025-02-07 00:05:44,586 - scraper.cbre - INFO - Found 288 properties to process
+2025-02-07 00:05:44,586 - scraper.cbre - INFO - Starting property detail extraction for 288 properties
+2025-02-07 00:06:07,430 - scraper.cbre - ERROR - Error processing stream: cannot access local variable 'space_available' where it is not associated with a value
+Traceback (most recent call last):
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 226, in _extract_property_details
+    units = self._parse_property_page(result.html, result.url)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 330, in _parse_property_page
+    "space_available": space_available,
+                       ^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'space_available' where it is not associated with a value
+2025-02-07 00:06:07,431 - scraper.cbre - INFO - Extracted 103 total units from 288 properties
+2025-02-07 00:06:17,891 - scraper.cbre - INFO - Stored 103 properties in database
+2025-02-07 00:14:20,342 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-07 00:14:25,102 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-07 00:14:25,102 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-07 00:14:32,927 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-07 00:14:35,225 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-07 00:14:37,472 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-07 00:14:39,751 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-07 00:14:42,059 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-07 00:14:44,288 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-07 00:14:46,625 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-07 00:14:48,937 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-07 00:14:51,138 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-07 00:14:53,462 - scraper.cbre - INFO - Found 24 property URLs on page 10
+2025-02-07 00:14:55,723 - scraper.cbre - INFO - Found 24 property URLs on page 11
+2025-02-07 00:14:57,918 - scraper.cbre - INFO - Found 24 property URLs on page 12
+2025-02-07 00:14:57,925 - scraper.cbre - INFO - Total unique properties found: 288
+2025-02-07 00:14:57,925 - scraper.cbre - INFO - Found 288 properties to process
+2025-02-07 00:14:57,926 - scraper.cbre - INFO - Starting property detail extraction for 288 properties
+2025-02-07 00:15:12,678 - scraper.cbre - ERROR - Error processing stream: cannot access local variable 'space_available' where it is not associated with a value
+Traceback (most recent call last):
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 227, in _extract_property_details
+    units = self._parse_property_page(result.html, result.url)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 331, in _parse_property_page
+    "space_available": space_available,
+                       ^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'space_available' where it is not associated with a value
+2025-02-07 00:15:12,678 - scraper.cbre - INFO - Extracted 61 total units from 288 properties
+2025-02-07 00:15:20,177 - scraper.cbre - INFO - Stored 61 properties in database
+2025-02-07 00:23:34,985 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-07 00:23:36,219 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-07 00:23:36,219 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-07 00:23:43,441 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-07 00:23:45,910 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-07 00:23:48,144 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-07 00:23:50,451 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-07 00:23:52,773 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-07 00:23:55,011 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-07 00:23:57,323 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-07 00:23:59,632 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-07 00:24:01,832 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-07 00:24:04,134 - scraper.cbre - INFO - Found 24 property URLs on page 10
+2025-02-07 00:24:06,416 - scraper.cbre - INFO - Found 24 property URLs on page 11
+2025-02-07 00:24:08,639 - scraper.cbre - INFO - Found 24 property URLs on page 12
+2025-02-07 00:24:08,645 - scraper.cbre - INFO - Total unique properties found: 288
+2025-02-07 00:24:08,646 - scraper.cbre - INFO - Found 288 properties to process
+2025-02-07 00:24:08,647 - scraper.cbre - INFO - Starting property detail extraction for 288 properties
+2025-02-07 00:25:29,347 - scraper.cbre - ERROR - Error processing stream: cannot access local variable 'space_available' where it is not associated with a value
+Traceback (most recent call last):
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 227, in _extract_property_details
+    units = self._parse_property_page(result.html, result.url)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 331, in _parse_property_page
+    "space_available": space_available,
+                       ^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'space_available' where it is not associated with a value
+2025-02-07 00:25:29,348 - scraper.cbre - INFO - Extracted 438 total units from 288 properties
+2025-02-07 00:26:12,306 - scraper.cbre - INFO - Stored 438 properties in database
+2025-02-07 00:43:35,875 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-07 00:43:39,485 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-07 00:43:39,485 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-07 00:43:47,403 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-07 00:43:49,696 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-07 00:43:51,916 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-07 00:43:54,219 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-07 00:43:56,519 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-07 00:43:58,736 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-07 00:44:01,025 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-07 00:44:03,331 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-07 00:44:05,554 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-07 00:44:07,844 - scraper.cbre - INFO - Found 24 property URLs on page 10
+2025-02-07 00:44:10,112 - scraper.cbre - INFO - Found 24 property URLs on page 11
+2025-02-07 00:44:12,336 - scraper.cbre - INFO - Found 24 property URLs on page 12
+2025-02-07 00:44:12,342 - scraper.cbre - INFO - Total unique properties found: 288
+2025-02-07 00:44:12,343 - scraper.cbre - INFO - Found 288 properties to process
+2025-02-07 00:44:12,344 - scraper.cbre - INFO - Starting property detail extraction for 288 properties
+2025-02-07 00:50:13,424 - scraper.cbre - ERROR - Error processing stream: 'async for' requires an object with __aiter__ method, got list
+Traceback (most recent call last):
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/cbre.py", line 224, in _extract_property_details
+    async for result in stream:
+TypeError: 'async for' requires an object with __aiter__ method, got list
+2025-02-07 00:50:13,426 - scraper.cbre - INFO - Extracted 0 total units from 288 properties
+2025-02-07 00:50:15,595 - scraper.cbre - WARNING - No results returned from scraper
+2025-02-07 00:51:40,374 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-07 00:51:41,616 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-07 00:51:41,616 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-07 00:51:48,838 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-07 00:51:51,289 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-07 00:51:53,556 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-07 00:51:55,877 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-07 00:51:58,175 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-07 00:52:00,402 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-07 00:52:02,701 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-07 00:52:04,998 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-07 00:52:07,220 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-07 00:52:09,507 - scraper.cbre - INFO - Found 24 property URLs on page 10
+2025-02-07 00:52:11,788 - scraper.cbre - INFO - Found 24 property URLs on page 11
+2025-02-07 00:52:13,989 - scraper.cbre - INFO - Found 24 property URLs on page 12
+2025-02-07 00:52:16,290 - scraper.cbre - INFO - Found 24 property URLs on page 13
+2025-02-07 00:52:18,481 - scraper.cbre - INFO - Found 24 property URLs on page 14
+2025-02-07 00:52:20,766 - scraper.cbre - INFO - Found 24 property URLs on page 15
+2025-02-07 00:52:22,976 - scraper.cbre - INFO - Found 24 property URLs on page 16
+2025-02-07 00:53:25,218 - scraper.cbre - INFO - Found 0 property URLs on page 17
+2025-02-07 00:54:58,618 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-07 00:55:00,522 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-07 00:55:00,545 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-07 00:55:07,839 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-07 00:55:10,423 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-07 00:55:12,947 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-07 00:55:15,525 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-07 00:55:18,259 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-07 00:55:20,674 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-07 00:55:23,129 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-07 00:55:25,490 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-07 00:55:27,881 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-07 00:55:30,417 - scraper.cbre - INFO - Found 24 property URLs on page 10
+2025-02-07 00:55:33,098 - scraper.cbre - INFO - Found 24 property URLs on page 11
+2025-02-07 00:55:35,627 - scraper.cbre - INFO - Found 24 property URLs on page 12
+2025-02-07 00:55:38,100 - scraper.cbre - INFO - Found 24 property URLs on page 13
+2025-02-07 00:55:40,453 - scraper.cbre - INFO - Found 24 property URLs on page 14
+2025-02-07 00:55:42,907 - scraper.cbre - INFO - Found 24 property URLs on page 15
+2025-02-07 00:55:45,354 - scraper.cbre - INFO - Found 24 property URLs on page 16
+2025-02-07 00:56:47,514 - scraper.cbre - INFO - Found 0 property URLs on page 17
+2025-02-07 01:00:18,967 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-07 01:00:20,101 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-07 01:00:20,121 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-07 01:00:27,497 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-07 01:00:30,829 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-07 01:00:34,102 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-07 01:00:37,474 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-07 01:00:40,842 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-07 01:00:44,117 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-07 01:00:47,488 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-07 01:00:50,840 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-07 01:00:54,110 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-07 01:00:57,468 - scraper.cbre - INFO - Found 24 property URLs on page 10
+2025-02-07 01:01:00,797 - scraper.cbre - INFO - Found 24 property URLs on page 11
+2025-02-07 01:01:04,053 - scraper.cbre - INFO - Found 24 property URLs on page 12
+2025-02-07 01:01:07,396 - scraper.cbre - INFO - Found 24 property URLs on page 13
+2025-02-07 01:01:10,644 - scraper.cbre - INFO - Found 24 property URLs on page 14
+2025-02-07 01:01:13,982 - scraper.cbre - INFO - Found 24 property URLs on page 15
+2025-02-07 01:01:17,236 - scraper.cbre - INFO - Found 24 property URLs on page 16
+2025-02-07 01:01:20,586 - scraper.cbre - INFO - Found 24 property URLs on page 17
+2025-02-07 01:01:23,902 - scraper.cbre - INFO - Found 24 property URLs on page 18
+2025-02-07 01:01:27,145 - scraper.cbre - INFO - Found 24 property URLs on page 19
+2025-02-07 01:01:30,462 - scraper.cbre - INFO - Found 24 property URLs on page 20
+2025-02-07 01:01:33,806 - scraper.cbre - INFO - Found 24 property URLs on page 21
+2025-02-07 01:01:37,072 - scraper.cbre - INFO - Found 24 property URLs on page 22
+2025-02-07 01:01:40,436 - scraper.cbre - INFO - Found 24 property URLs on page 23
+2025-02-07 01:01:43,701 - scraper.cbre - INFO - Found 24 property URLs on page 24
+2025-02-07 01:01:47,037 - scraper.cbre - INFO - Found 24 property URLs on page 25
+2025-02-07 01:01:50,271 - scraper.cbre - INFO - Found 24 property URLs on page 26
+2025-02-07 01:01:53,617 - scraper.cbre - INFO - Found 24 property URLs on page 27
+2025-02-07 01:01:56,956 - scraper.cbre - INFO - Found 24 property URLs on page 28
+2025-02-07 01:02:00,194 - scraper.cbre - INFO - Found 24 property URLs on page 29
+2025-02-07 01:02:03,519 - scraper.cbre - INFO - Found 24 property URLs on page 30
+2025-02-07 01:02:06,765 - scraper.cbre - INFO - Found 24 property URLs on page 31
+2025-02-07 01:02:10,099 - scraper.cbre - INFO - Found 24 property URLs on page 32
+2025-02-07 01:02:13,421 - scraper.cbre - INFO - Found 24 property URLs on page 33
+2025-02-07 01:02:16,642 - scraper.cbre - INFO - Found 24 property URLs on page 34
+2025-02-07 01:02:19,975 - scraper.cbre - INFO - Found 24 property URLs on page 35
+2025-02-07 01:02:23,195 - scraper.cbre - INFO - Found 24 property URLs on page 36
+2025-02-07 01:02:26,530 - scraper.cbre - INFO - Found 24 property URLs on page 37
+2025-02-07 01:02:29,858 - scraper.cbre - INFO - Found 24 property URLs on page 38
+2025-02-07 01:02:33,099 - scraper.cbre - INFO - Found 24 property URLs on page 39
+2025-02-07 01:02:36,439 - scraper.cbre - INFO - Found 24 property URLs on page 40
+2025-02-07 01:02:39,692 - scraper.cbre - INFO - Found 24 property URLs on page 41
+2025-02-07 01:02:43,053 - scraper.cbre - INFO - Found 24 property URLs on page 42
+2025-02-07 01:02:46,402 - scraper.cbre - INFO - Found 24 property URLs on page 43
+2025-02-07 01:02:49,638 - scraper.cbre - INFO - Found 24 property URLs on page 44
+2025-02-07 01:02:52,973 - scraper.cbre - INFO - Found 24 property URLs on page 45
+2025-02-07 01:02:56,215 - scraper.cbre - INFO - Found 24 property URLs on page 46
+2025-02-07 01:02:59,558 - scraper.cbre - INFO - Found 24 property URLs on page 47
+2025-02-07 01:03:02,776 - scraper.cbre - INFO - Found 24 property URLs on page 48
+2025-02-07 01:03:06,096 - scraper.cbre - INFO - Found 24 property URLs on page 49
+2025-02-07 01:03:09,419 - scraper.cbre - INFO - Found 24 property URLs on page 50
+2025-02-07 01:03:12,668 - scraper.cbre - INFO - Found 24 property URLs on page 51
+2025-02-07 01:03:16,006 - scraper.cbre - INFO - Found 24 property URLs on page 52
+2025-02-07 01:03:19,231 - scraper.cbre - INFO - Found 24 property URLs on page 53
+2025-02-07 01:03:22,568 - scraper.cbre - INFO - Found 24 property URLs on page 54
+2025-02-07 01:03:25,815 - scraper.cbre - INFO - Found 24 property URLs on page 55
+2025-02-07 01:03:29,152 - scraper.cbre - INFO - Found 24 property URLs on page 56
+2025-02-07 01:03:32,497 - scraper.cbre - INFO - Found 24 property URLs on page 57
+2025-02-07 01:03:35,765 - scraper.cbre - INFO - Found 24 property URLs on page 58
+2025-02-07 01:03:39,126 - scraper.cbre - INFO - Found 24 property URLs on page 59
+2025-02-07 01:03:42,377 - scraper.cbre - INFO - Found 24 property URLs on page 60
+2025-02-07 01:03:45,735 - scraper.cbre - INFO - Found 24 property URLs on page 61
+2025-02-07 01:03:49,101 - scraper.cbre - INFO - Found 24 property URLs on page 62
+2025-02-07 01:03:52,356 - scraper.cbre - INFO - Found 24 property URLs on page 63
+2025-02-07 01:03:55,702 - scraper.cbre - INFO - Found 24 property URLs on page 64
+2025-02-07 01:03:58,945 - scraper.cbre - INFO - Found 24 property URLs on page 65
+2025-02-07 01:04:02,303 - scraper.cbre - INFO - Found 24 property URLs on page 66
+2025-02-07 01:04:05,552 - scraper.cbre - INFO - Found 24 property URLs on page 67
+2025-02-07 01:04:08,914 - scraper.cbre - INFO - Found 24 property URLs on page 68
+2025-02-07 01:04:12,162 - scraper.cbre - INFO - Found 24 property URLs on page 69
+2025-02-07 01:04:15,515 - scraper.cbre - INFO - Found 24 property URLs on page 70
+2025-02-07 01:04:18,769 - scraper.cbre - INFO - Found 24 property URLs on page 71
+2025-02-07 01:04:22,137 - scraper.cbre - INFO - Found 24 property URLs on page 72
+2025-02-07 01:04:25,397 - scraper.cbre - INFO - Found 24 property URLs on page 73
+2025-02-07 01:04:28,758 - scraper.cbre - INFO - Found 24 property URLs on page 74
+2025-02-07 01:04:31,986 - scraper.cbre - INFO - Found 24 property URLs on page 75
+2025-02-07 01:04:35,313 - scraper.cbre - INFO - Found 24 property URLs on page 76
+2025-02-07 01:04:38,565 - scraper.cbre - INFO - Found 24 property URLs on page 77
+2025-02-07 01:04:41,924 - scraper.cbre - INFO - Found 24 property URLs on page 78
+2025-02-07 01:04:45,153 - scraper.cbre - INFO - Found 24 property URLs on page 79
+2025-02-07 01:04:48,494 - scraper.cbre - INFO - Found 24 property URLs on page 80
+2025-02-07 01:04:51,859 - scraper.cbre - INFO - Found 24 property URLs on page 81
+2025-02-07 01:04:55,102 - scraper.cbre - INFO - Found 24 property URLs on page 82
+2025-02-07 01:04:58,471 - scraper.cbre - INFO - Found 24 property URLs on page 83
+2025-02-07 01:05:01,726 - scraper.cbre - INFO - Found 24 property URLs on page 84
+2025-02-07 01:05:05,088 - scraper.cbre - INFO - Found 24 property URLs on page 85
+2025-02-07 01:05:08,338 - scraper.cbre - INFO - Found 24 property URLs on page 86
+2025-02-07 01:05:11,732 - scraper.cbre - INFO - Found 24 property URLs on page 87
+2025-02-07 01:05:14,990 - scraper.cbre - INFO - Found 24 property URLs on page 88
+2025-02-07 01:05:18,382 - scraper.cbre - INFO - Found 24 property URLs on page 89
+2025-02-07 01:05:21,644 - scraper.cbre - INFO - Found 24 property URLs on page 90
+2025-02-07 01:05:25,031 - scraper.cbre - INFO - Found 24 property URLs on page 91
+2025-02-07 01:05:28,293 - scraper.cbre - INFO - Found 24 property URLs on page 92
+2025-02-07 01:05:31,669 - scraper.cbre - INFO - Found 24 property URLs on page 93
+2025-02-07 01:05:34,977 - scraper.cbre - INFO - Found 24 property URLs on page 94
+2025-02-07 01:05:38,409 - scraper.cbre - INFO - Found 24 property URLs on page 95
+2025-02-07 01:05:41,773 - scraper.cbre - INFO - Found 24 property URLs on page 96
+2025-02-07 01:05:45,238 - scraper.cbre - INFO - Found 24 property URLs on page 97
+2025-02-07 01:05:48,610 - scraper.cbre - INFO - Found 24 property URLs on page 98
+2025-02-07 01:05:52,143 - scraper.cbre - INFO - Found 24 property URLs on page 99
+2025-02-07 01:05:55,548 - scraper.cbre - INFO - Found 24 property URLs on page 100
+2025-02-07 01:05:59,039 - scraper.cbre - INFO - Found 24 property URLs on page 101
+2025-02-07 01:06:02,421 - scraper.cbre - INFO - Found 24 property URLs on page 102
+2025-02-07 01:06:05,934 - scraper.cbre - INFO - Found 24 property URLs on page 103
+2025-02-07 01:06:09,320 - scraper.cbre - INFO - Found 24 property URLs on page 104
+2025-02-07 01:06:12,790 - scraper.cbre - INFO - Found 24 property URLs on page 105
+2025-02-07 01:06:16,160 - scraper.cbre - INFO - Found 24 property URLs on page 106
+2025-02-07 01:06:19,667 - scraper.cbre - INFO - Found 24 property URLs on page 107
+2025-02-07 01:06:23,040 - scraper.cbre - INFO - Found 24 property URLs on page 108
+2025-02-07 01:06:26,578 - scraper.cbre - INFO - Found 24 property URLs on page 109
+2025-02-07 01:06:29,962 - scraper.cbre - INFO - Found 24 property URLs on page 110
+2025-02-07 01:06:33,417 - scraper.cbre - INFO - Found 24 property URLs on page 111
+2025-02-07 01:06:36,807 - scraper.cbre - INFO - Found 24 property URLs on page 112
+2025-02-07 01:06:40,281 - scraper.cbre - INFO - Found 24 property URLs on page 113
+2025-02-07 01:06:43,650 - scraper.cbre - INFO - Found 24 property URLs on page 114
+2025-02-07 01:06:47,130 - scraper.cbre - INFO - Found 24 property URLs on page 115
+2025-02-07 01:06:50,489 - scraper.cbre - INFO - Found 24 property URLs on page 116
+2025-02-07 01:06:53,972 - scraper.cbre - INFO - Found 24 property URLs on page 117
+2025-02-07 01:06:57,325 - scraper.cbre - INFO - Found 24 property URLs on page 118
+2025-02-07 01:07:00,774 - scraper.cbre - INFO - Found 24 property URLs on page 119
+2025-02-07 01:07:04,086 - scraper.cbre - INFO - Found 24 property URLs on page 120
+2025-02-07 01:07:07,545 - scraper.cbre - INFO - Found 24 property URLs on page 121
+2025-02-07 01:07:10,852 - scraper.cbre - INFO - Found 24 property URLs on page 122
+2025-02-07 01:07:14,293 - scraper.cbre - INFO - Found 24 property URLs on page 123
+2025-02-07 01:07:17,628 - scraper.cbre - INFO - Found 24 property URLs on page 124
+2025-02-07 01:07:21,083 - scraper.cbre - INFO - Found 24 property URLs on page 125
+2025-02-07 01:07:24,464 - scraper.cbre - INFO - Found 24 property URLs on page 126
+2025-02-07 01:07:27,985 - scraper.cbre - INFO - Found 24 property URLs on page 127
+2025-02-07 01:07:31,364 - scraper.cbre - INFO - Found 24 property URLs on page 128
+2025-02-07 01:07:34,905 - scraper.cbre - INFO - Found 24 property URLs on page 129
+2025-02-07 01:07:38,262 - scraper.cbre - INFO - Found 24 property URLs on page 130
+2025-02-07 01:07:41,788 - scraper.cbre - INFO - Found 24 property URLs on page 131
+2025-02-07 01:07:45,192 - scraper.cbre - INFO - Found 24 property URLs on page 132
+2025-02-07 01:07:48,705 - scraper.cbre - INFO - Found 24 property URLs on page 133
+2025-02-07 01:07:52,114 - scraper.cbre - INFO - Found 24 property URLs on page 134
+2025-02-07 01:07:55,613 - scraper.cbre - INFO - Found 24 property URLs on page 135
+2025-02-07 01:07:58,971 - scraper.cbre - INFO - Found 24 property URLs on page 136
+2025-02-07 01:08:02,478 - scraper.cbre - INFO - Found 24 property URLs on page 137
+2025-02-07 01:08:05,848 - scraper.cbre - INFO - Found 24 property URLs on page 138
+2025-02-07 01:08:09,386 - scraper.cbre - INFO - Found 24 property URLs on page 139
+2025-02-07 01:08:12,728 - scraper.cbre - INFO - Found 24 property URLs on page 140
+2025-02-07 01:08:16,107 - scraper.cbre - INFO - Found 24 property URLs on page 141
+2025-02-07 01:08:19,677 - scraper.cbre - INFO - Found 24 property URLs on page 142
+2025-02-07 01:08:23,084 - scraper.cbre - INFO - Found 24 property URLs on page 143
+2025-02-07 01:08:26,662 - scraper.cbre - INFO - Found 24 property URLs on page 144
+2025-02-07 01:08:30,066 - scraper.cbre - INFO - Found 24 property URLs on page 145
+2025-02-07 01:08:33,552 - scraper.cbre - INFO - Found 24 property URLs on page 146
+2025-02-07 01:08:36,940 - scraper.cbre - INFO - Found 24 property URLs on page 147
+2025-02-07 01:08:40,435 - scraper.cbre - INFO - Found 24 property URLs on page 148
+2025-02-07 01:08:43,782 - scraper.cbre - INFO - Found 24 property URLs on page 149
+2025-02-07 01:08:47,143 - scraper.cbre - INFO - Found 24 property URLs on page 150
+2025-02-07 01:08:50,575 - scraper.cbre - INFO - Found 24 property URLs on page 151
+2025-02-07 01:08:53,913 - scraper.cbre - INFO - Found 24 property URLs on page 152
+2025-02-07 01:08:57,380 - scraper.cbre - INFO - Found 24 property URLs on page 153
+2025-02-07 01:09:00,706 - scraper.cbre - INFO - Found 24 property URLs on page 154
+2025-02-07 01:09:04,134 - scraper.cbre - INFO - Found 24 property URLs on page 155
+2025-02-07 01:09:07,477 - scraper.cbre - INFO - Found 24 property URLs on page 156
+2025-02-07 01:09:10,939 - scraper.cbre - INFO - Found 24 property URLs on page 157
+2025-02-07 01:09:14,257 - scraper.cbre - INFO - Found 24 property URLs on page 158
+2025-02-07 01:09:17,703 - scraper.cbre - INFO - Found 24 property URLs on page 159
+2025-02-07 01:09:21,015 - scraper.cbre - INFO - Found 24 property URLs on page 160
+2025-02-07 01:09:24,280 - scraper.cbre - INFO - Found 24 property URLs on page 161
+2025-02-07 01:09:27,687 - scraper.cbre - INFO - Found 24 property URLs on page 162
+2025-02-07 01:09:30,972 - scraper.cbre - INFO - Found 24 property URLs on page 163
+2025-02-07 01:09:34,385 - scraper.cbre - INFO - Found 24 property URLs on page 164
+2025-02-07 01:09:37,732 - scraper.cbre - INFO - Found 24 property URLs on page 165
+2025-02-07 01:09:41,179 - scraper.cbre - INFO - Found 24 property URLs on page 166
+2025-02-07 01:09:44,515 - scraper.cbre - INFO - Found 24 property URLs on page 167
+2025-02-07 01:09:48,000 - scraper.cbre - INFO - Found 24 property URLs on page 168
+2025-02-07 01:09:51,334 - scraper.cbre - INFO - Found 24 property URLs on page 169
+2025-02-07 01:09:54,849 - scraper.cbre - INFO - Found 24 property URLs on page 170
+2025-02-07 01:09:58,181 - scraper.cbre - INFO - Found 24 property URLs on page 171
+2025-02-07 01:10:01,507 - scraper.cbre - INFO - Found 24 property URLs on page 172
+2025-02-07 01:10:04,984 - scraper.cbre - INFO - Found 24 property URLs on page 173
+2025-02-07 01:10:08,329 - scraper.cbre - INFO - Found 24 property URLs on page 174
+2025-02-07 01:10:11,807 - scraper.cbre - INFO - Found 24 property URLs on page 175
+2025-02-07 01:10:15,182 - scraper.cbre - INFO - Found 24 property URLs on page 176
+2025-02-07 01:10:18,644 - scraper.cbre - INFO - Found 24 property URLs on page 177
+2025-02-07 01:10:22,035 - scraper.cbre - INFO - Found 24 property URLs on page 178
+2025-02-07 01:10:25,474 - scraper.cbre - INFO - Found 24 property URLs on page 179
+2025-02-07 01:10:28,815 - scraper.cbre - INFO - Found 24 property URLs on page 180
+2025-02-07 01:10:32,178 - scraper.cbre - INFO - Found 24 property URLs on page 181
+2025-02-07 01:10:35,649 - scraper.cbre - INFO - Found 24 property URLs on page 182
+2025-02-07 01:10:38,983 - scraper.cbre - INFO - Found 24 property URLs on page 183
+2025-02-07 01:10:42,444 - scraper.cbre - INFO - Found 24 property URLs on page 184
+2025-02-07 01:10:45,782 - scraper.cbre - INFO - Found 24 property URLs on page 185
+2025-02-07 01:10:49,261 - scraper.cbre - INFO - Found 24 property URLs on page 186
+2025-02-07 01:10:52,586 - scraper.cbre - INFO - Found 24 property URLs on page 187
+2025-02-07 01:10:55,901 - scraper.cbre - INFO - Found 24 property URLs on page 188
+2025-02-07 01:10:59,400 - scraper.cbre - INFO - Found 24 property URLs on page 189
+2025-02-07 01:11:02,775 - scraper.cbre - INFO - Found 24 property URLs on page 190
+2025-02-07 01:11:06,260 - scraper.cbre - INFO - Found 24 property URLs on page 191
+2025-02-07 01:11:09,587 - scraper.cbre - INFO - Found 24 property URLs on page 192
+2025-02-07 01:12:12,930 - scraper.cbre - INFO - Found 0 property URLs on page 193
+2025-02-07 01:13:16,107 - scraper.cbre - INFO - Found 0 property URLs on page 194
+2025-02-07 01:14:19,320 - scraper.cbre - INFO - Found 0 property URLs on page 195
+2025-02-07 01:15:22,466 - scraper.cbre - INFO - Found 0 property URLs on page 196
+2025-02-07 01:16:25,810 - scraper.cbre - INFO - Found 0 property URLs on page 197
+2025-02-07 01:17:11,359 - scraper.cbre - INFO - Found 0 property URLs on page 198
+2025-02-07 01:17:23,306 - scraper.cbre - ERROR - Failed to load page 199: Unexpected error in _crawl_web at line 528 in wrap_api_call (../../../../Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/playwright/_impl/_connection.py):
+Error: Page.content: Target page, context or browser has been closed
+
+Code context:
+ 523           parsed_st = _extract_stack_trace_information_from_stack(st, is_internal)
+ 524           self._api_zone.set(parsed_st)
+ 525           try:
+ 526               return await cb()
+ 527           except Exception as error:
+ 528 →             raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+ 529           finally:
+ 530               self._api_zone.set(None)
+ 531   
+ 532       def wrap_api_call_sync(
+ 533           self, cb: Callable[[], Any], is_internal: bool = False
+2025-02-07 01:17:23,306 - scraper.cbre - INFO - Total unique properties found: 4608
+2025-02-07 01:17:23,307 - scraper.cbre - INFO - Found 4608 properties to process
+2025-02-07 01:17:23,307 - scraper.cbre - INFO - Starting property detail extraction for 4608 properties
+2025-02-07 01:21:32,338 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-07 01:21:33,358 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-07 01:21:33,395 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-07 01:21:40,813 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-07 01:21:44,118 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-07 01:21:47,402 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-07 01:21:50,731 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-07 01:21:54,050 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-07 01:21:57,316 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-07 01:22:00,666 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-07 01:22:04,053 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-07 01:22:07,373 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-07 01:22:10,760 - scraper.cbre - INFO - Found 24 property URLs on page 10
+2025-02-07 01:22:14,110 - scraper.cbre - INFO - Found 24 property URLs on page 11
+2025-02-07 01:22:17,351 - scraper.cbre - INFO - Found 24 property URLs on page 12
+2025-02-07 01:22:20,678 - scraper.cbre - INFO - Found 24 property URLs on page 13
+2025-02-07 01:22:23,939 - scraper.cbre - INFO - Found 24 property URLs on page 14
+2025-02-07 01:22:27,274 - scraper.cbre - INFO - Found 24 property URLs on page 15
+2025-02-07 01:22:30,673 - scraper.cbre - INFO - Found 24 property URLs on page 16
+2025-02-07 01:22:33,956 - scraper.cbre - INFO - Found 24 property URLs on page 17
+2025-02-07 01:22:37,278 - scraper.cbre - INFO - Found 24 property URLs on page 18
+2025-02-07 01:22:40,613 - scraper.cbre - INFO - Found 24 property URLs on page 19
+2025-02-07 01:22:43,869 - scraper.cbre - INFO - Found 24 property URLs on page 20
+2025-02-07 01:22:47,208 - scraper.cbre - INFO - Found 24 property URLs on page 21
+2025-02-07 01:22:50,454 - scraper.cbre - INFO - Found 24 property URLs on page 22
+2025-02-07 01:22:53,764 - scraper.cbre - INFO - Found 24 property URLs on page 23
+2025-02-07 01:22:57,006 - scraper.cbre - INFO - Found 24 property URLs on page 24
+2025-02-07 01:23:00,333 - scraper.cbre - INFO - Found 24 property URLs on page 25
+2025-02-07 01:23:03,638 - scraper.cbre - INFO - Found 24 property URLs on page 26
+2025-02-07 01:23:06,871 - scraper.cbre - INFO - Found 24 property URLs on page 27
+2025-02-07 01:23:10,180 - scraper.cbre - INFO - Found 24 property URLs on page 28
+2025-02-07 01:23:13,434 - scraper.cbre - INFO - Found 24 property URLs on page 29
+2025-02-07 01:23:16,747 - scraper.cbre - INFO - Found 24 property URLs on page 30
+2025-02-07 01:23:20,083 - scraper.cbre - INFO - Found 24 property URLs on page 31
+2025-02-07 01:23:23,360 - scraper.cbre - INFO - Found 24 property URLs on page 32
+2025-02-07 01:23:26,705 - scraper.cbre - INFO - Found 24 property URLs on page 33
+2025-02-07 01:23:29,926 - scraper.cbre - INFO - Found 24 property URLs on page 34
+2025-02-07 01:23:33,232 - scraper.cbre - INFO - Found 24 property URLs on page 35
+2025-02-07 01:23:36,470 - scraper.cbre - INFO - Found 24 property URLs on page 36
+2025-02-07 01:23:39,791 - scraper.cbre - INFO - Found 24 property URLs on page 37
+2025-02-07 01:23:43,112 - scraper.cbre - INFO - Found 24 property URLs on page 38
+2025-02-07 01:23:46,366 - scraper.cbre - INFO - Found 24 property URLs on page 39
+2025-02-07 01:23:49,695 - scraper.cbre - INFO - Found 24 property URLs on page 40
+2025-02-07 01:23:52,937 - scraper.cbre - INFO - Found 24 property URLs on page 41
+2025-02-07 01:23:56,248 - scraper.cbre - INFO - Found 24 property URLs on page 42
+2025-02-07 01:23:59,561 - scraper.cbre - INFO - Found 24 property URLs on page 43
+2025-02-07 01:24:02,786 - scraper.cbre - INFO - Found 24 property URLs on page 44
+2025-02-07 01:24:06,124 - scraper.cbre - INFO - Found 24 property URLs on page 45
+2025-02-07 01:24:09,353 - scraper.cbre - INFO - Found 24 property URLs on page 46
+2025-02-07 01:24:12,693 - scraper.cbre - INFO - Found 24 property URLs on page 47
+2025-02-07 01:24:16,011 - scraper.cbre - INFO - Found 24 property URLs on page 48
+2025-02-07 01:24:19,234 - scraper.cbre - INFO - Found 24 property URLs on page 49
+2025-02-07 01:24:22,561 - scraper.cbre - INFO - Found 24 property URLs on page 50
+2025-02-07 01:24:25,798 - scraper.cbre - INFO - Found 24 property URLs on page 51
+2025-02-07 01:24:29,126 - scraper.cbre - INFO - Found 24 property URLs on page 52
+2025-02-07 01:24:32,353 - scraper.cbre - INFO - Found 24 property URLs on page 53
+2025-02-07 01:24:35,664 - scraper.cbre - INFO - Found 24 property URLs on page 54
+2025-02-07 01:24:38,975 - scraper.cbre - INFO - Found 24 property URLs on page 55
+2025-02-07 01:24:42,199 - scraper.cbre - INFO - Found 24 property URLs on page 56
+2025-02-07 01:24:45,520 - scraper.cbre - INFO - Found 24 property URLs on page 57
+2025-02-07 01:24:48,761 - scraper.cbre - INFO - Found 24 property URLs on page 58
+2025-02-07 01:24:52,089 - scraper.cbre - INFO - Found 24 property URLs on page 59
+2025-02-07 01:24:55,318 - scraper.cbre - INFO - Found 24 property URLs on page 60
+2025-02-07 01:24:58,608 - scraper.cbre - INFO - Found 24 property URLs on page 61
+2025-02-07 01:25:01,937 - scraper.cbre - INFO - Found 24 property URLs on page 62
+2025-02-07 01:25:05,206 - scraper.cbre - INFO - Found 24 property URLs on page 63
+2025-02-07 01:25:08,500 - scraper.cbre - INFO - Found 24 property URLs on page 64
+2025-02-07 01:25:11,707 - scraper.cbre - INFO - Found 24 property URLs on page 65
+2025-02-07 01:25:15,049 - scraper.cbre - INFO - Found 24 property URLs on page 66
+2025-02-07 01:25:18,258 - scraper.cbre - INFO - Found 24 property URLs on page 67
+2025-02-07 01:25:21,573 - scraper.cbre - INFO - Found 24 property URLs on page 68
+2025-02-07 01:25:24,920 - scraper.cbre - INFO - Found 24 property URLs on page 69
+2025-02-07 01:25:28,157 - scraper.cbre - INFO - Found 24 property URLs on page 70
+2025-02-07 01:25:31,478 - scraper.cbre - INFO - Found 24 property URLs on page 71
+2025-02-07 01:25:34,700 - scraper.cbre - INFO - Found 24 property URLs on page 72
+2025-02-07 01:25:38,052 - scraper.cbre - INFO - Found 24 property URLs on page 73
+2025-02-07 01:25:41,300 - scraper.cbre - INFO - Found 24 property URLs on page 74
+2025-02-07 01:25:44,632 - scraper.cbre - INFO - Found 24 property URLs on page 75
+2025-02-07 01:25:47,858 - scraper.cbre - INFO - Found 24 property URLs on page 76
+2025-02-07 01:25:51,211 - scraper.cbre - INFO - Found 24 property URLs on page 77
+2025-02-07 01:25:54,438 - scraper.cbre - INFO - Found 24 property URLs on page 78
+2025-02-07 01:25:57,744 - scraper.cbre - INFO - Found 24 property URLs on page 79
+2025-02-07 01:26:00,965 - scraper.cbre - INFO - Found 24 property URLs on page 80
+2025-02-07 01:26:04,289 - scraper.cbre - INFO - Found 24 property URLs on page 81
+2025-02-07 01:26:07,555 - scraper.cbre - INFO - Found 24 property URLs on page 82
+2025-02-07 01:26:10,902 - scraper.cbre - INFO - Found 24 property URLs on page 83
+2025-02-07 01:26:14,156 - scraper.cbre - INFO - Found 24 property URLs on page 84
+2025-02-07 01:26:17,504 - scraper.cbre - INFO - Found 24 property URLs on page 85
+2025-02-07 01:26:20,725 - scraper.cbre - INFO - Found 24 property URLs on page 86
+2025-02-07 01:26:24,058 - scraper.cbre - INFO - Found 24 property URLs on page 87
+2025-02-07 01:26:27,278 - scraper.cbre - INFO - Found 24 property URLs on page 88
+2025-02-07 01:26:30,610 - scraper.cbre - INFO - Found 24 property URLs on page 89
+2025-02-07 01:26:33,841 - scraper.cbre - INFO - Found 24 property URLs on page 90
+2025-02-07 01:26:37,174 - scraper.cbre - INFO - Found 24 property URLs on page 91
+2025-02-07 01:26:40,511 - scraper.cbre - INFO - Found 24 property URLs on page 92
+2025-02-07 01:26:43,753 - scraper.cbre - INFO - Found 24 property URLs on page 93
+2025-02-07 01:26:47,092 - scraper.cbre - INFO - Found 24 property URLs on page 94
+2025-02-07 01:26:50,320 - scraper.cbre - INFO - Found 24 property URLs on page 95
+2025-02-07 01:26:53,682 - scraper.cbre - INFO - Found 24 property URLs on page 96
+2025-02-07 01:26:56,937 - scraper.cbre - INFO - Found 24 property URLs on page 97
+2025-02-07 01:27:00,258 - scraper.cbre - INFO - Found 24 property URLs on page 98
+2025-02-07 01:27:03,496 - scraper.cbre - INFO - Found 24 property URLs on page 99
+2025-02-07 01:27:06,846 - scraper.cbre - INFO - Found 24 property URLs on page 100
+2025-02-07 01:27:10,097 - scraper.cbre - INFO - Found 24 property URLs on page 101
+2025-02-07 01:27:13,456 - scraper.cbre - INFO - Found 24 property URLs on page 102
+2025-02-07 01:27:16,688 - scraper.cbre - INFO - Found 24 property URLs on page 103
+2025-02-07 01:27:20,029 - scraper.cbre - INFO - Found 24 property URLs on page 104
+2025-02-07 01:27:23,279 - scraper.cbre - INFO - Found 24 property URLs on page 105
+2025-02-07 01:27:26,591 - scraper.cbre - INFO - Found 24 property URLs on page 106
+2025-02-07 01:27:29,812 - scraper.cbre - INFO - Found 24 property URLs on page 107
+2025-02-07 01:27:33,123 - scraper.cbre - INFO - Found 24 property URLs on page 108
+2025-02-07 01:28:36,249 - scraper.cbre - INFO - Found 0 property URLs on page 109
+2025-02-07 01:29:39,411 - scraper.cbre - INFO - Found 0 property URLs on page 110
+2025-02-07 01:30:42,702 - scraper.cbre - INFO - Found 0 property URLs on page 111
+2025-02-07 09:06:58,713 - scraper.cbre - INFO - Starting cbre scraper
+2025-02-07 09:07:00,029 - scraper.cbre - INFO - Starting CBRE property extraction
+2025-02-07 09:07:00,030 - scraper.cbre - INFO - Starting property URL extraction
+2025-02-07 09:07:07,554 - scraper.cbre - INFO - Found 24 property URLs on page 1
+2025-02-07 09:07:12,069 - scraper.cbre - INFO - Found 24 property URLs on page 2
+2025-02-07 09:07:16,543 - scraper.cbre - INFO - Found 24 property URLs on page 3
+2025-02-07 09:07:21,082 - scraper.cbre - INFO - Found 24 property URLs on page 4
+2025-02-07 09:07:25,651 - scraper.cbre - INFO - Found 24 property URLs on page 5
+2025-02-07 09:07:30,122 - scraper.cbre - INFO - Found 24 property URLs on page 6
+2025-02-07 09:07:34,652 - scraper.cbre - INFO - Found 24 property URLs on page 7
+2025-02-07 09:07:39,210 - scraper.cbre - INFO - Found 24 property URLs on page 8
+2025-02-07 09:07:43,659 - scraper.cbre - INFO - Found 24 property URLs on page 9
+2025-02-07 09:07:48,192 - scraper.cbre - INFO - Found 24 property URLs on page 10
+2025-02-07 09:07:52,709 - scraper.cbre - INFO - Found 24 property URLs on page 11
+2025-02-07 09:07:57,166 - scraper.cbre - INFO - Found 24 property URLs on page 12
+2025-02-07 09:08:01,682 - scraper.cbre - INFO - Found 24 property URLs on page 13
+2025-02-07 09:08:06,119 - scraper.cbre - INFO - Found 24 property URLs on page 14
+2025-02-07 09:08:10,655 - scraper.cbre - INFO - Found 24 property URLs on page 15
+2025-02-07 09:08:15,183 - scraper.cbre - INFO - Found 24 property URLs on page 16
+2025-02-07 09:08:19,621 - scraper.cbre - INFO - Found 24 property URLs on page 17
+2025-02-07 09:08:24,380 - scraper.cbre - INFO - Found 24 property URLs on page 18
+2025-02-07 09:08:29,781 - scraper.cbre - INFO - Found 24 property URLs on page 19
+2025-02-07 09:08:34,306 - scraper.cbre - INFO - Found 24 property URLs on page 20
+2025-02-07 09:08:39,055 - scraper.cbre - INFO - Found 24 property URLs on page 21

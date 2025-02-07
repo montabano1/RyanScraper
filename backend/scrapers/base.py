@@ -1,6 +1,7 @@
 # backend/scrapers/base.py
 import asyncio
 import logging
+import importlib
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any, Optional, Tuple, TypeVar, Callable
@@ -97,21 +98,27 @@ class BaseScraper(ABC):
             self.logger.error(error_msg, exc_info=True)
             return None, error_msg
 
-    @abstractmethod
     @with_retry()
     async def scrape(self) -> List[Dict[str, Any]]:
         """
-        Override this method in each scraper implementation.
-        Must return a list of property dictionaries with the following fields:
-        - property_name: str
-        - address: str
-        - floor_suite: str
-        - space_available: str
-        - price: str
-        - listing_url: str
-        - updated_at: str (format: '%I:%M:%S%p %m/%d/%y')
+        Uses the proven scrapers from prevScrapers to extract property data.
+        Returns a list of property dictionaries.
         """
-        raise NotImplementedError
+        # Import the corresponding proven scraper module
+        module_name = f".prevScrapers.crawl_{self.scraper_id}"
+        try:
+            scraper_module = importlib.import_module(module_name, package="backend")
+            
+            # Call the extract_property_urls function and capture the data before it's saved
+            data = await scraper_module.extract_property_urls()
+            return data
+            
+        except ImportError as e:
+            self.logger.error(f"Failed to import proven scraper module {module_name}: {e}")
+            raise
+        except Exception as e:
+            self.logger.error(f"Error running proven scraper {self.scraper_id}: {e}")
+            raise
 
     def get_current_results(self) -> List[Dict[str, Any]]:
         """Get current results with their status"""

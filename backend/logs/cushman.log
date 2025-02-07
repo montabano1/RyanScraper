@@ -2945,3 +2945,10 @@ Code context:
 2025-02-06 01:00:26,569 - scraper.cushman - INFO - Found 12 property URLs on page 24
 2025-02-06 01:00:32,538 - scraper.cushman - INFO - Found 12 property URLs on page 25
 2025-02-06 01:00:38,500 - scraper.cushman - INFO - Found 12 property URLs on page 26
+2025-02-07 00:00:00,318 - scraper.cushman - INFO - Starting cushman scraper
+2025-02-07 00:00:03,412 - scraper.cushman - INFO - Starting Cushman & Wakefield property extraction
+2025-02-07 00:00:03,466 - scraper.cushman - INFO - Starting property URL extraction
+2025-02-07 00:00:24,754 - scraper.cushman - INFO - Found 12 property URLs on page 1
+2025-02-07 00:00:36,797 - scraper.cushman - INFO - Found 12 property URLs on page 2
+2025-02-07 00:00:46,868 - scraper.cushman - INFO - Found 12 property URLs on page 3
+2025-02-07 00:00:55,653 - scraper.cushman - INFO - Found 12 property URLs on page 4

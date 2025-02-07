@@ -1,0 +1,7 @@
+2025-02-07 00:00:00,319 - scraper.jll - INFO - Starting jll scraper
+2025-02-07 00:00:03,175 - scraper.jll - INFO - Starting JLL property extraction
+2025-02-07 00:00:03,241 - scraper.jll - INFO - Starting property URL extraction
+2025-02-07 00:00:22,805 - scraper.jll - INFO - Found 50 property URLs on page 1
+2025-02-07 00:00:30,241 - scraper.jll - INFO - Found 50 property URLs on page 2
+2025-02-07 00:00:40,119 - scraper.jll - INFO - Found 50 property URLs on page 3
+2025-02-07 00:00:49,296 - scraper.jll - INFO - Found 50 property URLs on page 4

@@ -224,6 +224,7 @@ async def extract_property_urls():
             iframe_config = CrawlerRunConfig(
                 cache_mode=CacheMode.BYPASS,
                 wait_for="css:#buildout iframe",
+                page_timeout=300000,
                 stream=True  # Process results as they come in
             )
             
@@ -231,7 +232,7 @@ async def extract_property_urls():
             iframe_dispatcher = MemoryAdaptiveDispatcher(
                 memory_threshold_percent=60.0,  # Lower threshold
                 check_interval=0.5,  # Check more frequently
-                max_session_permit=10,  # Reduce concurrent sessions
+                max_session_permit=5,  # Reduce concurrent sessions
                 monitor=CrawlerMonitor(
                     display_mode=DisplayMode.DETAILED
                 )
@@ -343,15 +344,7 @@ async def extract_property_urls():
                 else:
                     print(f"Failed to process {result.url}: {result.error_message if hasattr(result, 'error_message') else 'Unknown error'}")
             
-            # Save all property details to a JSON file
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            output_file = f"lincoln_properties_{timestamp}.json"
-            
-            with open(output_file, 'w') as f:
-                json.dump(all_property_details, f, indent=2)
-            
             print(f"\nExtracted {len(all_property_details)} total units from {len(urls_to_process)} properties")
-            print(f"Results saved to {output_file}")
             
             total_time = datetime.now() - start_time
             print(f"\n=== Final Statistics ===")

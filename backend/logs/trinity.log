@@ -21,3 +21,8 @@ postgrest.exceptions.APIError: {'code': 'PGRST204', 'details': None, 'hint': Non
 2025-02-06 01:10:45,491 - scraper.trinity - INFO - Starting trinity scraper
 2025-02-06 01:13:50,406 - scraper.trinity - INFO - Starting trinity scraper
 2025-02-06 01:19:18,491 - scraper.trinity - INFO - Starting trinity scraper
+2025-02-06 17:55:59,680 - scraper.trinity - INFO - Starting trinity scraper
+2025-02-06 17:58:52,731 - scraper.trinity - INFO - Stored 496 properties in database
+2025-02-06 18:03:50,624 - scraper.trinity - INFO - Starting trinity scraper
+2025-02-06 18:06:44,732 - scraper.trinity - INFO - Stored 496 properties in database
+2025-02-07 00:00:00,317 - scraper.trinity - INFO - Starting trinity scraper

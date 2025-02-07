@@ -1,0 +1,22 @@
+2025-02-07 00:00:00,318 - scraper.landpark - INFO - Starting landpark scraper
+2025-02-07 00:00:19,260 - scraper.landpark - ERROR - Error in landpark scraper: Only one live display may be active at once
+Traceback (most recent call last):
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/base.py", line 79, in run
+    results = await self.scrape()
+              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/landpark.py", line 30, in scrape
+    property_urls, iframe_urls, url_mapping = await self._extract_property_urls(crawler)
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/michaelmontalbano/Desktop/RyanScraper/backend/scrapers/landpark.py", line 134, in _extract_property_urls
+    async for result in iframe_stream:
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_webcrawler.py", line 805, in result_transformer
+    async for task_result in dispatcher.run_urls_stream(crawler=self, urls=urls, config=config):
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_dispatcher.py", line 480, in run_urls_stream
+    self.monitor.start()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/crawl4ai/async_dispatcher.py", line 104, in start
+    self.live.start()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/rich/live.py", line 113, in start
+    self.console.set_live(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/rich/console.py", line 835, in set_live
+    raise errors.LiveError("Only one live display may be active at once")
+rich.errors.LiveError: Only one live display may be active at once

@@ -35,16 +35,32 @@ class Database:
                 prop_id = existing.data[0]["id"]
                 prop["updated_at"] = current_time
                 
-                # Store change in property_changes table
+                # Store changes in property_changes table
                 old_prop = existing.data[0]
                 if self._has_changes(old_prop, prop):
-                    self.supabase.table("property_changes").insert({
-                        "property_id": prop_id,
-                        "source": source,
-                        "old_values": old_prop,
-                        "new_values": prop,
-                        "modified_at": current_time
-                    }).execute()
+                    try:
+                        # Track changes for each field we care about
+                        fields_to_track = ["property_name", "space_available", "price", "listing_url"]
+                        changes = []
+                        
+                        for field in fields_to_track:
+                            old_val = str(old_prop.get(field, ''))
+                            new_val = str(prop.get(field, ''))
+                            if old_val != new_val:
+                                changes.append({
+                                    "property_id": prop_id,
+                                    "field_name": field,
+                                    "old_value": old_val,
+                                    "new_value": new_val,
+                                    "source": source,
+                                    "modified_at": current_time
+                                })
+                        
+                        if changes:
+                            self.supabase.table("property_changes").insert(changes).execute()
+                            
+                    except Exception as e:
+                        print(f"Warning: Could not record property changes: {str(e)}")
                 
                 # Update the property
                 self.supabase.table("properties") \
@@ -63,15 +79,30 @@ class Database:
         return any(old_prop.get(field) != new_prop.get(field) for field in fields_to_compare)
 
     def get_latest_properties(self) -> List[Dict[str, Any]]:
-        """Get the latest properties from all sources."""
+        """Get all properties from all sources using pagination."""
         try:
-            response = self.supabase.table("properties") \
-                .select("*") \
-                .order("created_at", desc=True) \
-                .limit(1000) \
-                .execute()
-            data = response.data if response and hasattr(response, 'data') else []
-            return data
+            all_properties = []
+            page_size = 1000
+            offset = 0
+            
+            while True:
+                response = self.supabase.table("properties") \
+                    .select("*") \
+                    .order("created_at", desc=True) \
+                    .range(offset, offset + page_size - 1) \
+                    .execute()
+                
+                data = response.data if response and hasattr(response, 'data') else []
+                if not data:
+                    break
+                    
+                all_properties.extend(data)
+                if len(data) < page_size:
+                    break
+                    
+                offset += page_size
+            
+            return all_properties
         except Exception as e:
             print(f"Error fetching properties: {str(e)}")
             raise

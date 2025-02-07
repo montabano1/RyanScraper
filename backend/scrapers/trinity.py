@@ -280,7 +280,7 @@ class TrinityScraper(BaseScraper):
                         print(f"Successfully extracted {len(units)} units")
                         all_property_details.extend(units)
                     else:
-                        print("WARNING: No units extracted from this property")
+                        print(f"WARNING: No units extracted from this property {result.url}")
                 except Exception as e:
                     print(f"Error processing {result.url}: {str(e)}")
             else:

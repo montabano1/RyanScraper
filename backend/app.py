@@ -93,14 +93,14 @@ logger = logging.getLogger(__name__)
 scheduler = BackgroundScheduler(SCHEDULER_CONFIG)
 
 def load_scraper(scraper_id):
-    """Dynamically load scraper class"""
+    """Dynamically load scraper module"""
     if scraper_id not in SCRAPERS:
         return None
     
     try:
-        module_path, class_name = SCRAPERS[scraper_id]['class'].rsplit('.', 1)
+        module_path = SCRAPERS[scraper_id]['class']
         module = importlib.import_module(module_path)
-        return getattr(module, class_name)()
+        return module
     except Exception as e:
         logger.error(f"Error loading scraper {scraper_id}: {e}")
         return None
@@ -109,17 +109,15 @@ async def run_scraper(scraper_id):
     """Run a scraper and process results"""
     logger.info(f"Starting scraper: {scraper_id}")
     try:
-        scraper = load_scraper(scraper_id)
-        if not scraper:
+        scraper_module = load_scraper(scraper_id)
+        if not scraper_module:
             logger.error(f"Failed to load scraper: {scraper_id}")
             return None
         
-        results, error = await scraper.run()
-        if error:
-            logger.error(f"Error in scraper {scraper_id}: {error}")
-            return False
-        
+        results = await scraper_module.extract_property_urls()
         if results:
+            # Store results in database
+            db.insert_properties(results, scraper_id)
             logger.info(f"Scraper {scraper_id} completed successfully")
             return True
         else:
@@ -168,7 +166,6 @@ def get_properties():
     
     try:
         properties = db.get_latest_properties()
-        logger.debug(f"Raw properties from DB: {properties}")
         
         if source:
             properties = [p for p in properties if p['source'] == source]
@@ -250,7 +247,6 @@ def get_changes():
 @cross_origin()
 def export_data():
     """Export properties as CSV"""
-    logger.debug(f"Received export request. Method: {request.method}")
     
     if request.method == 'OPTIONS':
         return jsonify({'status': 'ok'}), 200
@@ -258,7 +254,6 @@ def export_data():
     try:
         # Get filtered properties from request
         data = request.get_json()
-        logger.debug(f"Received data: {data if data else 'None'}")
         
         properties = data.get('properties', [])
         logger.debug(f"Properties length: {len(properties)}")
@@ -270,7 +265,6 @@ def export_data():
                 'message': 'No data available'
             }), 404
             
-        logger.debug(f"Converting {len(properties)} properties to DataFrame")
         
         # Convert to DataFrame - data is already formatted from frontend
         df = pd.DataFrame(properties)
