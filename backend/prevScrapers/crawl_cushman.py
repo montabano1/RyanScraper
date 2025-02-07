@@ -15,13 +15,27 @@ async def extract_property_urls():
     browser_config = BrowserConfig(
         headless=True,
         verbose=True,
-        ignore_https_errors=True,  # Handle HTTPS errors
-        extra_args=['--disable-web-security'],  # Disable CORS checks
+        ignore_https_errors=True,
+        extra_args=[
+            '--disable-web-security',
+            '--disable-dev-shm-usage',  # Disable /dev/shm usage
+            '--disable-gpu',            # Disable GPU hardware acceleration
+            '--no-sandbox',             # Disable sandbox for better performance
+            '--js-flags=--max-old-space-size=4096'  # Limit JS heap size
+        ],
         headers={
-            'sec-fetch-site': 'same-origin',  # Only allow same-origin requests
+            'sec-fetch-site': 'same-origin',
             'sec-fetch-mode': 'navigate',
             'sec-fetch-dest': 'document'
         }
+    )
+    
+    # Configure memory-adaptive dispatcher
+    dispatcher = MemoryAdaptiveDispatcher(
+        memory_threshold_percent=90,  # Pause when memory usage hits 90%
+        check_interval=1,            # Check every 1 second
+        max_session_permit=20,       # Allow up to 20 concurrent sessions
+        memory_wait_timeout=300      # Wait up to 300 seconds for memory to free up
     )
     
     js_wait = """
@@ -32,7 +46,7 @@ async def extract_property_urls():
         await new Promise(r => setTimeout(r, 1500));
         """
     
-    async with AsyncWebCrawler(config=browser_config) as crawler:
+    async with AsyncWebCrawler(config=browser_config, dispatcher=dispatcher) as crawler:
         try:
             print("\nStarting property URL extraction...")
             
@@ -48,11 +62,13 @@ async def extract_property_urls():
                 js_code=js_wait,
                 css_selector='div.coveo-result-list-container',
                 cache_mode=CacheMode.BYPASS,
-                page_timeout=60000,
+                page_timeout=30000,  # Reduced timeout
                 simulate_user=True,
                 override_navigator=True,
                 remove_overlay_elements=True,
-                magic=True
+                magic=True,
+                cleanup_dom=True,  # Clean up DOM after extraction
+                max_retries=2      # Limit retries
             )
             result1 = await crawler.arun(
                 url=current_url,
@@ -77,18 +93,23 @@ async def extract_property_urls():
                     print("Next button is disabled - reached end of pagination")
                     break
                 
+                # Force garbage collection between pages
+                import gc
+                gc.collect()
+                
                 config_next = CrawlerRunConfig(
-                    # session_id=session_id,
+                    session_id=session_id,
                     js_code=js_wait1,
-                    # js_only=True,      
                     wait_for="""js:() => {
                         return document.querySelectorAll('div.CoveoResult').length > 1;
                     }""",
                     cache_mode=CacheMode.BYPASS,
-                    page_timeout=60000,
+                    page_timeout=30000,  # Reduced timeout
                     simulate_user=True,
                     override_navigator=True,
-                    magic=True
+                    magic=True,
+                    cleanup_dom=True,    # Clean up DOM after extraction
+                    max_retries=2        # Limit retries
                 )
                 result2 = await crawler.arun(
                     url=f'https://www.cushmanwakefield.com/en/united-states/properties/lease/lease-property-search#first={page_num * 12}&sort=%40propertylastupdateddate%20ascending&f:PropertyType=[Office]&f:Country=[United%20States]',
