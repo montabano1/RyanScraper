@@ -13,7 +13,7 @@ async def extract_property_urls():
         print(f"\n[{step_name}] Time elapsed: {elapsed}")
     
     browser_config = BrowserConfig(
-        headless=False,
+        headless=True,
         verbose=True,
         viewport_height=1080,
         viewport_width=1920,
