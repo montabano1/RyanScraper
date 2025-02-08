@@ -1,6 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { format } from 'date-fns';
 import { getApiBaseUrl } from './config';
+import _ from 'lodash';
+
+const Spinner = () => (
+  <div className="animate-spin h-5 w-5 border-2 border-blue-600 rounded-full border-t-transparent"></div>
+);
 
 const Dashboard = () => {
   // State management
@@ -9,13 +14,19 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [filter, setFilter] = useState('');
+  const [debouncedFilter, setDebouncedFilter] = useState('');
   const [runningScrapers, setRunningScrapers] = useState([]);
   const [lastUpdated, setLastUpdated] = useState(null);
+  const [selectedSources, setSelectedSources] = useState(new Set());
+  const [isFiltering, setIsFiltering] = useState(false);
+  const [filteredProperties, setFilteredProperties] = useState([]);
 
-  // Fetch data on component mount
+  // Fetch data and check scraper status on component mount
   useEffect(() => {
     fetchProperties();
-    fetchScrapers();
+    fetchScrapers().then(() => {
+      checkAllScraperStatuses();
+    });
   }, []);
 
   // API calls
@@ -44,8 +55,40 @@ const Dashboard = () => {
       if (!response.ok) throw new Error('Failed to fetch scrapers');
       const data = await response.json();
       setScrapers(data);
+      return data;
     } catch (err) {
       console.error('Error fetching scrapers:', err);
+      return [];
+    }
+  };
+
+  const checkScraperStatus = async (scraperId) => {
+    try {
+      const statusResponse = await fetch(`${getApiBaseUrl()}/scrapers/${scraperId}/status`);
+      if (!statusResponse.ok) return false;
+      
+      const status = await statusResponse.json();
+      if (status.state === 'running') {
+        setRunningScrapers(prev => [...prev, scraperId]);
+        return true;
+      }
+      return false;
+    } catch (err) {
+      console.error('Error checking scraper status:', err);
+      return false;
+    }
+  };
+
+  const checkAllScraperStatuses = async () => {
+    const scraperList = await fetchScrapers();
+    await Promise.all(scraperList.map(scraper => checkScraperStatus(scraper.id)));
+  };
+
+  const runAllScrapers = async () => {
+    for (const scraper of scrapers) {
+      if (!runningScrapers.includes(scraper.id)) {
+        await runScraper(scraper.id);
+      }
     }
   };
 
@@ -173,19 +216,59 @@ const Dashboard = () => {
     }
   };
 
-  // Filter properties based on search across all relevant fields
-  const filteredProperties = properties.filter(property => {
-    const searchTerm = filter.toLowerCase();
-    return [
-      property.property_name,
-      property.address,
-      property.floor_suite,
-      property.space_available,
-      property.price,
-      property.source,
-      property.listing_url
-    ].some(field => field?.toString().toLowerCase().includes(searchTerm));
-  });
+  // Get unique sources
+  const sources = useMemo(() => {
+    const sourceSet = new Set(properties.map(p => p.source));
+    return Array.from(sourceSet).sort();
+  }, [properties]);
+
+  // Initialize selected sources when properties change
+  useEffect(() => {
+    if (selectedSources.size === 0 && sources.length > 0) {
+      setSelectedSources(new Set(sources));
+    }
+  }, [sources]);
+
+  // Debounced filter computation
+  const debouncedCompute = useMemo(
+    () => _.debounce((searchProps, searchTerm, sources) => {
+      const filtered = searchProps.filter(property => {
+        const matchesSearch = searchTerm === '' || [
+          property.property_name,
+          property.address,
+          property.floor_suite,
+          property.space_available,
+          property.price,
+          property.source,
+          property.listing_url
+        ].some(field => field?.toString().toLowerCase().includes(searchTerm));
+        
+        const matchesSource = sources.has(property.source);
+        return matchesSearch && matchesSource;
+      });
+      setFilteredProperties(filtered);
+      setIsFiltering(false);
+    }, 100),
+    []
+  );
+
+  // Debounced search handler
+  const debouncedSetFilter = useMemo(
+    () => _.debounce((value) => setDebouncedFilter(value), 300),
+    []
+  );
+
+  // Update debounced filter
+  useEffect(() => {
+    debouncedSetFilter(filter);
+  }, [filter]);
+
+  // Compute filtered results when dependencies change
+  useEffect(() => {
+    setIsFiltering(true);
+    debouncedCompute(properties, debouncedFilter.toLowerCase(), selectedSources);
+    return () => debouncedCompute.cancel();
+  }, [properties, debouncedFilter, selectedSources]);
 
   return (
     <div className="min-h-screen bg-gray-100 py-8 px-4">
@@ -228,31 +311,33 @@ const Dashboard = () => {
           </div>
         )}
 
-        {/* Scrapers grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        {/* Scrapers section */}
+        <div className="flex gap-2 mb-4">
+          <button
+            onClick={runAllScrapers}
+            className="px-3 py-1 bg-green-600 hover:bg-green-700 text-white rounded text-sm"
+            disabled={scrapers.every(s => runningScrapers.includes(s.id))}
+          >
+            Run All
+          </button>
           {scrapers.map(scraper => (
-            <div key={scraper.id} className="bg-white rounded-lg shadow p-6">
-              <h3 className="text-lg font-semibold text-gray-900">{scraper.name}</h3>
-              <p className="text-sm text-gray-500 mt-1">
-                Next run: {format(new Date(scraper.next_run), 'MMM d, yyyy HH:mm:ss')}
-              </p>
-              <button
-                onClick={() => runScraper(scraper.id)}
-                className={`mt-4 w-full px-4 py-2 rounded-md text-white
-                  ${runningScrapers.includes(scraper.id)
-                    ? 'bg-gray-400'
-                    : 'bg-blue-600 hover:bg-blue-700'
-                  }`}
-                disabled={runningScrapers.includes(scraper.id)}
-              >
-                {runningScrapers.includes(scraper.id) ? 'Running...' : 'Run Now'}
-              </button>
-            </div>
+            <button
+              key={scraper.id}
+              onClick={() => runScraper(scraper.id)}
+              className={`px-3 py-1 rounded text-white text-sm
+                ${runningScrapers.includes(scraper.id)
+                  ? 'bg-gray-400'
+                  : 'bg-blue-600 hover:bg-blue-700'
+                }`}
+              disabled={runningScrapers.includes(scraper.id)}
+            >
+              {runningScrapers.includes(scraper.id) ? 'Running...' : `Scrape ${scraper.name}`}
+            </button>
           ))}
         </div>
 
-        {/* Search input */}
-        <div className="mb-6">
+        {/* Filters */}
+        <div className="mb-6 space-y-4">
           <input
             type="text"
             placeholder="Search properties by name or address..."
@@ -260,34 +345,84 @@ const Dashboard = () => {
             onChange={(e) => setFilter(e.target.value)}
             className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
+          
+          <div className="flex flex-wrap gap-4">
+            <label className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                checked={selectedSources.size === sources.length}
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    // Check all
+                    setSelectedSources(new Set(sources));
+                  } else {
+                    // Uncheck all
+                    setSelectedSources(new Set());
+                  }
+                }}
+                className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+              />
+              <span className="text-sm font-medium text-gray-900">All</span>
+            </label>
+            {sources.map(source => (
+              <label key={source} className="flex items-center space-x-2">
+                <input
+                  type="checkbox"
+                  checked={selectedSources.has(source)}
+                  onChange={(e) => {
+                    const newSources = new Set(selectedSources);
+                    if (e.target.checked) {
+                      newSources.add(source);
+                    } else {
+                      newSources.delete(source);
+                    }
+                    setSelectedSources(newSources);
+                  }}
+                  className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                />
+                <span className="text-sm text-gray-700">{source}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+
+        {/* Property count */}
+        <div className="mb-4">
+          <span className="text-lg font-semibold text-gray-700">{filteredProperties.length.toLocaleString()} Spaces</span>
         </div>
 
         {/* Properties table */}
-        <div className="bg-white rounded-lg shadow overflow-hidden">
+        <div className="bg-white rounded-lg shadow overflow-hidden max-w-fit relative">
+          {/* Loading overlay */}
+          {isFiltering && (
+            <div className="absolute inset-0 bg-white/80 flex items-center justify-center z-10">
+              <Spinner />
+            </div>
+          )}
           <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
+            <table className="divide-y divide-gray-200 table-fixed w-fit">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Property</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Address</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Floor/Suite</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Space (sq ft)</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Source</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Listing</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Updated</th>
+                  <th className="w-80 max-w-[20rem] px-2 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider overflow-hidden">Property</th>
+                  <th className="w-80 max-w-[20rem] px-2 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider overflow-hidden">Address</th>
+                  <th className="w-40 max-w-[10rem] px-2 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider overflow-hidden">Floor</th>
+                  <th className="w-20 max-w-[5rem] px-2 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider overflow-hidden">Space</th>
+                  <th className="w-24 max-w-[6rem] px-2 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider overflow-hidden">Price</th>
+                  <th className="w-24 max-w-[6rem] px-2 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider overflow-hidden">Source</th>
+                  <th className="w-16 max-w-[4rem] px-2 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider overflow-hidden">Link</th>
+                  <th className="w-48 max-w-[12rem] px-2 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider overflow-hidden">Updated</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {filteredProperties.map(property => (
                   <tr key={property.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{property.property_name || 'N/A'}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{property.address}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{property.floor_suite || 'N/A'}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{property.space_available || 'N/A'}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{property.price}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{property.source}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="w-16 max-w-[4rem] px-2 py-1 text-xs text-gray-900 truncate overflow-hidden">{property.property_name || 'N/A'}</td>
+                    <td className="w-16 max-w-[4rem] px-2 py-1 text-xs text-gray-500 truncate overflow-hidden">{property.address}</td>
+                    <td className="w-16 max-w-[4rem] px-2 py-1 text-xs text-gray-500 truncate overflow-hidden">{property.floor_suite || 'N/A'}</td>
+                    <td className="w-16 max-w-[4rem] px-2 py-1 text-xs text-gray-500 truncate overflow-hidden">{property.space_available || 'N/A'}</td>
+                    <td className="w-16 max-w-[4rem] px-2 py-1 text-xs text-gray-900 truncate overflow-hidden">{property.price}</td>
+                    <td className="w-16 max-w-[4rem] px-2 py-1 text-xs text-gray-500 truncate overflow-hidden">{property.source}</td>
+                    <td className="w-16 max-w-[4rem] px-2 py-1 text-xs text-gray-500 truncate overflow-hidden">
                       {property.listing_url ? (
                         <a 
                           href={property.listing_url} 
