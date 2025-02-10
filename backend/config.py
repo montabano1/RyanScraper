@@ -21,43 +21,43 @@ SCRAPERS = {
     'cbre': {
         'name': 'CBRE Properties',
         'class': 'backend.prevScrapers.crawl_cbre',
-        'schedule': '0 0 * * *',  # Run at midnight every day
+        'schedule': '0 22 * * *',  # Run at 10:00 PM every day
         'enabled': True
     },
     'cushman': {
         'name': 'Cushman & Wakefield Properties',
         'class': 'backend.prevScrapers.crawl_cushman',
-        'schedule': '0 0 * * *',  # Run at midnight every day
+        'schedule': '0 23 * * *',  # Run at 11:00 PM every day
         'enabled': True
     },
     'jll': {
         'name': 'JLL Properties',
         'class': 'backend.prevScrapers.crawl_jll',
-        'schedule': '0 0 * * *',  # Run at midnight every day
+        'schedule': '0 0 * * *',  # Run at 12:00 AM every day
         'enabled': True
     },
     'landpark': {
         'name': 'LandPark Properties',
         'class': 'backend.prevScrapers.crawl_landpark',
-        'schedule': '0 0 * * *',  # Run at midnight every day
+        'schedule': '0 1 * * *',  # Run at 1:00 AM every day
         'enabled': True
     },
     'lee': {
         'name': 'Lee & Associates Properties',
         'class': 'backend.prevScrapers.crawl_lee',
-        'schedule': '0 0 * * *',  # Run at midnight every day
+        'schedule': '0 2 * * *',  # Run at 2:00 AM every day
         'enabled': True
     },
     'lincoln': {
         'name': 'Lincoln Property Company',
         'class': 'backend.prevScrapers.crawl_lincoln',
-        'schedule': '0 0 * * *',  # Run at midnight every day
+        'schedule': '0 3 * * *',  # Run at 3:00 AM every day
         'enabled': True
     },
     'trinity': {
         'name': 'Trinity Partners Properties',
         'class': 'backend.prevScrapers.crawl_trinity',
-        'schedule': '0 0 * * *',  # Run at midnight every day
+        'schedule': '0 4 * * *',  # Run at 4:00 AM every day
         'enabled': True
     }
 }

@@ -10,23 +10,17 @@ const Spinner = () => (
 const Dashboard = () => {
   // State management
   const [properties, setProperties] = useState([]);
-  const [scrapers, setScrapers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [filter, setFilter] = useState('');
   const [debouncedFilter, setDebouncedFilter] = useState('');
-  const [runningScrapers, setRunningScrapers] = useState([]);
   const [lastUpdated, setLastUpdated] = useState(null);
   const [selectedSources, setSelectedSources] = useState(new Set());
   const [isFiltering, setIsFiltering] = useState(false);
   const [filteredProperties, setFilteredProperties] = useState([]);
 
-  // Fetch data and check scraper status on component mount
   useEffect(() => {
     fetchProperties();
-    fetchScrapers().then(() => {
-      checkAllScraperStatuses();
-    });
   }, []);
 
   // API calls
@@ -46,102 +40,6 @@ const Dashboard = () => {
       setError(err.message);
     } finally {
       setLoading(false);
-    }
-  };
-
-  const fetchScrapers = async () => {
-    try {
-      const response = await fetch(`${getApiBaseUrl()}/scrapers`);
-      if (!response.ok) throw new Error('Failed to fetch scrapers');
-      const data = await response.json();
-      setScrapers(data);
-      return data;
-    } catch (err) {
-      console.error('Error fetching scrapers:', err);
-      return [];
-    }
-  };
-
-  const checkScraperStatus = async (scraperId) => {
-    try {
-      const statusResponse = await fetch(`${getApiBaseUrl()}/scrapers/${scraperId}/status`);
-      if (!statusResponse.ok) return false;
-      
-      const status = await statusResponse.json();
-      if (status.state === 'running') {
-        setRunningScrapers(prev => [...prev, scraperId]);
-        return true;
-      }
-      return false;
-    } catch (err) {
-      console.error('Error checking scraper status:', err);
-      return false;
-    }
-  };
-
-  const checkAllScraperStatuses = async () => {
-    const scraperList = await fetchScrapers();
-    await Promise.all(scraperList.map(scraper => checkScraperStatus(scraper.id)));
-  };
-
-  const runAllScrapers = async () => {
-    for (const scraper of scrapers) {
-      if (!runningScrapers.includes(scraper.id)) {
-        await runScraper(scraper.id);
-      }
-    }
-  };
-
-  const runScraper = async (scraperId) => {
-    // Prevent running if scraper is already running
-    if (runningScrapers.includes(scraperId)) {
-      console.log('Scraper already running');
-      return;
-    }
-
-    // Immediately update UI to show scraper is running
-    setRunningScrapers(prev => [...prev, scraperId]);
-
-    try {
-      const response = await fetch(`${getApiBaseUrl()}/scrapers/${scraperId}/run`, {
-        method: 'POST'
-      });
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || 'Failed to run scraper');
-      }
-      
-      // Start polling for updates
-      const pollInterval = setInterval(async () => {
-        try {
-          const statusResponse = await fetch(`${getApiBaseUrl()}/scrapers/${scraperId}/status`);
-          if (!statusResponse.ok) {
-            throw new Error('Failed to get scraper status');
-          }
-          
-          const status = await statusResponse.json();
-          console.log(`Scraper ${scraperId} status:`, status);
-          
-          if (status.state === 'completed' || status.state === 'failed') {
-            clearInterval(pollInterval);
-            setRunningScrapers(prev => prev.filter(id => id !== scraperId));
-            await fetchProperties();
-            
-            if (status.state === 'failed') {
-              console.error(`Scraper ${scraperId} failed:`, status.error);
-            }
-          }
-        } catch (pollError) {
-          console.error('Error polling scraper status:', pollError);
-          clearInterval(pollInterval);
-          setRunningScrapers(prev => prev.filter(id => id !== scraperId));
-        }
-      }, 2000); // Poll every 2 seconds for more responsive updates
-
-    } catch (err) {
-      console.error('Error running scraper:', err);
-      // Remove from running scrapers if there's an error
-      setRunningScrapers(prev => prev.filter(id => id !== scraperId));
     }
   };
 
@@ -310,31 +208,6 @@ const Dashboard = () => {
             </div>
           </div>
         )}
-
-        {/* Scrapers section */}
-        <div className="flex gap-2 mb-4">
-          <button
-            onClick={runAllScrapers}
-            className="px-3 py-1 bg-green-600 hover:bg-green-700 text-white rounded text-sm"
-            disabled={scrapers.every(s => runningScrapers.includes(s.id))}
-          >
-            Run All
-          </button>
-          {scrapers.map(scraper => (
-            <button
-              key={scraper.id}
-              onClick={() => runScraper(scraper.id)}
-              className={`px-3 py-1 rounded text-white text-sm
-                ${runningScrapers.includes(scraper.id)
-                  ? 'bg-gray-400'
-                  : 'bg-blue-600 hover:bg-blue-700'
-                }`}
-              disabled={runningScrapers.includes(scraper.id)}
-            >
-              {runningScrapers.includes(scraper.id) ? 'Running...' : `Scrape ${scraper.name}`}
-            </button>
-          ))}
-        </div>
 
         {/* Filters */}
         <div className="mb-6 space-y-4">

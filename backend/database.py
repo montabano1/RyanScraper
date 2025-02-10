@@ -79,30 +79,14 @@ class Database:
         return any(old_prop.get(field) != new_prop.get(field) for field in fields_to_compare)
 
     def get_latest_properties(self) -> List[Dict[str, Any]]:
-        """Get all properties from all sources using pagination."""
+        """Get all properties from the database."""
         try:
-            all_properties = []
-            page_size = 1000
-            offset = 0
+            response = self.supabase.table("properties") \
+                .select("*") \
+                .order("created_at", desc=True) \
+                .execute()
             
-            while True:
-                response = self.supabase.table("properties") \
-                    .select("*") \
-                    .order("created_at", desc=True) \
-                    .range(offset, offset + page_size - 1) \
-                    .execute()
-                
-                data = response.data if response and hasattr(response, 'data') else []
-                if not data:
-                    break
-                    
-                all_properties.extend(data)
-                if len(data) < page_size:
-                    break
-                    
-                offset += page_size
-            
-            return all_properties
+            return response.data if response and hasattr(response, 'data') else []
         except Exception as e:
             print(f"Error fetching properties: {str(e)}")
             raise
